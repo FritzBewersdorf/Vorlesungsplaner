@@ -6,11 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    Hallo there
-    gsgswgwe
-    grgregrewg
     <script>
+        document.getElementById("form").addEventListener('submit', function() {
+            var item = document.getElementById("itemName").value;
+            document.getElementById("itemName").value = "";
+            var apiUrl = "http://localhost:8080/Nutzer-Login";
+            fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name: item })
+            })
+                .then(response => response.json())
+                .then(Listegenerieren)
+                .catch(err => console.error(err))
+        });
 
+        document.getElementById("eins").addEventListener('click',function updateListe()
+        {
+            var apiUrl = "arguments";
+
+            fetch(apiUrl, {Method: "GET"})
+                .then(response => response.json())
+                //.then(json => console.log(json))
+                .then(Listegenerieren)
+                .catch(err => console.error(err))
+        });
+
+        function Listegenerieren (liste)
+        {
+
+        }
     </script>
 </body>
 </html>
