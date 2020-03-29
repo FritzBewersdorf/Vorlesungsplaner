@@ -1,30 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        //EinloggenCheckLeiter
-        document.getElementById("").addEventListener('click',function update()
-        {
-            var apiUrl = "arguments";
-
-            fetch(apiUrl, {Method: "GET"})
-                .then(response => response.json())
-                //.then(json => console.log(json))
-                .catch(err => console.error(err))
-            
+//EinloggenCheckLeiter
+document.getElementById("").addEventListener('click',function update()
+    {
+        var apiUrl = "arguments";
+        fetch(apiUrl, {Method: "GET"})
+            .then(response => response.json())
+            //.then(json => console.log(json))
+            .catch(err => console.error(err))
             // if Name + Passwort gleich wie im Json --> rein, sonst Fehlerfenster
         });
 
 
         //NeuenDozentAnlegen
         document.getElementById("form").addEventListener('submit', function() {
-            var Vorname = document.getElementById("itemName").value;
-            var Nachname = document.getElementById("itemName").value;
+            var Email = document.getElementById("itemName").value;
             var Passwort = document.getElementById("itemName").value;
             //ElementeHinzufügenWiePasswortUndImBodyJSON
             document.getElementById("itemName").value = "";
@@ -34,7 +22,7 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ name1: Vorname, name2: Nachname, pass: Passwort })
+                body: JSON.stringify({ nutEmail: Email, nutPasswort: Passwort })
             })
                 .then(response => response.json())
                 .catch(err => console.error(err))
@@ -191,6 +179,3 @@
             }
             */
         //}
-    </script>
-</body>
-</html>
