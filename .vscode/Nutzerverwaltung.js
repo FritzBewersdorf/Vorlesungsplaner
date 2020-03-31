@@ -16,11 +16,11 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(!response.JSON(true)){
+            if(response.json()!=true){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-
+                
             }
         })
             
@@ -43,7 +43,7 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(!response.JSON(true)){
+            if(response.json()!=true){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
@@ -72,23 +72,61 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(DozentenListe)
 });
 
-//DozentLöschen
-
-LoeschenKnopf.addEventListener('click',function deletos()
-{
-    console.log(item._id)
-    console.log(listId)
-    var apiUrl2 = "http://localhost:8080/Nutzer/11";
-    fetch(apiUrl2, {method: 'DELETE',
-      headers:
-        {'content-type': 'application/json'}
-      })      
-        .then(response => response.json())
-        .then(DozentenListe)
-        .catch(err => console.error(err))
-});
-
 //DozentenGenerieren
 
+Vorlesungplan.getElementById("SeiteDozenten").addEventListener('submit', function DozentenListe(){
+    clearContent();
 
+    var heading = document.createElement("h1");
+    heading = "Dozenten";
+
+    var ul = document.createElement("ul");
+    
+    nutEmail.forEach(item => 
+        {
+
+          var listItem = document.createElement("li");
+          listItem.textContent = item.name;
+          listItem.className = "listeneinträge";
+          var Knopf = document.createElement("button");
+          Knopf.textContent = "Löschen";
+
+          /*
+          var Buttoncheck = document.createElement("button");
+          Buttoncheck.id = item._id;
+          //Buttoncheck.textContent = "Unerledigt"
+          Buttoncheck.className = "actionButtons";
+          Buttoncheck.name = "Buttoncheck";
+          var imageButtoncheck = new Image(15, 15);
+          imageButtoncheck.src = "Ohne.png";
+          Buttoncheck.appendChild(imageButtoncheck);
+
+          var Buttonchecked = document.createElement("button");
+          Buttonchecked.id = item._id;
+          //Buttonchecked.textContent = "Erledigt"
+          Buttonchecked.className = "actionButtons";
+          Buttonchecked.name = "Buttonchecked";
+          var imageButtonchecked = new Image(15, 15);
+          imageButtonchecked.src = "Check.png";
+          Buttonchecked.appendChild(imageButtonchecked);
+          */
+          
+          Knopf.addEventListener('click',function deletos()
+          {
+              console.log(item._id)
+              console.log(listId)
+              var apiUrl2 = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items/"+ item._id;
+              fetch(apiUrl2, {method: 'DELETE',
+                headers:
+                  {'content-type': 'application/json'}
+                })      
+                  .then(response => response.json())
+                  .then(DozentenListe)
+                  .catch(err => console.error(err))
+          });
+          listItem.appendChild(Knopf);
+          ul.appendChild(listItem);
+        })
+    document.getElementById("inhaltDerSeite").appendChild(ul);
+});
         
