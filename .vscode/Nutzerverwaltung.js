@@ -1,9 +1,10 @@
 //EinloggenCheckLeiter
 Vorlesungplan.getElementById("form").addEventListener('submit', function() {
     var Email = Vorlesungplan.getElementById("itemName").value;
-    var Passwort = Vorlesungplan.getElementById("itemName").value;
+    var Passwort = Vorlesungplan.getElementById("itemName2").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
     Vorlesungplan.getElementById("itemName").value = "";
+    Vorlesungplan.getElementById("itemName2").value = "";
     var apiUrl = "http://localhost:8080/Admin-Login";
     fetch(apiUrl, {
         method: "POST",
@@ -14,10 +15,15 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
     })
         .then(response => response.json())
         .catch(err => console.error(err))
+        .then((response)=>{
+            if(!response.JSON(true)){
+                alert("Anmeldung Fehlgeschlagen");
+            }
+            else{
 
-        if (response.json()==true){
+            }
+        })
             
-        }
 });
 
 //EinloggenCheckDozent
@@ -36,7 +42,14 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
     })
         .then(response => response.json())
         .catch(err => console.error(err))
-        //Post statt Get mit boolean
+        .then((response)=>{
+            if(!response.JSON(true)){
+                alert("Anmeldung Fehlgeschlagen");
+            }
+            else{
+                
+            }
+        })
 });
 
 
@@ -56,6 +69,7 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
     })
         .then(response => response.json())
         .catch(err => console.error(err))
+        .then(DozentenListe)
 });
 
 //DozentLöschen
@@ -74,31 +88,7 @@ LoeschenKnopf.addEventListener('click',function deletos()
         .catch(err => console.error(err))
 });
 
-//ListeGenerieren
+//DozentenGenerieren
 
-Vorlesungplan.getElementById("form").addEventListener('submit', function() {
-    var item = Vorlesungplan.getElementById("itemName").value;
-    Vorlesungplan.getElementById("itemName").value = "";
-    var apiUrl = "http://localhost:8080/Nutzer-Login";
-    fetch(apiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name: item })
-    })
-        .then(response => response.json())
-        .then(Listegenerieren)
-        .catch(err => console.error(err))
-});
 
-Vorlesungplan.getElementById("").addEventListener('click',function update()
-{
-    var apiUrl = "arguments";
-    fetch(apiUrl, {Method: "GET"})
-        .then(response => response.json())
-        //.then(json => console.log(json))
-        .then(Listegenerieren)
-        .catch(err => console.error(err))
-});
         
