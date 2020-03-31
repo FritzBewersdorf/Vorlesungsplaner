@@ -29,16 +29,43 @@ body {
 }
 
 .content #contenttitel {
-    background-color: white;
+    background-color: red;
+    margin: 20px 20px 20px 20px;
+    padding: 0 0 0 0;
+    display: inline-block;
+}
+
+.content #contenttitel h1 {
+    
 }
 
 .content #dozenthinzufügen {
-    background-color: white;
+    background-color: green;
+    display: inline-block;
+    margin: 20px 20px 20px 20px;
+    padding: 0 0 0 0;
+    float: right;
 }
 
-.content #dozentliste {
-    background-color: white;
+.content #dozentliste ul{
+    padding-inline-start: 0px;
 }
+
+.content #dozentliste li {
+    list-style: none;
+    background-color: white;
+    border-color: #C0C0C0;
+}
+
+.content #dozenteinzeln { 
+    background-color: white;
+    border-color: #C0C0C0;
+    padding: 10px 10px 10px 10px;
+    margin: 20px 55px 20px 55px;
+    border-radius: 15px;
+}
+
+.content 
 
 .sidebar {
     grid-area: sidebar;
