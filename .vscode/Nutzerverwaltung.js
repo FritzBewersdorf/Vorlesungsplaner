@@ -16,11 +16,11 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(!response.JSON(true)){
+            if(response!=true){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-
+                
             }
         })
             
@@ -43,7 +43,7 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(!response.JSON(true)){
+            if(response!=true){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
@@ -90,5 +90,14 @@ LoeschenKnopf.addEventListener('click',function deletos()
 
 //DozentenGenerieren
 
+function DozentenListe(){
+    clearContent();
 
+    var heading = document.createElement("h1");
+    heading = "Dozenten";
+
+    var ul = document.createElement("ul");
+    
+    
+}
         
