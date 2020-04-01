@@ -15,22 +15,26 @@ body {
     grid-template-areas:
         "header  header"
         "sidebar content"
-        "footer footer"
+        "sidebar footer"
 }
 
 .header {
     grid-area: header;
-    background-color: red;
+    
 }
+
+
 
 .content {
     grid-area: content;
     background-color: #ecf0f1;
+    border: 0;
+    border-radius: 15px;
 }
 
 .content #contenttitel {
-    background-color: red;
-    margin: 20px 20px 20px 20px;
+    
+    margin: 20px 50px 20px 50px;
     padding: 0 0 0 0;
     display: inline-block;
 }
@@ -40,15 +44,26 @@ body {
 }
 
 .content #dozenthinzufügen {
-    background-color: green;
+    
     display: inline-block;
-    margin: 20px 20px 20px 20px;
+    margin: 50px 50px 20px 50px;
     padding: 0 0 0 0;
     float: right;
 }
 
+.content #neuerdozent {
+    
+    border: none;
+    border-color: red;
+    border-radius: 15px;
+}
+
 .content #dozentliste ul{
     padding-inline-start: 0px;
+}
+
+.content #dozentliste {
+    margin: 20px 50px 20px 50px;
 }
 
 .content #dozentliste li {
@@ -57,21 +72,44 @@ body {
     border-color: #C0C0C0;
 }
 
+.content .card-text {
+    display: inline-block
+}
+
+.content #dozentoptionen {
+    border: none;
+    float: right;
+}
+
+.content .fas {
+    display: inline-block;
+    color: red;
+    zoom: 80%;
+}
+
 .content #dozenteinzeln { 
     background-color: white;
     border-color: #C0C0C0;
-    padding: 10px 10px 10px 10px;
-    margin: 20px 55px 20px 55px;
+    padding: 10px 20px 20px 20px;
+    margin: 20px 20px 20px 0px;
     border-radius: 15px;
+    display: inline-block;
 }
 
-.content 
+
 
 .sidebar {
     grid-area: sidebar;
-    background-color: green;
+    background-color;
 }
 
+.sidebar .sidebarliste li{
+    list-style: none;
+}
+
+.sidebar .sidebarinhalt {
+    
+}
 .footer {
     grid-area: footer;
     background-color: yellow;
