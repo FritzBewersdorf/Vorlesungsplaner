@@ -17,7 +17,7 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(response.json()!=true){
+            if(response.json()==false){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
@@ -48,18 +48,35 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-                
+                DozentenListe();
             }
         })
 });
 
+//NeueDozentAufrugEinage
+
+VorlesungplanAdmin.getElementById("dozenthinzufügen").addEventListener('click', function(){
+    var EmailEinagbe = VorlesungplanAdmin.createElement("INPUT");
+    EmailEinagbe.setAttribute("type", "text");
+    EmailEinagbe.setAttribute("id", "EingabeEmail");
+    document.body.appendChild(EmailEinagbe);
+    var PasswortEingabe = VorlesungplanAdmin.createElement("INPUT");
+    PasswortEingabe.setAttribute("type", "text");
+    PasswortEinagbe.setAttribute("id", "EingabePasswort");
+    document.body.appendChild(PasswortEingabe);
+    var ReinDa = VorlesungplanAdmin.createElement("button");
+    ReinDa.textContent = "Einagabe";
+    ReinDa.setAttribute("id", "ReinDa1");
+    document.body.appendChild(ReinDa);
+});
 
 //NeuenDozentAnlegen
-Vorlesungplan.getElementById("form").addEventListener('submit', function() {
-    var Email = Vorlesungplan.getElementById("itemName").value;
-    var Passwort = Vorlesungplan.getElementById("itemName").value;
+Document.getElementById("ReinDa1").addEventListener('submit', function() {
+    var Email = Document.getElementById("EingabeEmail").value;
+    var Passwort = Document.getElementById("EingabePasswort").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    Vorlesungplan.getElementById("itemName").value = "";
+    Document.getElementById("EingabeEmail").value = "";
+    Document.getElementById("EingabePasswort").value = "";
     var apiUrl = "http://localhost:8080/Nutzern";
     fetch(apiUrl, {
         method: "POST",
@@ -71,11 +88,11 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         .then(response => response.json())
         .catch(err => console.error(err))
         .then(DozentenListe)
-});
+}); 
 
 //DozentenGenerieren
 
-Vorlesungplan.getElementById("SeiteDozenten").addEventListener('submit', function DozentenListe(){
+Vorlesungplan.getElementById("SeiteDozenten").addEventListener('click', function DozentenListe(){
     clearContent();
 
     var heading = document.createElement("h1");
@@ -83,14 +100,24 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('submit', functio
 
     var ul = document.createElement("ul");
     
-    nutEmail.forEach(item => 
+    var apiUrl = "http://localhost:8080/Nutzer/0";
+    fetch(apiUrl, {Method: "GET"})
+        .then(response => response.json())
+        .catch(err => console.error(err))
+
+    response.json().forEach(id => 
         {
 
-          var listItem = document.createElement("li");
-          listItem.textContent = item.name;
+          var listItem = document.createElement("li");  
+          listItem.textContent = response.json(nutEmail);
           listItem.className = "listeneinträge";
           var Knopf = document.createElement("button");
-          Knopf.textContent = "Löschen";
+          var imageButtoncheck = new Image(15, 15);
+            imageButtoncheck.src = "Trash.jpg";
+            Knopf.appendChild(imageButtoncheck);
+
+          //var Bearb = document.createElement("button");
+          //Bearb.textContent = "Dozent Bearbeiten";
 
           /*
           var Buttoncheck = document.createElement("button");
@@ -114,9 +141,7 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('submit', functio
           
           Knopf.addEventListener('click',function deletos()
           {
-              console.log(item._id)
-              console.log(listId)
-              var apiUrl2 = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId + "/items/"+ item._id;
+              var apiUrl2 = "http://localhost:8080/Nutzer/12";
               fetch(apiUrl2, {method: 'DELETE',
                 headers:
                   {'content-type': 'application/json'}
@@ -128,6 +153,11 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('submit', functio
           listItem.appendChild(Knopf);
           ul.appendChild(listItem);
         })
-    document.getElementById("inhaltDerSeite").appendChild(ul);
+    document.getElementById("ungeordneteListe").appendChild(ul);
 });
+
+function clearContent()
+{
+    document.getElementById("ungeordneteListe").innerHTML="";
+}
     
