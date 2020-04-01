@@ -14,17 +14,16 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         },
         body: JSON.stringify({ nutEmail: Email, nutPasswort: Passwort })
     })
-        .then(response => response.json())
+        //.then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(response.json()==false){
+            if(response==false){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-                DozentenListe();
+                window.document.location.href = "VorlesungsplanAdmin.html";
             }
-        })
-            
+        })    
 });
 
 //EinloggenCheckDozent
@@ -41,14 +40,14 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
         },
         body: JSON.stringify({ nutEmail: Email, nutPasswort: Passwort })
     })
-        .then(response => response.json())
+        //.then(response => response.json())
         .catch(err => console.error(err))
         .then((response)=>{
-            if(response.json()!=true){
+            if(response!=true){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-                DozentenListe();
+                window.document.location.href = "VorlesungsplanDozent.html";
             }
         })
 });
@@ -71,6 +70,7 @@ VorlesungplanAdmin.getElementById("dozenthinzufügen").addEventListener('click',
 });
 
 //NeuenDozentAnlegen
+
 Document.getElementById("ReinDa1").addEventListener('submit', function() {
     var Email = Document.getElementById("EingabeEmail").value;
     var Passwort = Document.getElementById("EingabePasswort").value;
@@ -97,20 +97,20 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('click', function
 
     var heading = document.createElement("h1");
     heading = "Dozenten";
-
-    var ul = document.createElement("ul");
     
     var apiUrl = "http://localhost:8080/Nutzer/0";
     fetch(apiUrl, {Method: "GET"})
         .then(response => response.json())
         .catch(err => console.error(err))
+    
+    var data = response.json();
 
-    response.json().forEach(id => 
+    var ul = document.createElement("ul");
+    data.forEach(item => 
         {
-
-          var listItem = document.createElement("li");  
-          listItem.textContent = response.json(nutEmail);
-          listItem.className = "listeneinträge";
+          var listItem = VorlesungplanAdmin.createElement("li");  
+          listItem.textContent = "Name" + item.nutEmail;
+          //listItem.className = "listeneinträge";
           var Knopf = document.createElement("button");
           var imageButtoncheck = new Image(15, 15);
             imageButtoncheck.src = "Trash.jpg";
@@ -141,7 +141,7 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('click', function
           
           Knopf.addEventListener('click',function deletos()
           {
-              var apiUrl2 = "http://localhost:8080/Nutzer/12";
+              var apiUrl2 = "http://localhost:8080/Nutzer/12" ;
               fetch(apiUrl2, {method: 'DELETE',
                 headers:
                   {'content-type': 'application/json'}
