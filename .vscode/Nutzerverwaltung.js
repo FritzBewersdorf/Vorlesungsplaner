@@ -21,7 +21,7 @@ Vorlesungplan.getElementById("form").addEventListener('submit', function() {
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-                
+                DozentenListe();
             }
         })
             
