@@ -18,6 +18,11 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
 });
 */
 
+//ObenNameAnzeigen
+
+var NameAdmin = 
+document.getElementById("NameNehmen").appendChild(NameAdmin)
+
 //NeuenDozentAnlegen
 
 document.getElementById("demo2").addEventListener('click', function() {
@@ -55,7 +60,7 @@ document.getElementById("SeiteDozenten").addEventListener('click', function Doze
     
     var data = response.json();
 
-    var ul = document.createElement("ul");
+    var li = document.createElement("li");
     data.forEach(item => 
         {
           // var listItem = VorlesungplanAdmin.createElement("li");  
@@ -79,9 +84,9 @@ document.getElementById("SeiteDozenten").addEventListener('click', function Doze
                  .catch(err => console.error(err))
          });
          listitem.appendChild(Knopf);
-         ul.appendChild(listitem);
+         li.appendChild(listitem);
        })
-   document.getElementById("ungeordneteListe").appendChild(ul);
+   document.getElementById("ungeordneteListe").appendChild(li);
 });
 
 function clearContent()

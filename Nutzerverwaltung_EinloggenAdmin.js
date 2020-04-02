@@ -15,12 +15,13 @@ document.getElementById("form").addEventListener('click', function() {
     })
         //.then(response => response.json())
         .catch(err => console.error(err))
+        .then(console.log(response))
         .then((response)=>{
             if(response==false){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-                window.document.location.href = "VorlesungsplanAdmin.html";
+                window.location.assign("VorlesungsplanAdmin.html")
             }
         })    
 });

@@ -21,7 +21,7 @@ document.getElementById("form").addEventListener('click', function() {
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
-                window.document.location.href = "VorlesungsplanDozent.html";
+                window.location.assign("VorlesungsplanDozent.html")
             }
         })
 });
