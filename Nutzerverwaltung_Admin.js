@@ -20,11 +20,11 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
 //NeuenDozentAnlegen
 
 document.getElementById("demo2").addEventListener('click', function() {
-    var Email = Document.getElementById("demo").value;
-    var Passwort = Document.getElementById("demo1").value;
+    var Email = document.getElementById("demo").value;
+    var Passwort = document.getElementById("demo1").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    Document.getElementById("EingabeEmail").value = "";
-    Document.getElementById("EingabePasswort").value = "";
+    document.getElementById("demo").value = "";
+    document.getElementById("demo1").value = "";
     var apiUrl = "http://localhost:8080/Nutzern";
     fetch(apiUrl, {
         method: "POST",
@@ -41,7 +41,7 @@ document.getElementById("demo2").addEventListener('click', function() {
 
 //DozentenGenerieren
 
-Vorlesungplan.getElementById("SeiteDozenten").addEventListener('click', function DozentenListe(){
+document.getElementById("SeiteDozenten").addEventListener('click', function DozentenListe(){
     clearContent();
 
     var heading = document.createElement("h1");
@@ -57,36 +57,15 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('click', function
     var ul = document.createElement("ul");
     data.forEach(item => 
         {
-          var listItem = VorlesungplanAdmin.createElement("li");  
-          listItem.textContent = "Name" + item.nutEmail;
+          // var listItem = VorlesungplanAdmin.createElement("li");  
+          var listitem = item.nutEmail;
+          document.getElementById("dozenteinzeln").appendChild(listitem);
           //listItem.className = "listeneinträge";
           var Knopf = document.createElement("button");
           var imageButtoncheck = new Image(15, 15);
             imageButtoncheck.src = "Trash.jpg";
             Knopf.appendChild(imageButtoncheck);
 
-          //var Bearb = document.createElement("button");
-          //Bearb.textContent = "Dozent Bearbeiten";
-
-          var Buttoncheck = document.createElement("button");
-          Buttoncheck.id = item._id;
-          //Buttoncheck.textContent = "Unerledigt"
-          Buttoncheck.className = "actionButtons";
-          Buttoncheck.name = "Buttoncheck";
-          var imageButtoncheck = new Image(15, 15);
-          imageButtoncheck.src = "Ohne.png";
-          Buttoncheck.appendChild(imageButtoncheck);
-
-          var Buttonchecked = document.createElement("button");
-          Buttonchecked.id = item._id;
-          //Buttonchecked.textContent = "Erledigt"
-          Buttonchecked.className = "actionButtons";
-          Buttonchecked.name = "Buttonchecked";
-          var imageButtonchecked = new Image(15, 15);
-          imageButtonchecked.src = "Check.png";
-          Buttonchecked.appendChild(imageButtonchecked);
-          
-          
          Knopf.addEventListener('click',function deletos()
          {
              var apiUrl2 = "http://localhost:8080/Nutzer/12" ;
@@ -98,8 +77,8 @@ Vorlesungplan.getElementById("SeiteDozenten").addEventListener('click', function
                  .then(DozentenListe)
                  .catch(err => console.error(err))
          });
-         listItem.appendChild(Knopf);
-         ul.appendChild(listItem);
+         listitem.appendChild(Knopf);
+         ul.appendChild(listitem);
        })
    document.getElementById("ungeordneteListe").appendChild(ul);
 });
