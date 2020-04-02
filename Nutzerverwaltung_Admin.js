@@ -20,8 +20,8 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
 
 //ObenNameAnzeigen
 
-var NameAdmin = 
-document.getElementById("NameNehmen").appendChild(NameAdmin)
+var NameAdmin = item.Email;
+document.getElementById("NameNehmen").appendChild(NameAdmin);
 
 //NeuenDozentAnlegen
 
@@ -60,13 +60,12 @@ document.getElementById("SeiteDozenten").addEventListener('click', function Doze
     
     var data = response.json();
 
-    var li = document.createElement("li");
+    var ul = document.createElement("ul");
     data.forEach(item => 
         {
-          // var listItem = VorlesungplanAdmin.createElement("li");  
-          var listitem = item.nutEmail;
-          document.getElementById("dozenteinzeln").appendChild(listitem);
-          //listItem.className = "listeneinträge";
+          var listitem = document.createElement("li"); 
+          listitem.textContent = item.Email;
+          //document.getElementById("dozenteinzeln").appendChild(listitem);
           var Knopf = document.createElement("button");
           var imageButtoncheck = new Image(15, 15);
             imageButtoncheck.src = "Trash.jpg";
@@ -84,9 +83,9 @@ document.getElementById("SeiteDozenten").addEventListener('click', function Doze
                  .catch(err => console.error(err))
          });
          listitem.appendChild(Knopf);
-         li.appendChild(listitem);
+         ul.appendChild(listitem);
        })
-   document.getElementById("ungeordneteListe").appendChild(li);
+   document.getElementById("ungeordneteListe").appendChild(ul);
 });
 
 function clearContent()
