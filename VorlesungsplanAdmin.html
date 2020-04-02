@@ -8,6 +8,7 @@
     <link rel="stylesheet" href=".vscode/stylesheet/styleAdmin.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -26,10 +27,16 @@
             <!-- Header -->
             <div class="header">
                 <div class="dhbwlogo">
-                    
+                        <img src="/Vorlesungsplaner/logo.svg" alt="">
                 </div>
-                <div>
-                    Person
+                <div class="headeruser">
+                    <i class="fas fa-user"></i>
+                    <a>
+                        Sebastian Richter                   
+                    </a>
+                    <a>
+                        Admin
+                    </a>
                 </div>
             </div>
              
@@ -45,8 +52,15 @@
                         <i class="fas fa-plus"></i>
                         
                         Neuer Dozent
+                        
                     </button>
-                    <div id="demo" ></div>
+                    <div class="input-group input-group-sm mb-3" id="demo">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div id="demo"></div>
                     <div id="demo1"></div>
                     <div id="demo2"></div>
                 </div>
@@ -55,9 +69,18 @@
                         <li id="dozenteinzeln">
                             <h3 >
                                 Dozent Name
-                                <button id="dozentoptionen">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>                               
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                </div>                              
                             </h3>
                             <a>
                                 Verteilte Systeme
@@ -66,9 +89,18 @@
                         <li id="dozenteinzeln">
                             <h3 >
                                 Dozent Name
-                                <button id="dozentoptionen">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>                               
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                </div>                                 
                             </h3>
                             <a>
                                 Verteilte Systeme
@@ -107,7 +139,7 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                    <div class="sidebarinhalt">
+                    <div class="sidebarinhalt" >
                         <div class="sidebartitel">
 
                         </div>
@@ -116,6 +148,11 @@
                                 <i class="fas fa-users"></i>
                                 Dozenten
                             </li>
+                            <li>
+                                <i class="fas fa-calendar-alt"></i>
+                                Kalender
+                            </li>
+                            <div class="dropdown-divider"></div>
                             <li>
                                 <i class="fas fa-calendar-alt"></i>
                                 Kalender

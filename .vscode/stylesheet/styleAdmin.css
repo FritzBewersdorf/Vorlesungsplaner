@@ -1,16 +1,16 @@
 html {
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-
+    
 }
 
 .box {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 230px 1fr;
     grid-template-rows: 60px 1fr 60px;
     grid-template-areas:
         "header  header"
@@ -23,13 +23,29 @@ body {
     
 }
 
+.header .headeruser {
+    float: right;
+    margin: 10px 20px 10px 20px;
+    padding: 10px 10px 10px 10px;
+    display: inline-block;
+}
+
+.header .headeruser .fas {
+    margin: 0 5px 0px 5px;
+    padding: 5px 5px 5px 5px;
+}
+
+.header .dhbwlogo {
+    display: inline-block;
+    
+}
 
 
 .content {
     grid-area: content;
     background-color: #ecf0f1;
     border: 0;
-    border-radius: 15px;
+    
 }
 
 .content #contenttitel {
@@ -37,6 +53,7 @@ body {
     margin: 20px 50px 20px 50px;
     padding: 0 0 0 0;
     display: inline-block;
+    
 }
 
 .content #contenttitel h1 {
@@ -52,7 +69,6 @@ body {
 }
 
 .content #neuerdozent {
-    
     border: none;
     border-color: red;
     border-radius: 15px;
@@ -73,7 +89,7 @@ body {
 }
 
 .content .card-text {
-    display: inline-block
+    display: inline-block;
 }
 
 .content #dozentoptionen {
@@ -100,15 +116,25 @@ body {
 
 .sidebar {
     grid-area: sidebar;
-    background-color;
+    background-color: #ecf0f1;
 }
 
-.sidebar .sidebarliste li{
+.sidebar .sidebarliste li {
     list-style: none;
+    margin: 15px 15px 15px 15px;
+    padding: 5px 5px 5px 5px;
 }
+
+.sidebar .sidebarliste li .fas {
+    padding: 0 5px 0 5px;
+}
+
 
 .sidebar .sidebarinhalt {
-    
+    margin: 31px 20px 30px 20px;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    border-radius: 15px;
 }
 .footer {
     grid-area: footer;
