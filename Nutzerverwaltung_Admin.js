@@ -4,24 +4,24 @@
 document.getElementById("neuerdozent").addEventListener('click', function(){
             
     var EingabeEmail = document.createElement("INPUT");
-    //EmailEinagbe.setAttribute("type", "text");
-    //EmailEinagbe.setAttribute("id", "EingabeEmail");
     document.getElementById("demo").appendChild(EingabeEmail);
+    
     var PasswortEinagbe = document.createElement("INPUT");
-    //PasswortEingabe.setAttribute("type", "text");
-    //PasswortEinagbe.setAttribute("id", "EingabePasswort");
     document.getElementById("demo1").appendChild(PasswortEinagbe);
+
     var ReinDa = document.createElement("button");
     ReinDa.innerText = "Eingabe";
     document.getElementById("demo2").appendChild(ReinDa)
-    document.getElementById("markup").innerText = ReinDa.outerHTML;
+    ReinDa.onclick = function(){
+        
+    };
 });
 
 //NeuenDozentAnlegen
-/*
-Document.getElementById("ReinDa1").addEventListener('submit', function() {
-    var Email = Document.getElementById("EingabeEmail").value;
-    var Passwort = Document.getElementById("EingabePasswort").value;
+
+document.getElementById("demo2").addEventListener('click', function() {
+    var Email = Document.getElementById("demo").value;
+    var Passwort = Document.getElementById("demo1").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
     Document.getElementById("EingabeEmail").value = "";
     Document.getElementById("EingabePasswort").value = "";
@@ -109,4 +109,3 @@ function clearContent()
    document.getElementById("ungeordneteListe").innerHTML="";
 }
 
-*/
