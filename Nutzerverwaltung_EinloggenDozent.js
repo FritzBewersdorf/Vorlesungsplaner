@@ -1,10 +1,10 @@
-
 //EinloggenCheckDozent
-DozentEinloggen.getElementById("form").addEventListener('click', function() {
-    var Email = Vorlesungplan.getElementById("itemName").value;
-    var Passwort = Vorlesungplan.getElementById("itemName").value;
+document.getElementById("form").addEventListener('click', function() {
+    var Email = document.getElementById("itemName").value;
+    var Passwort = document.getElementById("itemName").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    Vorlesungplan.getElementById("itemName").value = "";
+    document.getElementById("itemName").value = "";
+    document.getElementById("itemName").value = "";
     var apiUrl = "http://localhost:8080/Nutzer-Login";
     fetch(apiUrl, {
         method: "POST",
@@ -15,6 +15,7 @@ DozentEinloggen.getElementById("form").addEventListener('click', function() {
     })
         //.then(response => response.json())
         .catch(err => console.error(err))
+        .then(console.log(response))
         .then((response)=>{
             if(response!=true){
                 alert("Anmeldung Fehlgeschlagen");
@@ -23,9 +24,4 @@ DozentEinloggen.getElementById("form").addEventListener('click', function() {
                 window.document.location.href = "VorlesungsplanDozent.html";
             }
         })
-});
-
-//VonDozentzuAdmin
-AdminEinloggen.getElementById("wechseln2").addEventListener('click', function(){
-    window.document.location.href = "AdminEinloggen.html";
 });

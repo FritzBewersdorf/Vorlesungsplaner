@@ -1,10 +1,10 @@
 //EinloggenCheckLeiter
-AdminEinloggen.getElementById("form").addEventListener('click', function() {
-    var Email = Vorlesungplan.getElementById("itemName").value;
-    var Passwort = Vorlesungplan.getElementById("itemName2").value;
+document.getElementById("form").addEventListener('click', function() {
+    var Email = document.getElementById("itemName").value;
+    var Passwort = document.getElementById("itemName2").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    Vorlesungplan.getElementById("itemName").value = "";
-    Vorlesungplan.getElementById("itemName2").value = "";
+    document.getElementById("itemName").value = "";
+    document.getElementById("itemName2").value = "";
     var apiUrl = "http://localhost:8080/Admin-Login";
     fetch(apiUrl, {
         method: "POST",
@@ -23,10 +23,5 @@ AdminEinloggen.getElementById("form").addEventListener('click', function() {
                 window.document.location.href = "VorlesungsplanAdmin.html";
             }
         })    
-});
-
-//VonAdminZuDozent
-AdminEinloggen.getElementById("wechseln").addEventListener('click', function(){
-    window.document.location.href = "DozentEinloggen.html";
 });
 
