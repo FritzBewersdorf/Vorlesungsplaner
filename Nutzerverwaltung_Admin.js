@@ -1,6 +1,6 @@
 
 //NeueDozentAufrugEinage
-
+/*
 document.getElementById("neuerdozent").addEventListener('click', function(){
             
     var EingabeEmail = document.createElement("INPUT");
@@ -16,6 +16,7 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
         
     };
 });
+*/
 
 //NeuenDozentAnlegen
 
