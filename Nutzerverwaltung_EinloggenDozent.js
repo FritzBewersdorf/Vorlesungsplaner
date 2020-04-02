@@ -1,4 +1,3 @@
-
 //EinloggenCheckDozent
 document.getElementById("form").addEventListener('click', function() {
     var Email = document.getElementById("itemName").value;
@@ -16,6 +15,7 @@ document.getElementById("form").addEventListener('click', function() {
     })
         //.then(response => response.json())
         .catch(err => console.error(err))
+        .then(console.log(response))
         .then((response)=>{
             if(response!=true){
                 alert("Anmeldung Fehlgeschlagen");
@@ -24,9 +24,4 @@ document.getElementById("form").addEventListener('click', function() {
                 window.document.location.href = "VorlesungsplanDozent.html";
             }
         })
-});
-
-//WelchselnvonDozentZuAdmin
-document.getElementById("wechseln2").addEventListener('click', function(){
-    window.document.location.href = "AdminEinloggen.html";
 });

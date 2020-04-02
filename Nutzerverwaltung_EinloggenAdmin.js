@@ -25,8 +25,3 @@ document.getElementById("form").addEventListener('click', function() {
         })    
 });
 
-//VonAdminZuDozent
-document.getElementById("wechseln").addEventListener('click', function(){
-    window.document.location.href = "DozentEinloggen.html";
-});
-
