@@ -1,5 +1,5 @@
 //EinloggenCheckLeiter
-document.getElementById("buttonlos1").addEventListener('click', function() {
+document.getElementById("buttonlos1").addEventListener('click', function(){
     var Email = document.getElementById("exampleInputEmail1").value;
     var Passwort = document.getElementById("exampleInputPassword1").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
@@ -17,7 +17,7 @@ document.getElementById("buttonlos1").addEventListener('click', function() {
         .catch(err => console.error(err))
         .then(console.log(response))
         .then((response)=>{
-            if(response==false){
+            if(response!=true){
                 alert("Anmeldung Fehlgeschlagen");
             }
             else{
