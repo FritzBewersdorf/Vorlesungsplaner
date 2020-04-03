@@ -1,10 +1,10 @@
 //EinloggenCheckLeiter
 document.getElementById("form").addEventListener('click', function() {
-    var Email = document.getElementById("itemName").value;
-    var Passwort = document.getElementById("itemName2").value;
+    var Email = document.getElementById("beispielFeldEmail1").value;
+    var Passwort = document.getElementById("beispielFeldPasswort1").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    document.getElementById("itemName").value = "";
-    document.getElementById("itemName2").value = "";
+    document.getElementById("beispielFeldEmail1").value = "";
+    document.getElementById("beispielFeldPasswort1").value = "";
     var apiUrl = "http://localhost:8080/Admin-Login";
     fetch(apiUrl, {
         method: "POST",
