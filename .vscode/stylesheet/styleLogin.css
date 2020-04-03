@@ -11,7 +11,7 @@ Resources
 
 body {
   background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: linear-gradient(to right, rgb(240, 49, 2), rgb(245, 92, 92));
 }
 
 .card-signin {
@@ -28,5 +28,13 @@ body {
 
 .card-signin .card-body {
   padding: 2rem;
+  
+}
+
+
+
+
+.btn-primary {
+    margin: 5px 115px 5px 115px;
 }
 
