@@ -14,14 +14,16 @@ document.getElementById("buttonlos2").addEventListener('click', function() {
         //.then(response => response.json())
         .catch(err => console.error(err))
         //.then(console.log(response))
+        .then(response => response.text())
         .then((response)=>{
-            if(response!=true){
-                alert("Anmeldung Fehlgeschlagen");
-            }
-            else{
-                window.location.assign("VorlesungsplanDozent.html")
-            }
+            console.log(response);
+                if(response=="true"){
+                    window.location.assign("VorlesungsplanDozent.html")
+                }
+                else{
+                    alert("Anmeldung Fehlgeschlagen");
+                }
         })
-        document.getElementById("exampleInputEmail2").value = "";
-        document.getElementById("exampleInputPassword2").value = "";
+    document.getElementById("exampleInputEmail2").value = "";
+    document.getElementById("exampleInputPassword2").value = "";
 });

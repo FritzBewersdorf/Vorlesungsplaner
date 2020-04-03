@@ -20,8 +20,8 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
 
 //ObenNameAnzeigen
 
-var NameAdmin = item.Email;
-document.getElementById("NameNehmen").appendChild(NameAdmin);
+//var NameAdmin = item.Email;
+//document.getElementById("NameNehmen").appendChild(NameAdmin);
 
 //NeuenDozentAnlegen
 
