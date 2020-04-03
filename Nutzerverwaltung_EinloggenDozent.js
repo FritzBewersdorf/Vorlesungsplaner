@@ -1,10 +1,10 @@
 //EinloggenCheckDozent
-document.getElementById("form").addEventListener('click', function() {
-    var Email = document.getElementById("itemName").value;
-    var Passwort = document.getElementById("itemName").value;
+document.getElementById("buttonlos2").addEventListener('click', function() {
+    var Email = document.getElementById("exampleInputEmail2").value;
+    var Passwort = document.getElementById("exampleInputPassword2").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    document.getElementById("itemName").value = "";
-    document.getElementById("itemName").value = "";
+    document.getElementById("exampleInputEmail2").value = "";
+    document.getElementById("exampleInputPassword2").value = "";
     var apiUrl = "http://localhost:8080/Nutzer-Login";
     fetch(apiUrl, {
         method: "POST",
