@@ -25,23 +25,30 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
 
 //NeuenDozentAnlegen
 
-document.getElementById("demo2").addEventListener('click', function() {
-    var Email = document.getElementById("demo").value;
-    var Passwort = document.getElementById("demo1").value;
+document.getElementById("Button1").addEventListener('click', function() {
+    var Vorname = document.getElementById("inputEmail4").value;
+    var Nachname = document.getElementById("inputPassword4").value;
+    var Email = document.getElementById("exampleFormControlInput1").value;
+    var Passwort = document.getElementById("inputPassword5").value;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    document.getElementById("demo").value = "";
-    document.getElementById("demo1").value = "";
     var apiUrl = "http://localhost:8080/Nutzern";
     fetch(apiUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ nutEmail: Email, nutPasswort: Passwort })
+        body: JSON.stringify({nutVorname: Vorname, 
+                              nutNachname: Nachname,
+                              nutEmail: Email,
+                              nutPasswort: Passwort })
     })
         .then(response => response.json())
         .catch(err => console.error(err))
         .then(DozentenListe)
+    document.getElementById("inputEmail4").value = "";
+    document.getElementById("inputPassword4").value = "";
+    document.getElementById("exampleFormControlInput1").value = "";
+    document.getElementById("inputPassword5").value = "";
 }); 
 
 
