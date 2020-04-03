@@ -11,7 +11,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 230px 1fr;
-    grid-template-rows: 60px 1fr 60px;
+    grid-template-rows: 100px 1fr 60px;
     grid-template-areas:
         "header  header"
         "sidebar content"
@@ -37,7 +37,7 @@ body {
 
 .header .dhbwlogo {
     display: inline-block;
-    
+    margin: 7px 40px 7px 40px;
 }
 
 
@@ -45,6 +45,7 @@ body {
     grid-area: content;
     background-color: #ecf0f1;
     border: 0;
+    border-top-left-radius: 15px;
     
 }
 
@@ -129,7 +130,7 @@ body {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: #ecf0f1;
+    background-color: /*#ecf0f1*/ #dff9fb;
 }
 
 .sidebar .sidebarliste li {
