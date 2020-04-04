@@ -1,27 +1,14 @@
 
-//NeueDozentAufrugEinage
+//NameObenRechts
+var Name123= "Fritz Bewersdorf";
+Name123 = document.getElementById("NameNehmen");
+
+//DozentenAnlegenListe
 /*
 document.getElementById("neuerdozent").addEventListener('click', function(){
-            
-    var EingabeEmail = document.createElement("INPUT");
-    document.getElementById("demo").appendChild(EingabeEmail);
-    
-    var PasswortEinagbe = document.createElement("INPUT");
-    document.getElementById("demo1").appendChild(PasswortEinagbe);
 
-    var ReinDa = document.createElement("button");
-    ReinDa.innerText = "Eingabe";
-    document.getElementById("demo2").appendChild(ReinDa)
-    ReinDa.onclick = function(){
-        
-    };
-});
+})
 */
-
-//ObenNameAnzeigen
-
-//var NameAdmin = item.Email;
-//document.getElementById("NameNehmen").appendChild(NameAdmin);
 
 //NeuenDozentAnlegen
 
@@ -30,8 +17,15 @@ document.getElementById("Button1").addEventListener('click', function() {
     var Nachname = document.getElementById("inputPassword4").value;
     var Email = document.getElementById("exampleFormControlInput1").value;
     var Passwort = document.getElementById("inputPassword5").value;
+    var staId = 2;
     //ElementeHinzufügenWiePasswortUndImBodyJSON
-    var apiUrl = "http://localhost:8080/Nutzern";
+    console.log(JSON.stringify({
+      nutVorname: Vorname, 
+      nutNachname: Nachname,
+      status :{staId},
+      nutEmail: Email,
+      nutPasswort: Passwort }));
+    var apiUrl = "http://localhost:8080/Nutzer";
     fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -39,12 +33,16 @@ document.getElementById("Button1").addEventListener('click', function() {
         },
         body: JSON.stringify({nutVorname: Vorname, 
                               nutNachname: Nachname,
+                              status: {
+                                staId
+                              },
                               nutEmail: Email,
                               nutPasswort: Passwort })
     })
         .then(response => response.json())
+        console.log(response)
         .catch(err => console.error(err))
-        .then(DozentenListe)
+        .//then(DozentenListe)
     document.getElementById("inputEmail4").value = "";
     document.getElementById("inputPassword4").value = "";
     document.getElementById("exampleFormControlInput1").value = "";
@@ -67,6 +65,9 @@ document.getElementById("SeiteDozenten").addEventListener('click', function Doze
     
     var data = response.json();
 
+    
+
+
     var ul = document.createElement("ul");
     data.forEach(item => 
         {
@@ -80,7 +81,7 @@ document.getElementById("SeiteDozenten").addEventListener('click', function Doze
 
          Knopf.addEventListener('click',function deletos()
          {
-             var apiUrl2 = "http://localhost:8080/Nutzer/12" ;
+             var apiUrl2 = "http://localhost:8080/Nutzer/" + item.staId ;
              fetch(apiUrl2, {method: 'DELETE',
                headers:
                  {'content-type': 'application/json'}
