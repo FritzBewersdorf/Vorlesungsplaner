@@ -13,8 +13,8 @@ document.getElementById("neuerdozent").addEventListener('click', function(){
 //NeuenDozentAnlegen
 
 document.getElementById("Button1").addEventListener('click', function() {
-    var Vorname = document.getElementById("inputEmail4").value;
-    var Nachname = document.getElementById("inputPassword4").value;
+    var Vorname = document.getElementById("formGroupExampleInput").value;
+    var Nachname = document.getElementById("formGroupExampleInput1").value;
     var Email = document.getElementById("exampleFormControlInput1").value;
     var Passwort = document.getElementById("inputPassword5").value;
     var staId = 2;
@@ -40,39 +40,32 @@ document.getElementById("Button1").addEventListener('click', function() {
                               nutPasswort: Passwort })
     })
         .then(response => response.json())
-        .then(DozentenListe)
-        console.log(response)
         .catch(err => console.error(err))
-        document.getElementById("inputEmail4").value = "";
-        document.getElementById("inputPassword4").value = "";
+        document.getElementById("formGroupExampleInput").value = "";
+        document.getElementById("formGroupExampleInput1").value = "";
         document.getElementById("exampleFormControlInput1").value = "";
         document.getElementById("inputPassword5").value = "";
+        location.reload();
+
 }); 
 
 
 //DozentenGenerieren
 
-var apiUrl = "http://localhost:8080/Nutzer/0";
-fetch(apiUrl, {Method: "GET"})
-    .then(response => response.json())
-    .then(DozentenListe())
-    .catch(err => console.error(err))
+   getData();
 
-function DozentenListe(response){
+   async function getData(){
     clearContent();
+    const response = await fetch('http://localhost:8080/Nutzer/0');
+    const data = await response.json();
+    console.log(data);
 
-    var heading = document.createElement("h1");
-    heading.textContent = "Dozenten";
-    document.getElementById("dozentliste").appendChild(heading);
-    console.log(heading);
-    
-    //console.log(response.json());
     var ul = document.createElement("ul");
-    response.forEach(item => 
+    for (item of data)
         {
-          if(item.staId==2){
+          //if(item.staId==2){
             var listitem = document.createElement("li"); 
-            listitem.textContent = "Herr/Frau" + item.Nachname;
+            listitem.textContent = "Herr/Frau " + item.nutNachname;
             //document.getElementById("dozenteinzeln").appendChild(listitem);
             var Knopf = document.createElement("button");
             var imageButtoncheck = new Image(15, 15);
@@ -81,24 +74,25 @@ function DozentenListe(response){
 
           Knopf.addEventListener('click',function deletos()
           {
-              var apiUrl2 = "http://localhost:8080/Nutzer/" + item.staId ;
+              var apiUrl2 = "http://localhost:8080/Nutzer/" + item.nutId ;
               fetch(apiUrl2, {method: 'DELETE',
                 headers:
                   {'content-type': 'application/json'}
                 })      
                   .then(response => response.json())
-                  .then(DozentenListe)
                   .catch(err => console.error(err))
+                  location.reload();
+
           });
           listitem.appendChild(Knopf);
           ul.appendChild(listitem);
-        }
-        else{
+        //}
+        //else{
 
-        }
-       })
-   document.getElementById("ungeordneteListe").appendChild(ul);
-};
+        //}
+       }
+       document.getElementById("ungeordneteListe").appendChild(ul);
+      };
 
 function clearContent()
 {
