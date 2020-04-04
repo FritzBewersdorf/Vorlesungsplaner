@@ -24,8 +24,26 @@
 
         <div class="box">
 
+
+
+
             <!-- Header -->
             <div class="header">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#dozentenverzeichnisscroll">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#kalenderscroll">Features</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                        <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- 
                 <div class="dhbwlogo">
                         <img src="https://upload.wikimedia.org/wikipedia/de/thumb/1/1d/DHBW-Logo.svg/1200px-DHBW-Logo.svg.png" width="200" height="86">
                 </div>
@@ -38,128 +56,221 @@
                         Admin
                     </a>
                 </div>
+                -->
             </div>
              
             <!-- Content Dozenten-->
-            <div class="content" id="ansichtdozent"> 
-                <div id="contenttitel">
-                    <h1>
-                        Dozenten
-                    </h1>
-                </div>
-                <div id="dozenthinzufügen">
-                    <button id="neuerdozent">
-                        <i class="fas fa-plus"></i>
+            <div data-spy="scroll" class="content" id="ansichtdozent"> 
+                <div class="contentinhalt" id="dozentenverzeichnisscroll">
+
+                
+                    <div id="contenttitel ">
+                        <h1>
+                            Dozenten
+                        </h1>
+                    </div>
+                    <div id="dozenthinzufügen">
+                        <button id="neuerdozent">
+                            <i class="fas fa-plus"></i>
+                            
+                            Neuer Dozent
+                            
+                        </button>
                         
-                        Neuer Dozent
+                            <form>
+                                <h5 class="card-title text-center">Neuen Dozenten anlegen</h5>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Vorname</label>
+                                        <input type="email" class="form-control" id="inputEmail4">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Nachname</label>
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Email Address</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword5">Passwort</label>
+                                    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Passwort"> 
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Zusätzliches Feld als Option</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="Button1">Anlegen</button>
+                            </form> 
+                    
                         
-                    </button>
-                    
-                        <form>
-                            <h5 class="card-title text-center">Neuen Dozenten anlegen</h5>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Vorname</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Nachname</label>
-                                    <input type="password" class="form-control" id="inputPassword4">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Email Address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword5">Passwort</label>
-                                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Passwort"> 
-                                <small id="passwordHelpBlock" class="form-text text-muted">
-                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                </small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Zusätzliches Feld als Option</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="Button1">Anlegen</button>
-                        </form> 
-                   
-                    
-                    <div id="demo"></div>
-                    <div id="demo1"></div>
-                    <div id="demo2"></div>
-                </div>
-                <div id="dozentliste">
-                    <ul id="ungeordneteListe">
-                        <li id="dozenteinzeln">
-                            <h3 >
-                                Dozent Name
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </div>                              
-                            </h3>
-                            <a>
-                                Verteilte Systeme
-                            </a>
-                        </li>
-                        <li id="dozenteinzeln">
-                            <h3 >
-                                Dozent Name
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </div>                                 
-                            </h3>
-                            <a>
-                                Verteilte Systeme
-                            </a>
-                        </li>
-                        <li id="dozenteinzeln">
-                            <h3 >
-                                Dozent Name
-                                <button id="dozentoptionen">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>                               
-                            </h3>
-                            <a>
-                                Verteilte Systeme
-                            </a>
-                        </li>
-                        <li id="dozenteinzeln">
-                            <h3 >
-                                Dozent Name
-                                <button id="dozentoptionen">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>                               
-                            </h3>
-                            <a>
-                                Verteilte Systeme
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                        <div id="demo"></div>
+                        <div id="demo1"></div>
+                        <div id="demo2"></div>
+                    </div>
+                    <div id="dozentliste">
+                        <ul id="ungeordneteListe">
+                            <li id="dozenteinzeln">
+                                <h3 >
+                                    Dozent Name
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>                              
+                                </h3>
+                                <a>
+                                    Verteilte Systeme
+                                </a>
+                            </li>
+                            <li id="dozenteinzeln">
+                                <h3 >
+                                    Dozent Name
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>                                 
+                                </h3>
+                                <a>
+                                    Verteilte Systeme
+                                </a>
+                            </li>
+                            <li id="dozenteinzeln">
+                                <h3 >
+                                    Dozent Name
+                                    <button id="dozentoptionen">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>                               
+                                </h3>
+                                <a>
+                                    Verteilte Systeme
+                                </a>
+                            </li>
+                            <li id="dozenteinzeln">
+                                <h3 >
+                                    Dozent Name
+                                    <button id="dozentoptionen">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>                               
+                                </h3>
+                                <a>
+                                    Verteilte Systeme
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
+                <div class="contentinhalt" id="kalenderscroll">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Montag</th>
+                                <th scope="col">Dienstag</th>
+                                <th scope="col">Mittwoch</th>
+                                <th scope="col">Donnerstag</th>
+                                <th scope="col">Freitag</th>
+                                <th scope="col">Samstag</th>
+                                <th scope="col">Sonntag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">8:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">11:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">12:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">13:00</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
             </div> 
 
-            <!-- Content Dozenten
-            <div class="content" id="ansichtkalender">
+            <!-- Content Dozenten 
+            <div class="content" id="ansichtkalender kalenderscroll">
                 <div class="contentinhalt">
                     <table class="table table-hover">
                         <thead class="thead-dark">
@@ -251,7 +362,7 @@
                     
             </div> -->
 
-            <!-- Sidebar -->
+            <!-- Sidebar 
             <div class="sidebar">
                     <div class="sidebarinhalt" >
                         <div class="sidebartitel">
@@ -275,7 +386,7 @@
                         <div class="sidebarfooter">
                         </div>
                     </div>
-            </div>
+            </div> -->
 
             <!-- Footer -->
             <div class="footer">
