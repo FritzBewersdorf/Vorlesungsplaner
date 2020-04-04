@@ -130,31 +130,26 @@ getData();
             var drueck = document.createElement("a");
             drueck.textContent = "Dozent löschen";
             drueck.setAttribute('class', 'dropdown-item');
-            /*
-            var Knopf = document.createElement("button");
-            var imageButtoncheck = new Image(15, 15);
-              imageButtoncheck.src = "Trash.jpg";
-              Knopf.appendChild(imageButtoncheck);
-            */
+            drueck.setAttribute('href', '#');
+        
+            drueck.addEventListener('click',function deletos()
+            {
+                var apiUrl2 = "http://localhost:8080/Nutzer/" + item.nutId ;
+                fetch(apiUrl2, {method: 'DELETE',
+                  headers:
+                    {'content-type': 'application/json'}
+                  })      
+                    .then(response => response.json())
+                    .catch(err => console.error(err))
+                    location.reload();
 
-          drueck.addEventListener('click',function deletos()
-          {
-              var apiUrl2 = "http://localhost:8080/Nutzer/" + item.nutId ;
-              fetch(apiUrl2, {method: 'DELETE',
-                headers:
-                  {'content-type': 'application/json'}
-                })      
-                  .then(response => response.json())
-                  .catch(err => console.error(err))
-                  location.reload();
-
-          });
-          listitem.appendChild(Naaame);
-          Naaame.appendChild(divi);
-          divi.appendChild(button1234);
-          divi.appendChild(divi2);
-          divi2.appendChild(drueck);
-          ul.appendChild(listitem);
+            });
+            listitem.appendChild(Naaame);
+            Naaame.appendChild(divi);
+            divi.appendChild(button1234);
+            divi.appendChild(divi2);
+            divi2.appendChild(drueck);
+            ul.appendChild(listitem);
         }
       }
       document.getElementById("ungeordneteListe").appendChild(ul);
