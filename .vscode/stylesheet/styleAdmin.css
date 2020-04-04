@@ -14,13 +14,18 @@ body {
     grid-template-rows: 100px 1fr 60px;
     grid-template-areas:
         "header  header"
-        "content content"
-        "footer footer"
+        "sidebar content"
+        "sidebar footer"
 }
 
 .header {
     grid-area: header;
-    
+    background-color: blue;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
 }
 
 .header .headeruser {
@@ -46,7 +51,8 @@ body {
     background-color: #ecf0f1;
     border: 0;
     border-top-left-radius: 15px;
-    
+    height: 100%;;
+    overflow-x: hidden;
 }
 
 .content #contenttitel {
@@ -131,6 +137,12 @@ body {
 .sidebar {
     grid-area: sidebar;
     background-color: /*#ecf0f1*/ #dff9fb;
+    
+    z-index: 1;
+    top: 100px;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .sidebar .sidebarliste li {
@@ -150,6 +162,12 @@ body {
     background-color: white;
     border-radius: 15px;
 }
+
+/*Navbar*/
+
+
+
+/*Footer*/
 .footer {
     grid-area: footer;
     background-color: yellow;
