@@ -7,7 +7,7 @@ body {
 }
 
 .box {
-    background-color: lightgrey;
+    background-color: white;
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -27,8 +27,12 @@ body {
     left: 0;
     right: 0;
     overflow-x: hidden;
-    border-bottom: 3px;
-    border-bottom-color: white;
+    border-bottom: 5px;
+    border-color: red;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: 
+    
 }
 
 .header .headeruser {
@@ -50,7 +54,7 @@ body {
     grid-area: content;
     background-color: #ecf0f1;
     border: 0;
-    
+    border-left: 1px solid black;
     height: 100%;
     overflow-x: hidden;
 }
@@ -141,7 +145,7 @@ body {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: lightgrey;;
+    background-color: white;;
     
     z-index: 1;
     top: 100px;
@@ -181,6 +185,7 @@ a{
 /*Footer*/
 .footer {
     grid-area: footer;
-    background-color: yellow;
+    background-color: #ecf0f1;
     border-bottom-left-radius: 20px;
+    border-left: 1px solid black;
 }
