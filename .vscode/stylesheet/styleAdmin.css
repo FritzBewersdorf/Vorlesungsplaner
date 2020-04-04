@@ -3,29 +3,32 @@ html {
 }
 
 body {
-
+   
 }
 
 .box {
+    background-color: lightgrey;
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 230px 1fr;
     grid-template-rows: 100px 1fr 60px;
     grid-template-areas:
-        "header  header"
+        "sidebar header"
         "sidebar content"
         "sidebar footer"
 }
 
 .header {
     grid-area: header;
-    background-color: blue;
+    background-color: #ecf0f1;
     width: 100%;
-    position: fixed;
+    border-top-left-radius: 20px;
     left: 0;
     right: 0;
     overflow-x: hidden;
+    border-bottom: 3px;
+    border-bottom-color: white;
 }
 
 .header .headeruser {
@@ -40,18 +43,15 @@ body {
     padding: 5px 5px 5px 5px;
 }
 
-.header .dhbwlogo {
-    display: inline-block;
-    margin: 7px 40px 7px 40px;
-}
+
 
 
 .content {
     grid-area: content;
     background-color: #ecf0f1;
     border: 0;
-    border-top-left-radius: 15px;
-    height: 100%;;
+    
+    height: 100%;
     overflow-x: hidden;
 }
 
@@ -106,7 +106,7 @@ body {
 
 .content .fas {
     display: inline-block;
-    color: red;
+    color: rgb(71, 70, 70);
     zoom: 80%;
 }
 
@@ -117,6 +117,11 @@ body {
     margin: 20px 20px 20px 0px;
     border-radius: 15px;
     display: inline-block;
+}
+
+/*DropDown Cards*/
+.dropdown-menu {
+    border-radius: 15px!important;
 }
 
 /*Content Kalender*/
@@ -136,7 +141,7 @@ body {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: /*#ecf0f1*/ #dff9fb;
+    background-color: lightgrey;;
     
     z-index: 1;
     top: 100px;
@@ -155,20 +160,27 @@ body {
     padding: 0 5px 0 5px;
 }
 
+.sidebar .dhbwlogo {
+    display: inline-block;
+    margin: 7px 5px 7px 5px;
+}
 
 .sidebar .sidebarinhalt {
-    margin: 31px 20px 30px 20px;
+    margin: 5px 20px 30px 20px;
     padding: 10px 10px 10px 10px;
-    background-color: white;
-    border-radius: 15px;
+    background-color: ;
+    border-radius: ;
 }
 
 /*Navbar*/
-
+a{
+    color: black!important;
+}
 
 
 /*Footer*/
 .footer {
     grid-area: footer;
     background-color: yellow;
+    border-bottom-left-radius: 20px;
 }

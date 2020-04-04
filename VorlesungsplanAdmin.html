@@ -29,9 +29,7 @@
 
             <!-- Header -->
             <div class="header">
-                <div class="dhbwlogo">
-                        <img src="https://upload.wikimedia.org/wikipedia/de/thumb/1/1d/DHBW-Logo.svg/1200px-DHBW-Logo.svg.png" width="200" height="86">
-                </div>
+                
                 <div class="headeruser" id = "NameNehmen">
                     <i class="fas fa-user"></i>
                     <a>
@@ -41,6 +39,7 @@
                         Admin
                     </a>
                 </div>
+                
                
             </div>
              
@@ -55,23 +54,22 @@
                         </h1>
                     </div>
                     <div id="dozenthinzufügen">
-                        <button id="neuerdozent">
+                        <button type="button" class="btn btn-outline-secondary" id="">
                             <i class="fas fa-plus"></i>
-                            
                             Neuer Dozent
-                            
                         </button>
+                        
                         
                             <form>
                                 <h5 class="card-title text-center">Neuen Dozenten anlegen</h5>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4">Vorname</label>
-                                        <input type="email" class="form-control" id="inputEmail4">
+                                        <label for="formGroupExampleInput">Vorname</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Vorname">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Nachname</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
+                                        <label for="formGroupExampleInput">Nachname</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nachname">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -107,11 +105,11 @@
                                             
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Dozent löschen</a>
+                                            
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Separated link</a>
+                                            <a class="dropdown-item" href="#">Dozent bearbeiten</a>
+                                            
                                         </div>
                                     </div>                              
                                 </h3>
@@ -127,11 +125,11 @@
                                             
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Dozent löschen</a>
+                                            
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Separated link</a>
+                                            <a class="dropdown-item" href="#">Dozent bearbeiten</a>
+                                            
                                         </div>
                                     </div>                                 
                                 </h3>
@@ -142,9 +140,23 @@
                             <li id="dozenteinzeln">
                                 <h3 >
                                     Dozent Name
+                                    <div class="btn-group">
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Dozent löschen</a>
+                                            
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Dozent bearbeiten</a>
+                                            
+                                        </div>
+                                    </div>    
+                                    <!--
                                     <button id="dozentoptionen">
                                         <i class="fas fa-ellipsis-v"></i>
-                                    </button>                               
+                                    </button>   
+                                    -->                            
                                 </h3>
                                 <a>
                                     Verteilte Systeme
@@ -153,18 +165,33 @@
                             <li id="dozenteinzeln">
                                 <h3 >
                                     Dozent Name
-                                    <button id="dozentoptionen">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </button>                               
+                                    <div class="btn-group">
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Dozent löschen</a>
+                                            
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Dozent bearbeiten</a>
+                                            
+                                        </div>
+                                    </div>                             
                                 </h3>
                                 <a>
                                     Verteilte Systeme
                                 </a>
                             </li>
+                           
                         </ul>
                     </div>
                 </div>  
                 <div class="contentinhalt" id="item-2">
+                        <div id="contenttitel ">
+                            <h1>
+                                Kalender
+                            </h1>
+                        </div>
                         <table class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
@@ -350,13 +377,23 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
+                    
                     <div class="sidebarinhalt" >
+                        <div class="dhbwlogo">
+                                <img src="https://upload.wikimedia.org/wikipedia/de/thumb/1/1d/DHBW-Logo.svg/1200px-DHBW-Logo.svg.png" width="150" height="65">
+                        </div>
                         <nav id="navbar-example3" class="navbar navbar-light">
                                 <a class="navbar-brand" href="#">Navbar</a>
                                 <nav class="nav nav-pills flex-column">
-                                    <a class="nav-link" href="#item-1">Item 1</a>
+                                    <a class="nav-link" href="#item-1">
+                                        <i class="fas fa-users"></i>
+                                        Dozenten
+                                    </a>
                                     
-                                    <a class="nav-link" href="#item-2">Item 2</a>
+                                    <a class="nav-link" href="#item-2">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Kalender
+                                    </a>
                                     <a class="nav-link" href="#item-3">Item 3</a>
                                     
                                 </nav>
