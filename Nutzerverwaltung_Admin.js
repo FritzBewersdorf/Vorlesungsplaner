@@ -51,8 +51,7 @@ document.getElementById("Button1").addEventListener('click', function() {
 
 
 //DozentenGenerieren
-
-   getData();
+getData();
 
    async function getData(){
     clearContent();
@@ -63,8 +62,8 @@ document.getElementById("Button1").addEventListener('click', function() {
     var ul = document.createElement("ul");
     for (item of data)
         {
-          //if(item.staId==2){
-            var listitem = document.createElement("li"); 
+          if(item.status.staId==2){
+            var listitem = document.createElement("div"); 
             listitem.textContent = "Herr/Frau " + item.nutNachname;
             //document.getElementById("dozenteinzeln").appendChild(listitem);
             var Knopf = document.createElement("button");
@@ -86,10 +85,10 @@ document.getElementById("Button1").addEventListener('click', function() {
           });
           listitem.appendChild(Knopf);
           ul.appendChild(listitem);
-        //}
-        //else{
+        }
+        else{
 
-        //}
+        }
        }
        document.getElementById("ungeordneteListe").appendChild(ul);
       };
