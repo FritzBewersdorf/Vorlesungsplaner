@@ -12,6 +12,7 @@ document.getElementById("Button1").addEventListener('click', function listeAbgeb
 });
 
 
+
 //NeuenDozentAnlegen
 
 document.getElementById("Button1").addEventListener('click', function() {
@@ -43,12 +44,7 @@ document.getElementById("Button1").addEventListener('click', function() {
     })
         .then(response => response.json())
         .catch(err => console.error(err))
-        document.getElementById("formGroupExampleInput").value = "";
-        document.getElementById("formGroupExampleInput1").value = "";
-        document.getElementById("exampleFormControlInput1").value = "";
-        document.getElementById("inputPassword5").value = "";
         location.reload();
-
 }); 
 
 
