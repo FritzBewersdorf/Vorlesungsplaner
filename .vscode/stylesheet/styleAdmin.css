@@ -59,7 +59,7 @@ body {
     overflow-x: hidden;
 }
 
-.content #contenttitel {
+.content #contenttitel #titeldozent{
     
     margin: 20px 50px 20px 50px;
     padding: 0 0 0 0;
@@ -68,12 +68,8 @@ body {
     
 }
 
-.content #contenttitel h1 {
-    
-}
-
 .content #dozenthinzufügen {
-    
+
     display: inline-block;
     margin: 50px 50px 20px 50px;
     padding: 0 0 0 0;
@@ -122,6 +118,11 @@ body {
     margin: 20px 20px 20px 0px;
     border-radius: 15px;
     display: inline-block;
+}
+
+.contentinhalt #testbutton{
+    display: inline-block;
+    float: right;
 }
 
 /*DropDown Cards*/
