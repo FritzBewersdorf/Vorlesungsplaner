@@ -6,11 +6,15 @@ document.getElementById("testButton").addEventListener('click', function dialogN
     document.getElementById("Dialog1").showModal();
 });
  
-document.getElementById("Button1").addEventListener('click', function listeAbgebrochen ()
+document.getElementById("Button2").addEventListener('click', function listeAbgebrochen ()
 {
   document.getElementById("Dialog1").close();
 });
 
+document.getElementById("auslogg").addEventListener('click', function Ausgelogge()
+{
+  window.location.assign("VorlesungsplanLogin.html")
+});
 
 
 //NeuenDozentAnlegen
