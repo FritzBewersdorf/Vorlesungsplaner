@@ -44,9 +44,14 @@ document.getElementById("Button1").addEventListener('click', function() {
     })
         .then(response => response.json())
         .catch(err => console.error(err))
+        console.log(response.json());
         location.reload();
+        getData();
 }); 
 
+document.getElementById("Button1").addEventListener('click', function() {
+  location.reload();
+});
 
 //DozentenGenerieren
 getData();
@@ -58,34 +63,37 @@ getData();
     console.log(data);
 
     var ul = document.createElement("ul");
-    for (item of data)
-        {
-          if(item.status.staId==2){
-            var listitem = document.createElement("li"); 
-            listitem.setAttribute('class', 'shadow p-3 mb-5 bg-white');
-
-            var Naaame = document.createElement("h3"); 
-            Naaame.textContent = "Herr/Frau " + item.nutNachname;
-            
-            var divi = document.createElement("div");
-            divi.setAttribute('class', 'btn-group');
-
-            var button1234 = document.createElement("button");
-            button1234.setAttribute('type', 'button');
-            button1234.setAttribute('class', 'btn dropdown-toggle');
-            button1234.setAttribute( 'data-toggle', 'dropdown');
-            button1234.setAttribute('aria-expanded', 'false');
-
-            var divi2 = document.createElement("div");
-            divi2.setAttribute('class', 'dropdown-menu');
-
-            var drueck = document.createElement("a");
-            drueck.textContent = "Dozent löschen";
-            drueck.setAttribute('class', 'dropdown-item');
-            drueck.setAttribute('href', '#');
-        
-            drueck.addEventListener('click',function deletos()
+    
+        for (let item of data) {
+          if (item.status.staId==2)
             {
+              var listitem = document.createElement("li"); 
+              listitem.setAttribute('class', 'shadow p-3 mb-5 bg-white');
+
+              var Naaame = document.createElement("h3"); 
+              Naaame.textContent = "Herr/Frau " + item.nutNachname;
+              
+              var divi = document.createElement("div");
+              divi.setAttribute('class', 'btn-group');
+
+              var button1234 = document.createElement("button");
+              button1234.setAttribute('type', 'button');
+              button1234.setAttribute('class', 'btn dropdown-toggle');
+              button1234.setAttribute( 'data-toggle', 'dropdown');
+              button1234.setAttribute('aria-expanded', 'false');
+
+              var divi2 = document.createElement("div");
+              divi2.setAttribute('class', 'dropdown-menu');
+
+              var drueck = document.createElement("a");
+              drueck.textContent = "Dozent löschen";
+              drueck.setAttribute('class', 'dropdown-item');
+              drueck.setAttribute('href', '#');
+          
+              console.log(item.nutId);
+
+              drueck.addEventListener('click',function deletos()
+                {
                 var apiUrl2 = "http://localhost:8080/Nutzer/" + item.nutId ;
                 fetch(apiUrl2, {method: 'DELETE',
                   headers:
@@ -93,19 +101,21 @@ getData();
                   })      
                     .then(response => response.json())
                     .catch(err => console.error(err))
+                    console.log(response.json());
                     location.reload();
+                    getData();
+                }); 
 
-            });
-            listitem.appendChild(Naaame);
-            Naaame.appendChild(divi);
-            divi.appendChild(button1234);
-            divi.appendChild(divi2);
-            divi2.appendChild(drueck);
-            ul.appendChild(listitem);
-        }
-      }
+              listitem.appendChild(Naaame);
+              Naaame.appendChild(divi);
+              divi.appendChild(button1234);
+              divi.appendChild(divi2);
+              divi2.appendChild(drueck);
+              ul.appendChild(listitem); 
+          }     
       document.getElementById("ungeordneteListe").appendChild(ul);
-  };
+  }
+};
 
 function clearContent()
 {
