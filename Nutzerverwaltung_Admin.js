@@ -1,60 +1,16 @@
 
-//NameObenRechts
-var Name123= "Fritz Bewersdorf";
-Name123 = document.getElementById("NameNehmen");
-
 //DozentenAnlegenListe
-/*
-function dialogNeueListe()
+
+document.getElementById("testButton").addEventListener('click', function dialogNeueListe()
 {
-    dialogNeueEinkaufsListe.showModal();
-}
+    document.getElementById("Dialog1").showModal();
+});
  
-function listeHinzugefügt()
+document.getElementById("Button1").addEventListener('click', function listeAbgebrochen ()
 {
-    var listId = document.getElementById("neueListenID").value;
- 
-    listeAnheften(listId);
-    getListName(listId);
-    document.getElementById("neueListenID").value = "";
-    dialogNeueEinkaufsListe.close();
-}
- 
-function getListName (id)
-{
-    var listId = id;
-    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listId;
- 
-    fetch(apiUrl, {Method: "GET"})
-        .then(response => response.json())
-        .then(listName)
-        .catch(err => console.error(err));
-}
- 
-function listName (liste)
-{    
-    localStorage.setItem(liste._id, liste.name);
-    
-    listeAktualisieren();
-}
- 
-function listeAbgebrochen ()
-{
-    dialogNeueEinkaufsListe.close();
-}
- 
-function listeAnheften(listID)
-{
-    
-    var apiUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/" + listID;
- 
-    fetch(apiUrl, {Method: "GET"})
-    .then(response => response.json())
-    .then(showList)
-    .catch(err => console.error(err));
-    
-}
-*/
+  document.getElementById("Dialog1").close();
+});
+
 
 //NeuenDozentAnlegen
 
