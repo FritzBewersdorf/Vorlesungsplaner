@@ -47,10 +47,8 @@ document.getElementById("Button1").addEventListener('click', function() {
                               nutPasswort: Passwort })
     })
         .then(response => response.json())
+        .then.location.reload()
         .catch(err => console.error(err))
-        console.log(response.json());
-        location.reload();
-        getData();
 }); 
 
 document.getElementById("Button1").addEventListener('click', function() {
@@ -104,11 +102,13 @@ getData();
                     {'content-type': 'application/json'}
                   })      
                     .then(response => response.json())
+                    .then.location.reload()
                     .catch(err => console.error(err))
-                    console.log(response.json());
-                    location.reload();
-                    getData();
                 }); 
+
+              drueck.addEventListener('click',function delet(){
+                location.reload();
+              });
 
               listitem.appendChild(Naaame);
               Naaame.appendChild(divi);
