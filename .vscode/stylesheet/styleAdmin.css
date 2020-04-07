@@ -7,12 +7,12 @@ body {
 }
 
 .box {
-    background-color: white;
+    background-color: #EDEEF4;
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 230px 1fr;
-    grid-template-rows: 100px 1fr 60px;
+    grid-template-rows: 75px 1fr 60px;
     grid-template-areas:
         "sidebar header"
         "sidebar content"
@@ -21,7 +21,7 @@ body {
 
 .header {
     grid-area: header;
-    background-color: #ecf0f1;
+    background-color: #F4F5FA;
     width: 100%;
     border-top-left-radius: 20px;
     left: 0;
@@ -29,8 +29,8 @@ body {
     overflow-x: hidden;
     border-bottom: 5px;
     border-color: red;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    border-left: 2px solid #D4D4DE;
+    border-bottom: 2px solid #D4D4DE;
     box-shadow: 
     
 }
@@ -52,9 +52,9 @@ body {
 
 .content {
     grid-area: content;
-    background-color: #ecf0f1;
+    background-color: /*#ecf0f1*/ #F4F5FA;
     border: 0;
-    border-left: 1px solid black;
+    border-left: 2px solid #D4D4DE;
     height: 100%;
     overflow-x: hidden;
 }
@@ -143,11 +143,20 @@ body {
     border-top: none;
 }
 
+/*DialogNeuenDozentanlegen*/
+
+.contentinhalt #Dialog1{
+    border: none;
+    border-radius: 15px;
+    padding: 25px 25px 25px 25px;
+    
+}
+
 /*Sidebar*/
 
 .sidebar {
     grid-area: sidebar;
-    background-color: white;;
+    background-color: #EDEEF4;;
     
     z-index: 1;
     top: 100px;
@@ -183,11 +192,19 @@ a{
     color: black!important;
 }
 
+.sidebar #navbar-example3{
+    margin: 30px 0px 30px 0px;
+}
+
+.sidebar .nav-link{
+    margin: 0 0 10px 0;
+}
+
 
 /*Footer*/
 .footer {
     grid-area: footer;
-    background-color: #ecf0f1;
+    background-color: #F4F5FA;
     border-bottom-left-radius: 20px;
-    border-left: 1px solid black;
+    border-left: 2px solid #D4D4DE;
 }
