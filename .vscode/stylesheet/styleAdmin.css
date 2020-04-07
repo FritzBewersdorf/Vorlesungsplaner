@@ -111,7 +111,7 @@ body {
     zoom: 80%;
 }
 
-.content #dozenteinzeln { 
+.content .shadow { 
     background-color: white;
     border-color: #C0C0C0;
     padding: 10px 20px 20px 20px;
