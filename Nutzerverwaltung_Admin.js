@@ -25,7 +25,6 @@ document.getElementById("Button1").addEventListener('click', function() {
     var Email = document.getElementById("exampleFormControlInput1").value;
     var Passwort = document.getElementById("inputPassword5").value;
     var staId = 2;
-    //ElementeHinzufügenWiePasswortUndImBodyJSON
     console.log(JSON.stringify({
       nutVorname: Vorname, 
       nutNachname: Nachname,
@@ -47,7 +46,7 @@ document.getElementById("Button1").addEventListener('click', function() {
                               nutPasswort: Passwort })
     })
         .then(response => response.json())
-        .then.location.reload()
+        the.getData()
         .catch(err => console.error(err))
 }); 
 
@@ -102,7 +101,7 @@ getData();
                     {'content-type': 'application/json'}
                   })      
                     .then(response => response.json())
-                    .then.location.reload()
+                    .then.getData()
                     .catch(err => console.error(err))
                 }); 
 
