@@ -9,3 +9,10 @@ Im Ordner Fallstudioe ist der Code für das Backend enthalten. Die verwendete Te
 Die JSON-log Datei ist zum Einspielen in INSOMNIA vorgesehen. In ihr sind alle möglichen CRUD-Befehle enthalten.
 
 Die Datei Datenbank.txt ist zum Einspielen in DBeaver oder ein anderes Datenbankprogramm gedacht. Mit ihr lässt sich die Datenbank aufsetzen.
+
+
+
+# Quellen
+
+- Minh, N. H. (2020, February 24): Spring Boot RESTful CRUD API. Retrieved March 1, 2020, from
+https://www.codejava.net/frameworks/spring-boot/spring-boot-restful-crud-api-examples-with-mysql-database
