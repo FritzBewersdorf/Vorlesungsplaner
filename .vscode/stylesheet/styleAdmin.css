@@ -139,9 +139,56 @@ body {
 
 /*Kalender*/
 
-.content .contentinhalt .table #wochentage {
-    border-top: none;
+.content .Vorlesungsplanansicht{
+    background-color: white;
+    border: 1px solid black;
+    margin: 20px 10px 20px 10px;
+    
 }
+
+.content .Vorlesungsplanansicht .fas {
+    zoom: 200%;
+    margin: 1px 5px 1px 5px;
+    padding: 1px 5px 1px 5px;
+}
+
+.content .Vorlesungsplanansicht button {
+    border: none;
+    background-color: none;
+}
+
+
+.content .Vorlesungsplanansicht .Kalenderheader {
+    border-bottom: 1px solid red;
+    margin: 10px 10px 10px 10px;
+    display: flex;
+
+}
+
+
+
+.content .Vorlesungsplanansicht .Kalenderwochen {
+    border-bottom: 1px solid red;
+    margin: 10px 10px 10px 10px;
+    display: flex;
+
+}
+
+
+
+.content .Vorlesungsplanansicht .Kalendertageinzeln {
+    border: 1px solid green; 
+    display: inline-block;
+    margin: 10px 10px 10px 10px;
+    width: 130px;
+    height: 500px;
+
+}
+
+.content .Vorlesungsplanansicht .Kalendertageinzeln #tagheader {
+    border-bottom: 1px solid blue;
+}
+
 
 /*DialogNeuenDozentanlegen*/
 
@@ -214,8 +261,8 @@ body {
 }
 
 
-
-/* declare a 7 column grid on the table */
+/*
+declare a 7 column grid on the table
 #calendar {
 	width: 100%;
   display: grid;
@@ -339,4 +386,4 @@ caption {
 	#calendar .date {
 		align-self: flex-start;
 	}
-}
+} */
