@@ -5,6 +5,7 @@ var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Da
 var weekNumber = Math.floor(1 + 0.5 + (currentThursday.getTime() - firstThursday.getTime()) / 86400000/7);
 
 Kalenderwoche(weekNumber);
+JahrAnzeigen(yearOfThursday);
 
 function Kalenderwoche(weekNumber){
     clearContent();
@@ -27,15 +28,18 @@ function Kalenderwoche(weekNumber){
     document.getElementById("KalenderMitmachen").appendChild(Naaame11);
     document.getElementById("KalenderMitmachen").appendChild(buttonBeta);
 
-    document.getElementById("NeuerButton1").addEventListener('click', function() {
-        weekNumber = weekNumber-1;
-        Kalenderwoche(weekNumber);
-    });
-    
-    document.getElementById("NeuerButton2").addEventListener('click', function() {
-        weekNumber = weekNumber+1;
-        Kalenderwoche(weekNumber);
-    });
+    if(weekNumber!=0){
+        document.getElementById("NeuerButton1").addEventListener('click', function() {
+            weekNumber = weekNumber-1;
+            Kalenderwoche(weekNumber);
+        });
+    }
+    if(weekNumber!=52){
+        document.getElementById("NeuerButton2").addEventListener('click', function() {
+            weekNumber = weekNumber+1;
+            Kalenderwoche(weekNumber);
+        })
+    }
 }
 
 function clearContent()
@@ -43,3 +47,42 @@ function clearContent()
    document.getElementById("KalenderMitmachen").innerHTML="";
 }
 
+function JahrAnzeigen(yearOfThursday){
+    clearContent1()
+
+    console.log(yearOfThursday);
+
+    var buttonUno1 = document.createElement("button");
+    buttonUno1.setAttribute('type', 'fas fa-arrow-lef');
+    buttonUno1.id = 'NeuerButton3';
+    buttonUno1.innerHTML = "Jahr zurück"; 
+
+    var Naaame12 = document.createElement("h3"); 
+    Naaame12.textContent = "Jahr " + yearOfThursday;
+
+    var buttonBeta1 = document.createElement("button");
+    buttonBeta1.setAttribute('type', 'fas fa-arrow-right');
+    buttonBeta1.setAttribute('id', 'NeuerButton4');
+    buttonBeta1.innerHTML = "Jahr weiter"; 
+
+    document.getElementById("KalenderJahr").appendChild(buttonUno1);
+    document.getElementById("KalenderJahr").appendChild(Naaame12);
+    document.getElementById("KalenderJahr").appendChild(buttonBeta1);
+
+    if(yearOfThursday!=0){
+        document.getElementById("NeuerButton3").addEventListener('click', function() {
+            yearOfThursday = yearOfThursday-1;
+            JahrAnzeigen(yearOfThursday);
+        });
+    }
+
+    document.getElementById("NeuerButton4").addEventListener('click', function() {
+        yearOfThursday = yearOfThursday+1;
+        JahrAnzeigen(yearOfThursday);
+    });
+}
+
+function clearContent1()
+{
+   document.getElementById("KalenderJahr").innerHTML="";
+}
