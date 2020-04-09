@@ -8,8 +8,7 @@ Kalenderwoche(weekNumber);
 JahrAnzeigen(yearOfThursday);
 
 function Kalenderwoche(weekNumber){
-    clearContent();
-    console.log(weekNumber);
+    document.getElementById("KalenderMitmachen").innerHTML="";
 
     var buttonUno = document.createElement("button");
     buttonUno.setAttribute('type', 'fas fa-arrow-lef');
@@ -59,13 +58,8 @@ function Kalenderwoche(weekNumber){
     }
 }
 
-function clearContent()
-{
-   document.getElementById("KalenderMitmachen").innerHTML="";
-}
-
 function JahrAnzeigen(yearOfThursday){
-    clearContent1()
+    document.getElementById("KalenderJahr").innerHTML="";
 
     console.log(yearOfThursday);
 
@@ -101,9 +95,4 @@ function JahrAnzeigen(yearOfThursday){
         JahrAnzeigen(yearOfThursday);
         Kalenderwoche(weekNumber);
     });
-}
-
-function clearContent1()
-{
-   document.getElementById("KalenderJahr").innerHTML="";
 }
