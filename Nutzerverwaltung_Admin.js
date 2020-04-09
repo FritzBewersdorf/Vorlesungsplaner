@@ -61,10 +61,13 @@ document.getElementById("Button1").addEventListener('click', function() {
 getData();
 
   async function getData(){
-    clearContent();
+    document.getElementById("dozentliste").innerHTML="";
+
     const response = await fetch('http://localhost:8080/Nutzer/0');
     const data = await response.json();
     console.log(data);
+
+    
 
     var ul = document.createElement("ul");
     
@@ -93,8 +96,6 @@ getData();
               drueck.textContent = "Dozent löschen";
               drueck.setAttribute('class', 'dropdown-item');
               drueck.setAttribute('href', '#');
-          
-              console.log(item.nutId);
 
               listitem.appendChild(Naaame);
               Naaame.appendChild(divi);
@@ -109,21 +110,14 @@ getData();
                 fetch(apiUrl2, {method: 'DELETE',
                   headers:
                     {'content-type': 'application/json'}
-                  })      
+                  })   
                     //.then(response => response.json())
                     .then(getData)
                     .catch(err => console.error(err))
                 }); 
-
           }     
       document.getElementById("dozentliste").appendChild(ul);
   }
-};
-
-function clearContent()
-{
-  console.log("Liste wird neu geladen");
-  document.getElementById("dozentliste").innerHTML="";
 }
 
 
