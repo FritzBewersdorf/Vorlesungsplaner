@@ -45,14 +45,17 @@ document.getElementById("Button1").addEventListener('click', function() {
                               nutEmail: Email,
                               nutPasswort: Passwort })
     })
-        .then(response => response.json())
-        the.getData()
+        //.then(response => response.json())
+        .then(getData)
         .catch(err => console.error(err))
-}); 
 
-document.getElementById("Button1").addEventListener('click', function() {
-  location.reload();
-});
+        document.getElementById("Dialog1").close();
+
+        Vorname = document.getElementById("formGroupExampleInput").value = "";
+        Nachname = document.getElementById("formGroupExampleInput1").value = "";
+        Email = document.getElementById("exampleFormControlInput1").value = "";
+        Passwort = document.getElementById("inputPassword5").value = "";
+}); 
 
 //DozentenGenerieren
 getData();
@@ -93,6 +96,13 @@ getData();
           
               console.log(item.nutId);
 
+              listitem.appendChild(Naaame);
+              Naaame.appendChild(divi);
+              divi.appendChild(button1234);
+              divi.appendChild(divi2);
+              divi2.appendChild(drueck);
+              ul.appendChild(listitem); 
+
               drueck.addEventListener('click',function deletos()
                 {
                 var apiUrl2 = "http://localhost:8080/Nutzer/" + item.nutId ;
@@ -100,29 +110,20 @@ getData();
                   headers:
                     {'content-type': 'application/json'}
                   })      
-                    .then(response => response.json())
-                    .then.getData()
+                    //.then(response => response.json())
+                    .then(getData)
                     .catch(err => console.error(err))
                 }); 
 
-              drueck.addEventListener('click',function delet(){
-                location.reload();
-              });
-
-              listitem.appendChild(Naaame);
-              Naaame.appendChild(divi);
-              divi.appendChild(button1234);
-              divi.appendChild(divi2);
-              divi2.appendChild(drueck);
-              ul.appendChild(listitem); 
           }     
-      document.getElementById("ungeordneteListe").appendChild(ul);
+      document.getElementById("dozentliste").appendChild(ul);
   }
 };
 
 function clearContent()
 {
-   document.getElementById("ungeordneteListe").innerHTML="";
+  console.log("Liste wird neu geladen");
+  document.getElementById("dozentliste").innerHTML="";
 }
 
 
