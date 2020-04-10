@@ -8,6 +8,10 @@ document.getElementById("testButton").addEventListener('click', function dialogN
  
 document.getElementById("Button2").addEventListener('click', function listeAbgebrochen ()
 {
+  Vorname = document.getElementById("formGroupExampleInput").value = "";
+  Nachname = document.getElementById("formGroupExampleInput1").value = "";
+  Email = document.getElementById("exampleFormControlInput1").value = "";
+  Passwort = document.getElementById("inputPassword5").value = "";
   document.getElementById("Dialog1").close();
 });
 
