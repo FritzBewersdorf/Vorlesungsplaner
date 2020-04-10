@@ -143,6 +143,7 @@ body {
     background-color: white;
     border: 1px solid black;
     margin: 20px 10px 20px 10px;
+    border-radius: 15px;
     
 }
 
@@ -174,6 +175,11 @@ body {
 
 }
 
+.content .Vorlesungsplanansicht .Kalenderwochenansicht {
+    align-items: flex-start;
+}
+
+
 
 
 .content .Vorlesungsplanansicht .Kalendertageinzeln {
@@ -182,12 +188,30 @@ body {
     margin: 10px 10px 10px 10px;
     width: 130px;
     height: 500px;
+    border-radius: 15px;
+    padding: 5px 5px 5px 5px;
 
 }
 
 .content .Vorlesungsplanansicht .Kalendertageinzeln #tagheader {
     border-bottom: 1px solid blue;
+    text-align: center;
 }
+
+.content .Vorlesungsplanansicht .Kalendertageinzeln #taginhalt {
+    text-align: center;
+}
+
+.content .Vorlesungsplanansicht .Kalendertageinzeln #taginhalt #einzelnevorlesung {
+    text-align: center;
+    border-left: 2px solid red;
+    margin: 15px 5px 15px 5px;
+    background-color: lightgrey;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
 
 
 /*DialogNeuenDozentanlegen*/
