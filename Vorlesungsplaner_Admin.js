@@ -61,8 +61,6 @@ function Kalenderwoche(weekNumber){
 function JahrAnzeigen(yearOfThursday){
     document.getElementById("KalenderJahr").innerHTML="";
 
-    console.log(yearOfThursday);
-
     var buttonUno1 = document.createElement("button");
     buttonUno1.setAttribute('type', 'fas fa-arrow-lef');
     buttonUno1.id = 'NeuerButton3';
@@ -95,4 +93,12 @@ function JahrAnzeigen(yearOfThursday){
         JahrAnzeigen(yearOfThursday);
         Kalenderwoche(weekNumber);
     });
+}
+
+function AufrufenTage(){
+    for (let item1 of yearOfThursday){
+        for(let item2 of weekNumber){
+            
+        }
+    }
 }
