@@ -94,7 +94,6 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 }
 
 var a = new Array(52);
-
 var Bei = 1
 for (var i = 0; i < 52; i++) {
     a[i] = Bei;
@@ -102,6 +101,16 @@ for (var i = 0; i < 52; i++) {
   }
 
 console.log(a);
+
+var b = new Array(5000);
+var Bei1 = 1
+for (var i = 0; i < 5000; i++) {
+    a[i] = Bei1;
+    Bei1++;
+  }
+
+console.log(b);
+
 
 AufrufenTage(weekNumber, yearOfThursday);
 
@@ -137,8 +146,8 @@ function montag(item){
 
             var divi7 = document.createElement("div");
             divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
             divi7.textContent= "Mathe" + item;
+            divi6.appendChild(divi7);
 
             var h6geile = document.createElement("h6");
             h6geile.textContent = "9:00 bis 12:15";
