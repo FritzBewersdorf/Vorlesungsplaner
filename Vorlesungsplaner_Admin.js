@@ -102,10 +102,10 @@ for (var i = 0; i < 52; i++) {
 
 console.log(a);
 
-var b = new Array(5000);
+var b = new Array(3000);
 var Bei1 = 1
-for (var i = 0; i < 5000; i++) {
-    a[i] = Bei1;
+for (var i = 0; i < 3000; i++) {
+    b[i] = Bei1;
     Bei1++;
   }
 
@@ -115,18 +115,21 @@ console.log(b);
 AufrufenTage(weekNumber, yearOfThursday);
 
 function AufrufenTage(weekNumber, yearOfThursday){
-    a.forEach(item =>{
-        if(item=weekNumber){
-            console.log(item);
-            montag(item);
-            dienstag(item);
-            mittwoch(item);
-            donnerstag(item);
-            freitag(item);
-            samstag(item);
-            sonntag(item);
-        }
-    })
+
+            a.forEach(item =>{
+            
+                if(item=weekNumber){
+                    console.log(item);
+                    montag(item);
+                    dienstag(item);
+                    mittwoch(item);
+                    donnerstag(item);
+                    freitag(item);
+                    samstag(item);
+                    sonntag(item);
+                
+            }
+            })
 }
 
 function montag(item){
@@ -259,7 +262,7 @@ function donnerstag(item){
             divi5.setAttribute('id', 'tagheader');
 
             var h3geile = document.createElement("h3");
-            h3geile.textContent = "Donnerstag" + item;
+            h3geile.textContent = "Donnerstag " + item;
             divi5.appendChild(h3geile);
 
             document.getElementById("ansichtdonnerstag").appendChild(divi5);

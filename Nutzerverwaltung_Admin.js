@@ -65,7 +65,7 @@ document.getElementById("Button1").addEventListener('click', function() {
 getData();
 
   async function getData(){
-    document.getElementById("DaFuerLoeschen").innerHTML="";
+    document.getElementById("dozentliste").innerHTML="";
 
     const response = await fetch('http://localhost:8080/Nutzer/0');
     const data = await response.json();
