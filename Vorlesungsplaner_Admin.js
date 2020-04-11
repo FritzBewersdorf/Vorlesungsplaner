@@ -406,3 +406,22 @@ function sonntag(item){
 
             document.getElementById("ansichtsonntag").appendChild(divi9);
 }
+////////////// Sidebar ein und ausfahren mit Abfrage nach Bildschirmbreite
+
+function openNav() {
+    if (screen.availWidth > 600)
+    {
+        document.getElementById("sideBar").style.width = "250px";
+    }
+    else
+    {
+        document.getElementById("sideBar").style.width = "100%";
+    }
+    
+    document.getElementById("ansichtdozent").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("sideBar").style.width = "0";
+    document.getElementById("ansichtdozent").style.marginLeft= "0";
+}

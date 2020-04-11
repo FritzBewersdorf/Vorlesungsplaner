@@ -11,8 +11,10 @@ body {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 230px 1fr;
+    grid-template-columns: 0px 1fr;
     grid-template-rows: 75px 1fr 60px;
+  
+
     grid-template-areas:
         "sidebar header"
         "sidebar content"
@@ -235,6 +237,24 @@ body {
     height: 100%;
     overflow-x: hidden;
 }
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: -20px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
 
 .sidebar .sidebarliste li {
     list-style: none;
