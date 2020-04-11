@@ -16,6 +16,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var Naaame11 = document.createElement("h4"); 
     Naaame11.textContent = "Kalenderwoche " + weekNumber;
+    Naaame11.id = "idWoche";
 
     var buttonBeta = document.createElement("button");
     buttonBeta.setAttribute('type', 'fas fa-arrow-right');
@@ -35,6 +36,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var Naaame12 = document.createElement("h3"); 
     Naaame12.textContent = "Jahr " + yearOfThursday;
+    Naaame12.id = "idJahr";
 
     var buttonBeta1 = document.createElement("button");
     buttonBeta1.setAttribute('type', 'fas fa-arrow-right');
@@ -49,7 +51,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
         document.getElementById("NeuerButton1").addEventListener('click', function() {
             weekNumber = weekNumber-1;
             Kalenderwoche(weekNumber, yearOfThursday);
-            AufrufenTage(weekNumber, yearOfThursday);
+            forTage();
         });
     }
     else{
@@ -57,7 +59,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
             weekNumber = 52;
             yearOfThursday = yearOfThursday -1;
             Kalenderwoche(weekNumber, yearOfThursday);
-            AufrufenTage(weekNumber, yearOfThursday);
+            forTage();
         })
     }
 
@@ -65,7 +67,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
         document.getElementById("NeuerButton2").addEventListener('click', function() {
             weekNumber = weekNumber+1;
             Kalenderwoche(weekNumber, yearOfThursday);
-            AufrufenTage(weekNumber, yearOfThursday);
+            forTage();
         })
     }
     else{
@@ -73,7 +75,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
             weekNumber = 1;
             yearOfThursday = yearOfThursday +1;
             Kalenderwoche(weekNumber, yearOfThursday);
-            AufrufenTage(weekNumber, yearOfThursday);
+            forTage();
         })
     }
     if(yearOfThursday!=0){
@@ -81,7 +83,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
             yearOfThursday = yearOfThursday-1;
             weekNumber =1;
             Kalenderwoche(weekNumber, yearOfThursday);
-            AufrufenTage(weekNumber, yearOfThursday);
+            forTage();
         });
     }
 
@@ -89,335 +91,67 @@ function Kalenderwoche(weekNumber, yearOfThursday){
         yearOfThursday = yearOfThursday+1;
         weekNumber =1;
         Kalenderwoche(weekNumber, yearOfThursday);
-        AufrufenTage(weekNumber, yearOfThursday);
+        forTage();
     });
 }
 
-var a = new Array(52);
-var Bei = 1
-for (var i = 0; i < 52; i++) {
-    a[i] = Bei;
-    Bei++;
-  }
+//AufrufenTage(weekNumber, yearOfThursday);
 
-console.log(a);
+var tage = [{number: 1, tag: "Montag"},{number: 2, tag: "Dienstag"},{number: 3, tag: "Mittwoch"},{number: 4, tag: "Donnerstag"},{number: 5, tag: "Freitag"},{number: 6, tag: "Samstag"},{number: 7, tag: "Sonntag"}]
 
-var b = new Array(3000);
-var Bei1 = 1
-for (var i = 0; i < 3000; i++) {
-    b[i] = Bei1;
-    Bei1++;
-  }
-
-console.log(b);
-
-
-AufrufenTage(weekNumber, yearOfThursday);
-
-function AufrufenTage(weekNumber, yearOfThursday){
-
-            a.forEach(item =>{
-            
-                if(item=weekNumber){
-                    console.log(item);
-                    montag(item);
-                    dienstag(item);
-                    mittwoch(item);
-                    donnerstag(item);
-                    freitag(item);
-                    samstag(item);
-                    sonntag(item);
-                
-            }
-            })
+function forTage(){
+    tage.forEach(tag=>{
+        tagMalen(tag.number, tag.tag);
+    }) 
 }
 
-function montag(item){
-    document.getElementById("ansichtmontag").innerHTML="";
+function tagMalen(number, tag){
+    var ansicht = "";
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).innerHTML="";
 
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
+    var tagUndDatum = document.createElement("div");
+    tagUndDatum.setAttribute('id', 'tagheader');
 
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Montag" + item;
-            divi5.appendChild(h3geile);
+    var datum = getDateOfISOWeek(document.getElementById("idWoche").textContent.substring(14), document.getElementById("idJahr").textContent.substring(5),number);
 
-            document.getElementById("ansichtmontag").appendChild(divi5);
+    var h3geile = document.createElement("h3");
+    var ausgeschriebenerTag= "";
+    h3geile.textContent = ausgeschriebenerTag.concat(tag, ", der ");
+    var IDh3 = document.createElement("h3");
+    IDh3.textContent = datum;
+    tagUndDatum.appendChild(h3geile);
+    tagUndDatum.appendChild(IDh3);
 
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(tagUndDatum);
 
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi7.textContent= "Mathe" + item;
-            divi6.appendChild(divi7);
+    var divi6 = document.createElement("div");
+    divi6.setAttribute('id', 'taginhalt');
 
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
+    var divi7 = document.createElement("input");
+    divi7.setAttribute('id', 'einzelnevorlesung');
+    divi7.textContent= "Mathe" ;
+    divi6.appendChild(divi7);
 
-            document.getElementById("ansichtmontag").appendChild(divi6);
+    var h6geile = document.createElement("h6");
+    h6geile.textContent = "9:00 bis 12:15";
+    divi6.appendChild(h6geile);
 
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichtmontag").appendChild(divi9);
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(divi6);
 }
 
-function dienstag(item){
-    document.getElementById("ansichtdienstag").innerHTML="";
-
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
-
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Dienstag" + item;
-            divi5.appendChild(h3geile);
-
-            document.getElementById("ansichtdienstag").appendChild(divi5);
-
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
-
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
-            divi7.textContent= "Mathe" + item;
-
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
-
-            document.getElementById("ansichtdienstag").appendChild(divi6);
-
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichtdienstag").appendChild(divi9);
+function getDateOfISOWeek(item,yearOfThursday,number) {
+    var simple = new Date(yearOfThursday, 0, 0 + (item - 1) * 7);
+    var dow = simple.getDay();
+    var ISOweekStart = simple;
+    if (dow <= 4)
+       ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+    else
+       ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+ 
+    ISOweekStart.setDate(ISOweekStart.getDate()+number);
+    return ISOweekStart.toLocaleDateString(); 
 }
 
-function mittwoch(item){
-    document.getElementById("ansichmittwoch").innerHTML="";
-
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
-
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Mittwoch" + item;
-            divi5.appendChild(h3geile);
-
-            document.getElementById("ansichmittwoch").appendChild(divi5);
-
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
-
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
-            divi7.textContent= "Mathe" + item;
-
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
-
-            document.getElementById("ansichmittwoch").appendChild(divi6);
-
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichmittwoch").appendChild(divi9);
-}
-
-function donnerstag(item){
-    document.getElementById("ansichtdonnerstag").innerHTML="";
-
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
-
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Donnerstag " + item;
-            divi5.appendChild(h3geile);
-
-            document.getElementById("ansichtdonnerstag").appendChild(divi5);
-
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
-
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
-            divi7.textContent= "Mathe" + item;
-
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
-
-            document.getElementById("ansichtdonnerstag").appendChild(divi6);
-
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichtdonnerstag").appendChild(divi9);
-}
-
-function freitag(item){
-    document.getElementById("ansichtfreitag").innerHTML="";
-
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
-
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Freitag" + item;
-            divi5.appendChild(h3geile);
-
-            document.getElementById("ansichtfreitag").appendChild(divi5);
-
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
-
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
-            divi7.textContent= "Mathe" + item;
-
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
-
-            document.getElementById("ansichtfreitag").appendChild(divi6);
-
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichtfreitag").appendChild(divi9);
-}
-
-function samstag(item){
-    document.getElementById("ansichtsamstag").innerHTML="";
-
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
-
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Samstag" + item;
-            divi5.appendChild(h3geile);
-
-            document.getElementById("ansichtsamstag").appendChild(divi5);
-
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
-
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
-            divi7.textContent= "Mathe" + item;
-
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
-
-            document.getElementById("ansichtsamstag").appendChild(divi6);
-
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichtsamstag").appendChild(divi9);
-}
-
-function sonntag(item){
-    document.getElementById("ansichtsonntag").innerHTML="";
-
-            var divi5 = document.createElement("div");
-            divi5.setAttribute('id', 'tagheader');
-
-            var h3geile = document.createElement("h3");
-            h3geile.textContent = "Sonntag" + item;
-            divi5.appendChild(h3geile);
-
-            document.getElementById("ansichtsonntag").appendChild(divi5);
-
-            var divi6 = document.createElement("div");
-            divi6.setAttribute('id', 'taginhalt');
-
-            var divi7 = document.createElement("div");
-            divi7.setAttribute('id', 'einzelnevorlesung');
-            divi6.appendChild(divi7);
-            divi7.textContent= "Mathe" + item;
-
-            var h6geile = document.createElement("h6");
-            h6geile.textContent = "9:00 bis 12:15";
-            divi7.appendChild(h6geile);
-
-            document.getElementById("ansichtsonntag").appendChild(divi6);
-
-            var divi9 = document.createElement("div");
-            divi9.setAttribute('id', 'taginhalt');
-
-            var divi10 = document.createElement("div");
-            divi10.setAttribute('id', 'einzelnevorlesung');
-            divi9.appendChild(divi10);
-            divi10.textContent= "Sport" + item;
-
-            var h6geile1 = document.createElement("h6");
-            h6geile1.textContent = "9:00 bis 12:15";
-            divi10.appendChild(h6geile1);
-
-            document.getElementById("ansichtsonntag").appendChild(divi9);
-}
 ////////////// Sidebar ein und ausfahren mit Abfrage nach Bildschirmbreite
 
 function openNav() {
@@ -437,3 +171,5 @@ function closeNav() {
     document.getElementById("sideBar").style.width = "0";
     document.getElementById("ansichtdozent").style.marginLeft= "0";
 }
+
+forTage();
