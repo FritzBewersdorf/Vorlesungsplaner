@@ -28,6 +28,7 @@ body {
 }
 
 .header {
+    background-color: white;
     grid-area: header;
     width: 100%;
     left: 0;
