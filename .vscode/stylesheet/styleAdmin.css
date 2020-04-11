@@ -1,9 +1,11 @@
 html {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Sofia';font-size: 22px;
 }
 
 body {
    margin: 0;
+  
+
 }
 
 .box {
@@ -20,12 +22,14 @@ body {
         "sidebar content"
         "sidebar footer"
 }
+
+/*
 .container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-}
+} */
 
 .header {
     background-color: white;
