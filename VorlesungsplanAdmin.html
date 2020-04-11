@@ -47,6 +47,9 @@
             <!-- Content Dozenten-->
             <div class="content" id="ansichtdozent"> 
                 <div class="contentinhalt" id="item-1">
+                        <Button class="farbigerButton openbtn" onclick="openNav()">
+                                <i class="fas fa-angle-right" id="zurückTaste"></i>
+                              </button>
 
                 
                     <div id="contenttitel ">
@@ -289,12 +292,15 @@
             </div>
 
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="sidebar" id="sideBar">
                     
                     <div class="sidebarinhalt" >
                         <div class="dhbwlogo">
                                 <img src="https://upload.wikimedia.org/wikipedia/de/thumb/1/1d/DHBW-Logo.svg/1200px-DHBW-Logo.svg.png" width="150" height="65">
                         </div>
+                        <button class="farbigerButton closebtn" onclick="closeNav()">
+                            <i class="fas fa-times" id="sidebarschließen"></i>          
+                        </Button>
                         <nav id="navbar-example3" class="navbar navbar-light">
                             
                                 <nav class="nav nav-pills flex-column">
