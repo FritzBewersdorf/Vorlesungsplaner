@@ -24,6 +24,7 @@ document.getElementById("buttonlos2").addEventListener('click', function() {
                     alert("Anmeldung Fehlgeschlagen");
                 }
         })
+    var apiUrl2 = "http://localhost:8080/Nutzer-Id"
     document.getElementById("exampleInputEmail2").value = "";
     document.getElementById("exampleInputPassword2").value = "";
 });

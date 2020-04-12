@@ -124,19 +124,40 @@ function tagMalen(number, tag){
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(tagUndDatum);
 
-    var divi6 = document.createElement("div");
-    divi6.setAttribute('id', 'taginhalt');
+    var vorlesungsBlock = document.createElement("div");
+    vorlesungsBlock.setAttribute('id', tag + 'inhalt');
 
-    var divi7 = document.createElement("input");
-    divi7.setAttribute('id', 'einzelnevorlesung');
-    divi7.textContent= "Mathe" ;
-    divi6.appendChild(divi7);
+
+    vorlesungsListe();
+    async function vorlesungsListe(){
+    
+        const response = await fetch('http://localhost:8080/Vorlesung/0');
+        const data = await response.json();
+
+        var abgefragteVorlesungen = [];
+        for(let item of data){
+            var abfrageVorlesung = new Date(item.vorDatum.substring(0,10).split("-").join(","));
+            if(abfrageVorlesung.toLocaleDateString()==datum){
+                var neueVorlesung = abgefragteVorlesungen.push(item);
+            }
+        }
+        abgefragteVorlesungen.forEach(vorlesung =>{
+            var block1 = document.createElement("div");
+            block1.textContent = vorlesung.vorTitel;
+            document.getElementById(tag+ "inhalt").appendChild(block1)
+        })
+    }
+    
+
+    var divi7 = document.createElement("button");
+    divi7.textContent = "Editieren";
+    vorlesungsBlock.appendChild(divi7);
 
     var h6geile = document.createElement("h6");
     h6geile.textContent = "9:00 bis 12:15";
-    divi6.appendChild(h6geile);
+    vorlesungsBlock.appendChild(h6geile);
 
-    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(divi6);
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
 }
 
 function getDateOfISOWeek(item,yearOfThursday,number) {
@@ -152,6 +173,7 @@ function getDateOfISOWeek(item,yearOfThursday,number) {
     return ISOweekStart.toLocaleDateString(); 
 }
 
+forTage();
 ////////////// Sidebar ein und ausfahren mit Abfrage nach Bildschirmbreite
 
 function openNav() {
@@ -171,5 +193,3 @@ function closeNav() {
     document.getElementById("sideBar").style.width = "0";
     document.getElementById("ansichtdozent").style.marginLeft= "0";
 }
-
-forTage();
