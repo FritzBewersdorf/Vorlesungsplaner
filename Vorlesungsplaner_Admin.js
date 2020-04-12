@@ -95,8 +95,6 @@ function Kalenderwoche(weekNumber, yearOfThursday){
     });
 }
 
-//AufrufenTage(weekNumber, yearOfThursday);
-
 var tage = [{number: 1, tag: "Montag"},{number: 2, tag: "Dienstag"},{number: 3, tag: "Mittwoch"},{number: 4, tag: "Donnerstag"},{number: 5, tag: "Freitag"},{number: 6, tag: "Samstag"},{number: 7, tag: "Sonntag"}]
 
 function forTage(){
@@ -126,8 +124,19 @@ function tagMalen(number, tag){
 
     var vorlesungsBlock = document.createElement("div");
     vorlesungsBlock.setAttribute('id', tag + 'inhalt');
+    
 
+    var divi7 = document.createElement("button");
+    divi7.textContent = "Editieren";
+    vorlesungsBlock.appendChild(divi7);
 
+    var h6geile = document.createElement("h6");
+    h6geile.textContent = "9:00 bis 12:15";
+    vorlesungsBlock.appendChild(h6geile);
+
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
+
+    
     vorlesungsListe();
     async function vorlesungsListe(){
     
@@ -143,21 +152,10 @@ function tagMalen(number, tag){
         }
         abgefragteVorlesungen.forEach(vorlesung =>{
             var block1 = document.createElement("div");
-            block1.textContent = vorlesung.vorTitel;
+            block1.textContent = vorlesung.vorTitel + " bei " + vorlesung.nutzer.nutNachname;
             document.getElementById(tag+ "inhalt").appendChild(block1)
         })
     }
-    
-
-    var divi7 = document.createElement("button");
-    divi7.textContent = "Editieren";
-    vorlesungsBlock.appendChild(divi7);
-
-    var h6geile = document.createElement("h6");
-    h6geile.textContent = "9:00 bis 12:15";
-    vorlesungsBlock.appendChild(h6geile);
-
-    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
 }
 
 function getDateOfISOWeek(item,yearOfThursday,number) {
