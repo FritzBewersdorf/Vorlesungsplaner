@@ -17,6 +17,7 @@ document.getElementById("Button2").addEventListener('click', function listeAbgeb
 
 document.getElementById("auslogg").addEventListener('click', function Ausgelogge()
 {
+  window.localStorage.removeItem('nutIdEingelesen')
   window.location.assign("VorlesungsplanLogin.html")
 });
 
