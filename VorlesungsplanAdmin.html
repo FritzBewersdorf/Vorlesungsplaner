@@ -349,7 +349,7 @@
                 <div align="center">
                     <h1>Vorlesung erstellen</h1>
                     <br/>
-                    <form action="#" th:action="@{/save}" th:object="${product}" method="post">
+                    <form>
                         <table border="0" cellpadding="10">
                             <tr>
                                 <td>Vorlesungsfach:</td>
@@ -360,7 +360,8 @@
                                 <td><input type="text" th:field="*{name}" id = "zeitplan"/></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><button type="submit" id ="speichern">Eingabe</button></td>
+                                <td colspan="2"><button id ="speichern">Eingabe</button></td>
+                                <td colspan="2"><button id ="abbrechen">Abbrechen</button></td>
                             </tr>
                         </table>
                     </form>

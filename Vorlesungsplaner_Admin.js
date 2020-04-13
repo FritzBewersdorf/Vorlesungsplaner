@@ -139,12 +139,37 @@ function tagMalen(number, tag){
     });
 
     document.getElementById("speichern").addEventListener('click', function() {
+
+        var fach = document.getElementById("fach").value;
+        var zeitplan = document.getElementById("zeitplan").value;
+        //ElementeHinzufügenWiePasswortUndImBodyJSON
+
+        var apiUrl3 = "http://localhost:8080/Vorlesung";
+        fetch(apiUrl3, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ vorTitel: fach, 
+                                    vorDatum: "2020-04-16", 
+                                    zeitraum: {zeiID: 1}, 
+                                    nutzer: { nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))}})})
+            .catch(err => console.error(err))
+            .then(console.log("Hallo"))
+
+
+        window.localStorage.removeItem('vorDatumEingelesen');
+        document.getElementById("fach").value = "";
+        document.getElementById("zeitplan").value = "";
+        //document.getElementById("dialog2").close();
+    })
+        
+    document.getElementById("abbrechen").addEventListener('click', function() {
         window.localStorage.removeItem('vorDatumEingelesen');
         document.getElementById("fach").value = "";
         document.getElementById("zeitplan").value = "";
         document.getElementById("dialog2").close();
     })
-        
 
     vorlesungsListe();
     async function vorlesungsListe(){
@@ -176,7 +201,7 @@ function getDateOfISOWeek(item,yearOfThursday,number) {
     else
        ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
  
-    ISOweekStart.setDate(ISOweekStart.getDate()+number);
+    ISOweekStart.setDate(ISOweekStart.getDate()+(number-1));
     return ISOweekStart.toLocaleDateString(); 
 }
 
