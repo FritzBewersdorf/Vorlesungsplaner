@@ -124,13 +124,6 @@ function tagMalen(number, tag){
 
     var vorlesungsBlock = document.createElement("div");
     vorlesungsBlock.setAttribute('id', tag + 'inhalt');
-    
-    /*
-    var divi7 = document.createElement("button");
-    divi7.textContent = "Editieren";
-    divi7.setAttribute('id', 'buttonFormular')
-    vorlesungsBlock.appendChild(divi7);
-    */
 
     var h6geile = document.createElement("h6");
     h6geile.textContent = "9:00 bis 12:15";
@@ -138,10 +131,20 @@ function tagMalen(number, tag){
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
 
-    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).addEventListener('click', function() {
-        window.location.assign("EingabeVorlesungsdaten.html");
+
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).addEventListener('click', function dialogNeueListe1()
+    {
+        document.getElementById("dialog2").showModal();
+        window.localStorage.setItem('vorDatumEingelesen', datum);
+    });
+
+    document.getElementById("speichern").addEventListener('click', function() {
+        window.localStorage.removeItem('vorDatumEingelesen');
+        document.getElementById("fach").value = "";
+        document.getElementById("zeitplan").value = "";
+        document.getElementById("dialog2").close();
     })
-    
+        
 
     vorlesungsListe();
     async function vorlesungsListe(){
