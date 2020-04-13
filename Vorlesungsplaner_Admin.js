@@ -125,10 +125,12 @@ function tagMalen(number, tag){
     var vorlesungsBlock = document.createElement("div");
     vorlesungsBlock.setAttribute('id', tag + 'inhalt');
     
-
+    /*
     var divi7 = document.createElement("button");
     divi7.textContent = "Editieren";
+    divi7.setAttribute('id', 'buttonFormular')
     vorlesungsBlock.appendChild(divi7);
+    */
 
     var h6geile = document.createElement("h6");
     h6geile.textContent = "9:00 bis 12:15";
@@ -136,7 +138,11 @@ function tagMalen(number, tag){
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
 
+    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).addEventListener('click', function() {
+        window.location.assign("EingabeVorlesungsdaten.html");
+    })
     
+
     vorlesungsListe();
     async function vorlesungsListe(){
     
