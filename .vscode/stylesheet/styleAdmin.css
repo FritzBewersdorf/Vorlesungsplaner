@@ -246,6 +246,15 @@ body {
     
 }
 
+/*DialogNeueVorlesunganlegen*/
+
+.Vorlesungsplanansicht #dialog2{
+    border: none;
+    border-radius: 15px;
+    padding: 25px 25px 25px 25px;
+    
+}
+
 /*Sidebar*/
 
 .sidebar {

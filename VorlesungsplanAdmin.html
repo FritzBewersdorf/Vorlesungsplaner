@@ -288,6 +288,33 @@
                                         </div>  
                                     </div>
                         </div>
+                        <dialog id = "dialog2">
+                            <div align="center">
+                                <form>
+                                    <h4 class="card-title text-center">Vorlesung erstellen</h4>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="formGroupExampleInput">Vorlesungsfach:</label>
+                                            <input type="text" th:field="*{name}" class="form-control" id="fach" placeholder="Vorlesungsfach" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="formGroupExampleInput1">Zeitraum:</label>
+                                            <!-- <input type="text" th:field="*{name}" class="form-control" id="zeitplan" placeholder="Zeitraum" required> -->
+                                            <select th:field="*{name}" class="custom-select" id="zeitplan" placeholder="Zeitraum">
+                                                <option selected>Choose...</option>
+                                                <option value="1">9:00 - 12:15</option>
+                                                <option value="2">13:15 - 16:30</option>
+                                                
+                                            </select>
+                                        </div>
+                                       
+                                        <button type="submit" class="btn btn-primary" id="speichern">Eingabe</button>
+                                        <button type="cancel" class="btn btn-primary" id="abbrechen">Abbrechen</button>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </dialog>
                     </div>
                 </div>
 
@@ -345,28 +372,7 @@
                     </div>
             </div> 
 
-            <dialog id = "dialog2">
-                <div align="center">
-                    <h1>Vorlesung erstellen</h1>
-                    <br/>
-                    <form>
-                        <table border="0" cellpadding="10">
-                            <tr>
-                                <td>Vorlesungsfach:</td>
-                                <td><input type="text" th:field="*{name}" id ="fach"></td>
-                            </tr>
-                            <tr>
-                                <td>Zeitraum:</td>
-                                <td><input type="text" th:field="*{name}" id = "zeitplan"/></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><button id ="speichern">Eingabe</button></td>
-                                <td colspan="2"><button id ="abbrechen">Abbrechen</button></td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-            </dialog>
+            
             <!-- Footer -->
             <div class="footer">
                 
