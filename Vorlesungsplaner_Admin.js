@@ -116,7 +116,7 @@ function tagMalen(number, tag){
     var ausgeschriebenerTag= "";
     h3geile.textContent = ausgeschriebenerTag.concat(tag, ", der ");
     var IDh3 = document.createElement("h3");
-    IDh3.textContent = datum;
+    IDh3.textContent = datum.toLocaleDateString();
     var vorlesungEintragen = document.createElement("button");
     vorlesungEintragen.textContent = "Neue Vorlesung anlegen";
     vorlesungEintragen.setAttribute('id', 'vorlesungEintragen1'+tag);
@@ -126,18 +126,15 @@ function tagMalen(number, tag){
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(tagUndDatum);
 
-    document.getElementById("vorlesungEintragen1"+tag).addEventListener('click', function dialogNeueListe1()
-    {
-        document.getElementById("dialog2").showModal();
-        window.localStorage.setItem('vorDatumEingelesen', datum);
-    });
+     document.getElementById("vorlesungEintragen1"+tag).addEventListener('click', function dialogNeueListe1()
+            {
+                document.getElementById("dialog2").showModal();
+                datum.setDate(datum.getDate()+1);
+                window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
+            });
 
     var vorlesungsBlock = document.createElement("div");
     vorlesungsBlock.setAttribute('id', tag + 'inhalt');
-
-    var h6geile = document.createElement("h6");
-    h6geile.textContent = "9:00 bis 12:15";
-    vorlesungsBlock.appendChild(h6geile);
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
 
@@ -151,7 +148,7 @@ function tagMalen(number, tag){
         var abgefragteVorlesungen = [];
         for(let item of data){
             var abfrageVorlesung = new Date(item.vorDatum.substring(0,10).split("-").join(","));
-            if(abfrageVorlesung.toLocaleDateString()==datum){
+            if(abfrageVorlesung.toLocaleDateString()==datum.toLocaleDateString()){
                 var neueVorlesung = abgefragteVorlesungen.push(item);
             }
         }
@@ -183,8 +180,6 @@ function tagMalen(number, tag){
 }
 
 document.getElementById("speichern").addEventListener('click', function() {
-
-    window.localStorage.removeItem('vorDatumEingelesen');
     document.getElementById("dialog2").close();
 
     var x = document.getElementById("zeitplan");
@@ -200,7 +195,7 @@ document.getElementById("speichern").addEventListener('click', function() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({    vorTitel: fach,
-                                    vorDatum:  "2020-04-15"/*window.localStorage.getItem('vorDatumEingelesen')*/,
+                                    vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
                                     zeitraum: {
                                         zeiId: i
                                     },
@@ -213,6 +208,7 @@ document.getElementById("speichern").addEventListener('click', function() {
     forTage();
     document.getElementById("fach").value = "";
     document.getElementById("zeitplan").selectedIndex = 0;
+    window.localStorage.removeItem('vorDatumEingelesen');
 })
     
 document.getElementById("abbrechen").addEventListener('click', function() {
@@ -233,7 +229,7 @@ function getDateOfISOWeek(item,yearOfThursday,number) {
        ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
  
     ISOweekStart.setDate(ISOweekStart.getDate()+(number-1));
-    return ISOweekStart.toLocaleDateString(); 
+    return ISOweekStart; 
 }
 
 forTage();
