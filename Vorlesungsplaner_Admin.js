@@ -140,11 +140,10 @@ function tagMalen(number, tag){
     document.getElementById("speichern").addEventListener('click', function() {
 
         window.localStorage.removeItem('vorDatumEingelesen');
-        document.getElementById("fach").value = "";
-        document.getElementById("zeitplan").value = "";
         document.getElementById("dialog2").close();
 
         var fach = document.getElementById("fach").value;
+
         var x = document.getElementById("zeitplan");
         var i = x.selectedIndex;
         console.log(i);
@@ -156,9 +155,9 @@ function tagMalen(number, tag){
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({    vorTitel: fach,
-                                        vorDatum: "2020-04-15", /*window.localStorage.getItem('vorDatumEingelesen')*/
+                                        vorDatum: "2020-04-13", /*window.localStorage.getItem('vorDatumEingelesen')*/
                                         zeitraum: {
-                                            zeiId: 1
+                                            zeiId: i
                                         },
                                         nutzer: {
                                             nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
@@ -172,7 +171,6 @@ function tagMalen(number, tag){
     document.getElementById("abbrechen").addEventListener('click', function() {
         window.localStorage.removeItem('vorDatumEingelesen');
         document.getElementById("fach").value = "";
-        document.getElementById("zeitplan").value = "";
         document.getElementById("dialog2").close();
     })
 
@@ -193,6 +191,9 @@ function tagMalen(number, tag){
         abgefragteVorlesungen.forEach(vorlesung =>{
             var block1 = document.createElement("div");
             block1.textContent = vorlesung.vorTitel + " bei " + vorlesung.nutzer.nutNachname;
+            var block2 = document.createElement("div");
+            block2.textContent = vorlesung.zeitraum.zeiBeginn + " bis " + vorlesung.zeitraum.zeiEnde;
+            block1.appendChild(block2);
             document.getElementById(tag+ "inhalt").appendChild(block1)
         })
     }
