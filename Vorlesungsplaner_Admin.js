@@ -137,43 +137,6 @@ function tagMalen(number, tag){
         window.localStorage.setItem('vorDatumEingelesen', datum);
     });
 
-    document.getElementById("speichern").addEventListener('click', function() {
-
-        window.localStorage.removeItem('vorDatumEingelesen');
-        document.getElementById("dialog2").close();
-        
-        var x = document.getElementById("zeitplan");
-        var i = x.selectedIndex;
-        console.log(i);
-        var fach = document.getElementById("fach").value;
-
-    
-        var apiUrl3 = "http://localhost:8080/Vorlesung";
-        fetch(apiUrl3, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({    vorTitel: fach,
-                                        vorDatum: "2020-04-13", /*window.localStorage.getItem('vorDatumEingelesen')*/
-                                        zeitraum: {
-                                            zeiId: i
-                                        },
-                                        nutzer: {
-                                            nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
-                                        }
-                                })
-            })
-            .catch(err => console.error(err))
-    
-    })
-        
-    document.getElementById("abbrechen").addEventListener('click', function() {
-        window.localStorage.removeItem('vorDatumEingelesen');
-        document.getElementById("fach").value = "";
-        document.getElementById("dialog2").close();
-    })
-
     vorlesungsListe();
 
     async function vorlesungsListe(){
@@ -194,10 +157,67 @@ function tagMalen(number, tag){
             var block2 = document.createElement("div");
             block2.textContent = vorlesung.zeitraum.zeiBeginn + " bis " + vorlesung.zeitraum.zeiEnde;
             block1.appendChild(block2);
+            var vorlesungLoeschen = document.createElement("button");
+            vorlesungLoeschen.textContent = "Vorlesung löschen";
+            vorlesungLoeschen.id = "vorlesungLoeschen";
+            block1.appendChild(vorlesungLoeschen);
             document.getElementById(tag+ "inhalt").appendChild(block1)
+
+            vorlesungLoeschen.addEventListener('click',function deletos()
+                {
+                var apiUrl2 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
+                fetch(apiUrl2, {method: 'DELETE',
+                  headers:
+                    {'content-type': 'application/json'}
+                  })   
+                    //.then(response => response.json())
+                    .then(forTage())
+                    .catch(err => console.error(err))
+                });
         })
     }
 }
+
+document.getElementById("speichern").addEventListener('click', function() {
+
+    window.localStorage.removeItem('vorDatumEingelesen');
+    document.getElementById("dialog2").close();
+
+    var x = document.getElementById("zeitplan");
+    var i = x.selectedIndex;
+    console.log(i);
+    var fach = document.getElementById("fach").value;
+
+
+    var apiUrl3 = "http://localhost:8080/Vorlesung";
+    fetch(apiUrl3, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({    vorTitel: fach,
+                                    vorDatum:  "2020-04-15"/*window.localStorage.getItem('vorDatumEingelesen')*/,
+                                    zeitraum: {
+                                        zeiId: i
+                                    },
+                                    nutzer: {
+                                        nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                    }
+                            })
+        })
+        .catch(err => console.error(err))
+    forTage();
+    document.getElementById("fach").value = "";
+    document.getElementById("zeitplan").selectedIndex = 0;
+})
+    
+document.getElementById("abbrechen").addEventListener('click', function() {
+    window.localStorage.removeItem('vorDatumEingelesen');
+    document.getElementById("fach").value = "";
+    document.getElementById("dialog2").close();
+
+   
+})
 
 function getDateOfISOWeek(item,yearOfThursday,number) {
     var simple = new Date(yearOfThursday, 0, 0 + (item - 1) * 7);
