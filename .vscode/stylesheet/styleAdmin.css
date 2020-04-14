@@ -26,6 +26,9 @@ body {
     padding-right: 15px;
 } */
 
+
+/*Header*/
+
 .header {
     grid-area: header;
     border-bottom: 1px solid black;
@@ -56,8 +59,7 @@ body {
     padding: 5px 5px 5px 5px;
 }
 
-
-
+/*Content Allgemein*/
 
 .content {
     grid-area: content;
@@ -66,29 +68,37 @@ body {
     border-left: 2px solid #D4D4DE;*/
     height: 100%;
     overflow-x: hidden;
+    transition: margin-left .5s;
+    margin-left: 0;
+    overflow-x: hidden;
 }
 
-.content #contenttitel #titeldozent{
-    
-    margin: 20px 50px 20px 50px;
+.content .contentinhalt {
+    margin: 50px 50px 50px 50px;
     padding: 0 0 0 0;
-    display: inline-block;
+}
+
+.content .contentinhalt .contenttitel {
     
-    
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    zoom: 200%;
+    padding: 0px 0px 0px 0px;
+    border: none;
+}
+
+.content .titel{
+    margin: 5px 5px 5px 5px;
+    display: inline-block; 
 }
 
 .content #dozenthinzufügen {
-
     display: inline-block;
-    margin: 50px 50px 20px 50px;
-    padding: 0 0 0 0;
+    margin: 10px 10px 10px 10px;
     float: right;
-}
-
-.content #neuerdozent {
-    border: none;
-    border-color: red;
-    border-radius: 15px;
 }
 
 .content #dozentliste ul{
@@ -96,7 +106,8 @@ body {
 }
 
 .content #dozentliste {
-    margin: 20px 50px 20px 50px;
+    margin: 5px 5px 5px 5px;
+    
 }
 
 .content #dozentliste li {
@@ -123,8 +134,7 @@ body {
 .content .shadow { 
     background-color: white;
     border-color: #C0C0C0;
-    padding: 10px 20px 20px 20px;
-    margin: 20px 20px 20px 0px;
+    margin: 20px 20px 10px 0px;
     border-radius: 15px;
     display: inline-block;
 }
@@ -139,18 +149,11 @@ body {
     border-radius: 15px!important;
 }
 
-/*Content Kalender*/
 
-.content .contentinhalt {
-    margin: 50px 50px 50px 50px;
-    padding: 0 0 0 0;
-}
-
-/*Kalender*/
+/*Content Vorlesungsplan*/
 
 .content .Vorlesungsplanansicht{
     background-color: white;
-    border: 1px solid black;
     margin: 20px 10px 20px 10px;
     border-radius: 15px;
     
@@ -167,9 +170,8 @@ body {
     background-color: none;
 }
 
-
 .content .Vorlesungsplanansicht .Kalenderheader {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid grey;
     margin: 10px 10px 10px 10px;
     display: flex;
 
@@ -178,7 +180,7 @@ body {
 
 
 .content .Vorlesungsplanansicht .Kalenderwochen {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid grey;
     margin: 10px 10px 10px 10px;
     display: flex;
 
@@ -192,7 +194,7 @@ body {
 
 
 .content .Vorlesungsplanansicht .Kalendertageinzeln {
-    border: 1px solid green; 
+    border: 1px solid grey; 
     display: inline-block;
     margin: 10px 10px 10px 10px;
     /*width: 130px;
@@ -223,18 +225,9 @@ body {
 
 
 
-/*DialogNeuenDozentanlegen*/
+/*Dialog Fenster*/
 
-.contentinhalt #Dialog1{
-    border: none;
-    border-radius: 15px;
-    padding: 25px 25px 25px 25px;
-    
-}
-
-/*DialogNeueVorlesunganlegen*/
-
-.Vorlesungsplanansicht #dialog2{
+.contentinhalt .Dialog{
     border: none;
     border-radius: 15px;
     padding: 25px 25px 25px 25px;
@@ -255,7 +248,7 @@ body {
 }
 
 .sidebar .closebtn {
-    position: absolute;
+    position: initial;
     top: 0;
     right: 25px;
     font-size: 20px;
@@ -263,14 +256,7 @@ body {
     margin-right: -20px;
   }
   
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-  }
+
 
 .sidebar .sidebarliste li {
     list-style: none;
