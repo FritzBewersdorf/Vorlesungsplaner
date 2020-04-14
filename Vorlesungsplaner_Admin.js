@@ -185,7 +185,7 @@ document.getElementById("speichern").addEventListener('click', function() {
     console.log(i);
     var fach = document.getElementById("fach").value;
 
-    if (fach != ""){
+    if (fach!="" && i!=0){
     var apiUrl3 = "http://localhost:8080/Vorlesung";
     fetch(apiUrl3, {
         method: "POST",
@@ -210,7 +210,7 @@ document.getElementById("speichern").addEventListener('click', function() {
     document.getElementById("dialog2").close();
     }
     else{
-        alert("Bitte Vorlesungsfach eintragen");
+        alert("Bitte Vorlesungsfach oder Zeiten eintragen");
     }
 })
     
