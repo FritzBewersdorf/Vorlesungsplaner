@@ -180,14 +180,12 @@ function tagMalen(number, tag){
 }
 
 document.getElementById("speichern").addEventListener('click', function() {
-    document.getElementById("dialog2").close();
-
     var x = document.getElementById("zeitplan");
     var i = x.selectedIndex;
     console.log(i);
     var fach = document.getElementById("fach").value;
 
-
+    if (fach != ""){
     var apiUrl3 = "http://localhost:8080/Vorlesung";
     fetch(apiUrl3, {
         method: "POST",
@@ -209,6 +207,11 @@ document.getElementById("speichern").addEventListener('click', function() {
     document.getElementById("fach").value = "";
     document.getElementById("zeitplan").selectedIndex = 0;
     window.localStorage.removeItem('vorDatumEingelesen');
+    document.getElementById("dialog2").close();
+    }
+    else{
+        alert("Bitte Vorlesungsfach eintragen");
+    }
 })
     
 document.getElementById("abbrechen").addEventListener('click', function() {
