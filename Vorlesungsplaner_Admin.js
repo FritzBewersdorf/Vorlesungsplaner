@@ -141,12 +141,12 @@ function tagMalen(number, tag){
 
         window.localStorage.removeItem('vorDatumEingelesen');
         document.getElementById("dialog2").close();
-
-        var fach = document.getElementById("fach").value;
-
+        
         var x = document.getElementById("zeitplan");
         var i = x.selectedIndex;
         console.log(i);
+        var fach = document.getElementById("fach").value;
+
     
         var apiUrl3 = "http://localhost:8080/Vorlesung";
         fetch(apiUrl3, {
