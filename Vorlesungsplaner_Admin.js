@@ -117,10 +117,20 @@ function tagMalen(number, tag){
     h3geile.textContent = ausgeschriebenerTag.concat(tag, ", der ");
     var IDh3 = document.createElement("h3");
     IDh3.textContent = datum;
+    var vorlesungEintragen = document.createElement("button");
+    vorlesungEintragen.textContent = "Neue Vorlesung anlegen";
+    vorlesungEintragen.setAttribute('id', 'vorlesungEintragen1'+tag);
     tagUndDatum.appendChild(h3geile);
     tagUndDatum.appendChild(IDh3);
+    tagUndDatum.appendChild(vorlesungEintragen);
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(tagUndDatum);
+
+    document.getElementById("vorlesungEintragen1"+tag).addEventListener('click', function dialogNeueListe1()
+    {
+        document.getElementById("dialog2").showModal();
+        window.localStorage.setItem('vorDatumEingelesen', datum);
+    });
 
     var vorlesungsBlock = document.createElement("div");
     vorlesungsBlock.setAttribute('id', tag + 'inhalt');
@@ -130,12 +140,6 @@ function tagMalen(number, tag){
     vorlesungsBlock.appendChild(h6geile);
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(vorlesungsBlock);
-
-    document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).addEventListener('click', function dialogNeueListe1()
-    {
-        document.getElementById("dialog2").showModal();
-        window.localStorage.setItem('vorDatumEingelesen', datum);
-    });
 
     vorlesungsListe();
 
