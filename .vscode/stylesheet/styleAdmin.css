@@ -209,11 +209,11 @@ body {
     text-align: center;
 }
 
-.content .Vorlesungsplanansicht .Kalendertageinzeln #taginhalt {
+.content .Vorlesungsplanansicht .Kalendertageinzeln .taginhalt {
     text-align: center;
 }
 
-.content .Vorlesungsplanansicht .Kalendertageinzeln #taginhalt #einzelnevorlesung {
+.content .Vorlesungsplanansicht .Kalendertageinzeln .taginhalt .einzelnevorlesung {
     text-align: center;
     border-left: 2px solid red;
     margin: 15px 5px 15px 5px;

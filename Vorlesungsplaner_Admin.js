@@ -153,16 +153,39 @@ function tagMalen(number, tag){
             }
         }
         abgefragteVorlesungen.forEach(vorlesung =>{
+            var tagInhalt = document.createElement("div");
+            tagInhalt.setAttribute('class', 'taginhalt');
             var block1 = document.createElement("div");
+            block1.setAttribute('class', 'einzelnevorlesung');
             block1.textContent = vorlesung.vorTitel + " bei " + vorlesung.nutzer.nutNachname;
+            tagInhalt.appendChild(block1);
             var block2 = document.createElement("div");
             block2.textContent = vorlesung.zeitraum.zeiBeginn + " bis " + vorlesung.zeitraum.zeiEnde;
             block1.appendChild(block2);
-            var vorlesungLoeschen = document.createElement("button");
-            vorlesungLoeschen.textContent = "Vorlesung löschen";
-            vorlesungLoeschen.id = "vorlesungLoeschen";
+
+            var vorlesungLoeschen = document.createElement("div");
+            vorlesungLoeschen.setAttribute('class', 'btn-group');
+
+              var button1234 = document.createElement("button");
+              button1234.setAttribute('type', 'button');
+              button1234.setAttribute('class', 'btn dropdown-toggle');
+              button1234.setAttribute( 'data-toggle', 'dropdown');
+              button1234.setAttribute('aria-expanded', 'false');
+
+              var divi2 = document.createElement("div");
+              divi2.setAttribute('class', 'dropdown-menu');
+
+              var drueck = document.createElement("a");
+              drueck.textContent = "Vorlesung löschen";
+              drueck.setAttribute('class', 'dropdown-item');
+              drueck.setAttribute('href', '#');
+        
+            divi2.appendChild(drueck);
+            vorlesungLoeschen.appendChild(button1234);
+            vorlesungLoeschen.appendChild(divi2);
             block1.appendChild(vorlesungLoeschen);
-            document.getElementById(tag+ "inhalt").appendChild(block1)
+           
+            document.getElementById(tag+ "inhalt").appendChild(tagInhalt)
 
             vorlesungLoeschen.addEventListener('click',function deletos()
                 {
