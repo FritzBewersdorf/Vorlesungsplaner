@@ -310,30 +310,38 @@
 
             <!-- Sidebar -->
             <div class="sidebar" id="sideBar">
-                    
-                    <div class="sidebarinhalt" >
-                        
-                        <button class="farbigerButton closebtn" onclick="closeNav()">
-                            <i class="fas fa-times" id="sidebarschließen"></i>          
-                        </Button>
-                        <nav id="navbar-example3" class="navbar navbar-light">
+                <button class="farbigerButton closebtn" onclick="closeNav()">
+                    <i class="fas fa-times" id="sidebarschließen"></i>          
+                </Button>
+                <div class="sidebarinhalt">
+                    <nav id="navbar-example3" class="navbar navbar-light">
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link sidebartabs shadow" href="#item-1">
+                                <i class="fas fa-users" id="sidebaricons"></i>
+                                <br>
+                                <h6>
+                                    Dozenten
+                                </h6>
+                            </a>
                             
-                                <nav class="nav nav-pills flex-column">
-                                    <a class="nav-link" href="#item-1">
-                                        <i class="fas fa-users"></i>
-                                        Dozenten
-                                    </a>
-                                    
-                                    <a class="nav-link" href="#item-2">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        Kalender
-                                    </a>
-                                    <a class="nav-link" href="#item-3" id="auslogg">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                        Ausloggen</a>
-                                    
-                                </nav>
-                            </nav>
+                            <a class="nav-link sidebartabs shadow" href="#item-2">
+                                <i class="fas fa-calendar-alt" id="sidebaricons"></i>
+                                <br>
+                                <h6>
+                                    Kalender
+                                </h6>
+                            </a>
+                            <a class="nav-link sidebartabs shadow" href="#item-3" id="auslogg">
+                                <i class="fas fa-sign-out-alt" id="sidebaricons"></i>
+                                <br>
+                                <h6>
+                                    Ausloggen
+                                </h6>
+                                
+                            </a>
+                            
+                        </nav>
+                    </nav>
                         <!--
                         <div class="sidebartitel">
 

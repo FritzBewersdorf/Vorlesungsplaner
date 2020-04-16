@@ -236,19 +236,20 @@ function getDateOfISOWeek(item,yearOfThursday,number) {
 }
 
 forTage();
+
 ////////////// Sidebar ein und ausfahren mit Abfrage nach Bildschirmbreite
 
 function openNav() {
     if (screen.availWidth > 600)
     {
-        document.getElementById("sideBar").style.width = "250px";
+        document.getElementById("sideBar").style.width = "160px";
     }
     else
     {
         document.getElementById("sideBar").style.width = "100%";
     }
     
-    document.getElementById("ansichtdozent").style.marginLeft = "250px";
+    document.getElementById("ansichtdozent").style.marginLeft = "160px";
 }
 
 function closeNav() {
