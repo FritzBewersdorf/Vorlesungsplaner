@@ -171,9 +171,8 @@ function tagMalen(number, tag){
                   headers:
                     {'content-type': 'application/json'}
                   })   
-                    //.then(response => response.json())
-                    .then(forTage())
                     .catch(err => console.error(err))
+                forTage();    
                 });
         })
     }
@@ -182,7 +181,6 @@ function tagMalen(number, tag){
 document.getElementById("speichern").addEventListener('click', function() {
     var x = document.getElementById("zeitplan");
     var i = x.selectedIndex;
-    console.log(i);
     var fach = document.getElementById("fach").value;
 
     if (fach!="" && i!=0){
