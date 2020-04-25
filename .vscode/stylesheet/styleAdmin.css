@@ -292,6 +292,16 @@ body {
     
 }
 
+.sidebar .sidebarinhalt .sidebarTabs {
+    display: flex;
+    align-self: auto;
+}
+
+.sidebar .sidebarinhalt .sidebarTabs a:hover {
+    
+    color: white;
+    
+}
 /*Navbar*/
 a{
     color: black!important;
