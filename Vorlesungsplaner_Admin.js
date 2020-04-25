@@ -264,6 +264,7 @@ function openNav() {
     if (screen.availWidth > 600)
     {
         document.getElementById("sideBar").style.width = "250px";
+        
     }
     else
     {
@@ -271,6 +272,7 @@ function openNav() {
     }
     
     document.getElementById("ansichtdozent").style.marginLeft = "250px";
+    document.getElementsById("zurückTaste").style.display = 'none';
 }
 
 function closeNav() {

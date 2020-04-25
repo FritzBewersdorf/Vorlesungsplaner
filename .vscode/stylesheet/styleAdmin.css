@@ -2,8 +2,13 @@ html {
     
 }
 
+h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
    margin: 0;
+   
 }
 
 .box {
@@ -16,7 +21,7 @@ body {
     grid-template-areas:
         "sidebar content"
         "sidebar content"
-        "sidebar footer"
+        "sidebar content"
 }
 
 /*
@@ -63,9 +68,11 @@ body {
 /*Content Allgemein*/
 
 .content {
+    font-family: 'Bangers', cursive;
     grid-area: content;
     background-color: #F4F5FA;
     border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     /*border: 0;
     border-left: 2px solid #D4D4DE;*/
     height: 100%;
@@ -302,6 +309,18 @@ body {
     color: white;
     
 }
+
+.sidebar .sidebarinhalt .sidebarTabs h6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.sidebar .sidebarinhalt .sidebarTabs i{
+    height: 16px;
+    width: 16px;
+}
 /*Navbar*/
 a{
     color: black!important;
@@ -309,8 +328,12 @@ a{
 
 .sidebar #navbar-example3{
     text-align: center;
+    justify-content: center;
+    align-items: center;
     
 }
+
+
 
 .sidebar .nav-link{
     
