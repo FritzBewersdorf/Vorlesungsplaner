@@ -8,12 +8,13 @@ body {
 
 .box {
     width: 100vw;
+    background-color: #E25A53;
     height: 100vh;
     display: grid;
     grid-template-columns: 0px 1fr;
     grid-template-rows: 75px 1fr 30px;
     grid-template-areas:
-        "header header"
+        "sidebar content"
         "sidebar content"
         "sidebar footer"
 }
@@ -63,8 +64,9 @@ body {
 
 .content {
     grid-area: content;
-    /*background-color: /*#ecf0f1 #F4F5FA;
-    border: 0;
+    background-color: #F4F5FA;
+    border-top-left-radius: 20px;
+    /*border: 0;
     border-left: 2px solid #D4D4DE;*/
     height: 100%;
     overflow-x: hidden;
@@ -238,7 +240,7 @@ body {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: rgba(239, 240, 241, 0.849);;
+    background-color: background-color: #E25A53;
     
     z-index: 1;
     top: 100px;
@@ -308,14 +310,12 @@ a{
 /*Footer*/
 .footer {
     grid-area: footer;
-    /*background-color: #F4F5FA;
+    background-color: #F4F5FA;
     border-bottom-left-radius: 20px;
-    border-left: 2px solid #D4D4DE;*/
+    /*border-left: 2px solid #D4D4DE;*/
 }
 
-body {
-	font-family: Tahoma;
-}
+
 
 
 /*

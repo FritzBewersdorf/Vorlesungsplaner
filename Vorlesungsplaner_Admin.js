@@ -263,14 +263,14 @@ forTage();
 function openNav() {
     if (screen.availWidth > 600)
     {
-        document.getElementById("sideBar").style.width = "160px";
+        document.getElementById("sideBar").style.width = "250px";
     }
     else
     {
         document.getElementById("sideBar").style.width = "100%";
     }
     
-    document.getElementById("ansichtdozent").style.marginLeft = "160px";
+    document.getElementById("ansichtdozent").style.marginLeft = "250px";
 }
 
 function closeNav() {
