@@ -187,7 +187,7 @@ function tagMalen(number, tag){
            
             document.getElementById(tag+ "inhalt").appendChild(tagInhalt)
 
-            vorlesungLoeschen.addEventListener('click',function deletos()
+            drueck.addEventListener('click',function deletos()
                 {
                 var apiUrl2 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
                 fetch(apiUrl2, {method: 'DELETE',
