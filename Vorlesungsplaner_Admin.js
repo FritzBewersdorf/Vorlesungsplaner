@@ -95,6 +95,15 @@ function Kalenderwoche(weekNumber, yearOfThursday){
     });
 }
 
+
+document.getElementById("testButton2").addEventListener('click', function()
+{
+    console.log("klappt");
+    weekNumber = Math.floor(1 + 0.5 + (currentThursday.getTime() - firstThursday.getTime()) / 86400000/7);
+    Kalenderwoche(weekNumber, yearOfThursday);
+    forTage();
+});
+
 var tage = [{number: 1, tag: "Montag"},{number: 2, tag: "Dienstag"},{number: 3, tag: "Mittwoch"},{number: 4, tag: "Donnerstag"},{number: 5, tag: "Freitag"},{number: 6, tag: "Samstag"},{number: 7, tag: "Sonntag"}]
 
 function forTage(){
