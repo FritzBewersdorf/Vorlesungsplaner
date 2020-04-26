@@ -106,8 +106,32 @@
                     <div id="contenttitel ">
                         <h1 class="titel" id="titeldozent">
                             Kalender
-                        </h1>      
+                        </h1>  
+                        <div class="kalenderAuswahl">
+                            <button type="button" class="btn btn-outline-secondary" id="testButton">
+                                
+                                    Heute
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" id="testButton">
+                                
+                                    Datum auswählen
+                            </button>
+                            <dialog class="Dialog" id="Dialog1">
+                                <form>
+                                    <h4 class="card-title text-center">Datum auswählen</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Datum</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="21.05.2020" required> 
+                                    </div>
+                                   
+                                    <button type="submit" class="btn btn-primary" id="Button1">Auswählen</button>
+                                    <button type="cancel" class="btn btn-primary" id="Button2">Abbrechen</button>
+                                </form> 
+                            </dialog>
+                        </div>    
                     </div> 
+                    
                     <div class="Vorlesungsplanansicht shadow">
                         <div class="Kalenderheader" id ="KalenderJahr">
                         </div>
