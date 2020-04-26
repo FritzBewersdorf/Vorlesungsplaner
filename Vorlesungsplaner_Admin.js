@@ -155,13 +155,13 @@ function tagMalen(number, tag){
         abgefragteVorlesungen.forEach(vorlesung =>{
             var tagInhalt = document.createElement("div");
             tagInhalt.setAttribute('class', 'taginhalt');
+
             var block1 = document.createElement("div");
             block1.setAttribute('class', 'einzelnevorlesung');
             block1.textContent = vorlesung.vorTitel + " bei " + vorlesung.nutzer.nutNachname;
-            tagInhalt.appendChild(block1);
+
             var block2 = document.createElement("div");
             block2.textContent = vorlesung.zeitraum.zeiBeginn + " bis " + vorlesung.zeitraum.zeiEnde;
-            block1.appendChild(block2);
 
             var vorlesungLoeschen = document.createElement("div");
             vorlesungLoeschen.setAttribute('class', 'btn-group');
@@ -179,12 +179,19 @@ function tagMalen(number, tag){
               drueck.textContent = "Vorlesung löschen";
               drueck.setAttribute('class', 'dropdown-item');
               drueck.setAttribute('href', '#');
+
+              var bearbeitenKnopf = document.createElement("a");
+              bearbeitenKnopf.textContent = "Vorlesung bearbeiten";
+              bearbeitenKnopf.setAttribute('class', 'dropdown-item');
+              bearbeitenKnopf.setAttribute('href', '#');
         
             divi2.appendChild(drueck);
+            divi2.appendChild(bearbeitenKnopf);
             vorlesungLoeschen.appendChild(button1234);
             vorlesungLoeschen.appendChild(divi2);
             block1.appendChild(vorlesungLoeschen);
-           
+            block1.appendChild(block2);
+            tagInhalt.appendChild(block1);
             document.getElementById(tag+ "inhalt").appendChild(tagInhalt)
 
             drueck.addEventListener('click',function deletos()
