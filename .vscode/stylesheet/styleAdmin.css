@@ -3,11 +3,13 @@ html {
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase; 
 }
 
 body {
    margin: 0;
+   font-family: 'Montserrat', sans-serif;
    
 }
 
@@ -68,7 +70,7 @@ body {
 /*Content Allgemein*/
 
 .content {
-    font-family: 'Bangers', cursive;
+    font-family: 'Montserrat', sans-serif;
     grid-area: content;
     background-color: #F4F5FA;
     border-radius: 50px;
@@ -326,6 +328,7 @@ button{
     align-items: center;
     padding-left: 5px;
     color: #F4F5FA;
+    text-transform: uppercase; 
 }
 
 .sidebar .sidebarinhalt .sidebarTabs i{
