@@ -2,34 +2,348 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dozent</title>
-    <link rel="stylesheet" href=".vscode/stylesheet/styleDozent.css">
+    <title>AdminPage</title>
+    <!--<link rel="stylesheet" href=".vscode/stylesheet/reset.css">-->
+    <link rel="stylesheet" href=".vscode/stylesheet/styleAdmin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   
+    
+
+
         <div class="box">
 
-            <!-- Header -->
-            <div class="header">
-                
-            </div>
-             
-            <!-- Content -->
-            <div class="content">
 
+            <!-- Content-->
+            <div class="content container-sm" id="ansichtdozent"> 
+
+                <!-- Content Dozenten-->
+                
+                
+                <!--Content Kalender-->
+                <div class="contentinhalt content2" id="item-2">
+                    <div id="contenttitel ">
+                        <h1 class="titel" id="titeldozent">
+                            Kalender
+                        </h1>  
+                        <div class="kalenderAuswahl">
+                            <button type="button" class="btn btn-outline-secondary" id="testButton2">
+                                
+                                    Heute
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" id="testButton3">
+                                
+                                    Datum auswählen
+                            </button>
+                            <dialog class="Dialog" id="DialogDatum">
+                                <form>
+                                    <h4 class="card-title text-center">Datum auswählen</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Datum</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput12" placeholder="21.05.2020" required> 
+                                    </div>
+                                   
+                                    <button type="submit" class="btn btn-primary" id="ButtonAuswaehlen">Auswählen</button>
+                                    <button type="cancel" class="btn btn-primary" id="ButtonAbbrechen">Abbrechen</button>
+                                </form> 
+                            </dialog>
+                        </div>    
+                    </div> 
+                    
+                    <div class="Vorlesungsplanansicht shadow">
+                        <div class="Kalenderheader" id ="KalenderJahr">
+                        </div>
+                        <div class="Kalenderwochen" id="KalenderMitmachen">
+                        </div>
+                        <div class="Kalenderwochenansicht flex-container">
+                            <div class="Kalendertageinzeln shadow" id="ansichtmontag">
+                                <div id="tagheader">
+                                    <h5>
+                                        Montag (+Datum)
+                                    </h5>
+                                </div>
+                                <div class="taginhalt">
+                                    <div class="einzelnevorlesung">
+                                        <h6>
+                                            Mathe
+                                        </h6>
+                                        
+                                        9:00 bis 12:15
+                                    </div>
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Sport
+                                        </h6>
+                                        
+                                        13:00 bis 16:30
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="Kalendertageinzeln shadow" id="ansichtdienstag">
+                                <div id="tagheader">
+                                        <h5>
+                                            Dienstag (+Datum)
+                                        </h5>
+                                </div>
+                                <div id="taginhalt">
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Mathe
+                                        </h6>
+                                        
+                                        9:00 bis 12:15
+                                    </div>
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Sport
+                                        </h6>
+                                        
+                                        13:00 bis 16:30
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="Kalendertageinzeln shadow" id="ansichtmittwoch">
+                                <div id="tagheader">
+                                    <h5>
+                                        Mittwoch (+Datum)
+                                    </h5>
+                                    
+                                </div>
+                                <div id="taginhalt">
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Mathe
+                                        </h6>
+                                        
+                                        9:00 bis 12:15
+                                    </div>
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Sport
+                                        </h6>
+                                        
+                                        13:00 bis 16:30
+                                    </div>  
+                                    
+                                </div>
+                            </div>
+                            <div class="Kalendertageinzeln shadow" id="ansichtdonnerstag">
+                                <div id="tagheader">
+                                    <h5>
+                                        Donnerstag (+Datum)
+                                    </h5>
+                                    
+                                </div>
+                                <div id="taginhalt">
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Mathe
+                                        </h6>
+                                        
+                                        9:00 bis 12:15
+                                    </div>
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Sport
+                                        </h6>
+                                        
+                                        13:00 bis 16:30
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="Kalendertageinzeln shadow" id="ansichtfreitag">
+                                <div id="tagheader">
+                                    <h5>
+                                        Freitag (+Datum)
+                                    </h5>  
+                                </div>
+                                <div id="taginhalt">
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Mathe
+                                        </h6>
+                                        
+                                        9:00 bis 12:15
+                                    </div>
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Sport
+                                        </h6>
+                                        
+                                        13:00 bis 16:30
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="Kalendertageinzeln shadow" id="ansichtsamstag">
+                                    <div id="tagheader">
+                                        <h5>
+                                            Samstag (+Datum)
+                                        </h5>
+                                    </div>
+                                    <div id="taginhalt">
+                                        <div id="einzelnevorlesung">
+                                            <h6>
+                                                Mathe
+                                            </h6>
+                                            
+                                            9:00 bis 12:15
+                                        </div>
+                                        <div id="einzelnevorlesung">
+                                            <h6>
+                                                Sport
+                                            </h6>
+                                            
+                                            13:00 bis 16:30
+                                        </div>  
+                                    </div>
+                                </div>
+                            <div class="Kalendertageinzeln shadow" id="ansichtsonntag">
+                                <div id="tagheader">
+                                    <h5>
+                                        Sonntag (+Datum)
+                                    </h5>
+                                </div>
+                                <div id="taginhalt">
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Mathe
+                                        </h6>
+                                        
+                                        9:00 bis 12:15
+                                    </div>
+                                    <div id="einzelnevorlesung">
+                                        <h6>
+                                            Sport
+                                        </h6>
+                                        
+                                        13:00 bis 16:30
+                                    </div>  
+                                </div>
+                            </div>
+                            <dialog class ="Dialog" id = "dialog2">
+                                <div align="center">
+                                    <form>
+                                        <h4 class="card-title text-center">Vorlesung erstellen</h4>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="formGroupExampleInput">Vorlesungsfach:</label>
+                                                <input type="text" th:field="*{name}" class="form-control" id="fach" placeholder="Vorlesungsfach" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="formGroupExampleInput1">Zeitraum:</label>
+                                                <!-- <input type="text" th:field="*{name}" class="form-control" id="zeitplan" placeholder="Zeitraum" required> -->
+                                                <select th:field="*{name}" class="custom-select" id="zeitplan" placeholder="Zeitraum">
+                                                    <option selected>Auswählen...</option>
+                                                    <option value="1">9:00 - 12:15</option>
+                                                    <option value="2">13:15 - 16:30</option>
+                                                    
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" id="speichern">Eingabe</button>
+                                            <button type="cancel" class="btn btn-primary" id="abbrechen">Abbrechen</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </dialog>
+                            <dialog class ="Dialog" id = "dialog3">
+                                <div align="center">
+                                    <form>
+                                        <h4 class="card-title text-center">Vorlesung bearbeiten</h4>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="formGroupExampleInput">Vorlesungsfach:</label>
+                                                <input type="text" th:field="*{name}" class="form-control" id="fach2" placeholder="Vorlesungsfach" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="formGroupExampleInput1">Zeitraum:</label>
+                                                <!-- <input type="text" th:field="*{name}" class="form-control" id="zeitplan" placeholder="Zeitraum" required> -->
+                                                <select th:field="*{name}" class="custom-select" id="zeitplan2" placeholder="Zeitraum">
+                                                    <option selected>Choose...</option>
+                                                    <option value="1">9:00 - 12:15</option>
+                                                    <option value="2">13:15 - 16:30</option>
+                                                    
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" id="speichern2">Eingabe</button>
+                                            <button type="cancel" class="btn btn-primary" id="abbrechen2">Abbrechen</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </dialog>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
             <!-- Sidebar -->
-            <div class="sidebar">
-
-            </div>
-
-            <!-- Footer -->
-            <div class="footer">
+            <div class="sidebar" id="sideBar">
                 
-            </div>
-        </div>
+                <button class="farbigerButton closebtn" onclick="closeNav()">
+                    <i class="fas fa-times" id="sidebarschließen"></i>          
+                </Button>
+                <div class="sidebarinhalt">
+                    <div class="dhbwlogo">
+                        <a class="nav-link sidebartabs shadow" href="#item-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/de/thumb/1/1d/DHBW-Logo.svg/1200px-DHBW-Logo.svg.png" width="160" height="83">
+                        </a>
+                    </div>
+                    <nav id="navbar-example3" class="navbar navbar-light">
+                        <nav class="nav nav-pills flex-column">
+                            
+                            
+                            <button>
+                                <div class="sidebarTabs">
+                                    <a class="nav-link sidebartabs shadow" href="#item-2">
+                                        <i class="fas fa-calendar-alt" id="sidebaricons"></i>
+                                        <br>
+                                    </a>
         
+                                    <h5>
+                                        Kalender
+                                    </h5>
+                                </div>
+                            </button>
+                            
+                            <button>
+                                <div class="sidebarTabs">
+                                    <a class="nav-link sidebartabs shadow" href="#item-3" id="auslogg">
+                                        <i class="fas fa-sign-out-alt" id="sidebaricons"></i>
+                                        <br>    
+                                    </a>
+                                    <h5>
+                                        Log out
+                                    </h5>
+                                </div>
+                            </button>
+                              
+                           
+                            
+                        </nav>
+                    </nav>
+                        
+                    </div>
+            </div> 
+
+        </div>
+        <script src="Nutzerverwaltung_Admin.js"> </script>
+        <script src="Vorlesungsplaner_Admin.js"> </script>
 </body>
 </html>
+
+
+
