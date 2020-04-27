@@ -226,6 +226,7 @@ body {
 .content .Vorlesungsplanansicht .Kalendertageinzeln #tagheader {
     /*border-bottom: 2px solid #E25A53;*/
     text-align: center;
+    text-transform: uppercase; 
 }
 
 .content .Vorlesungsplanansicht .Kalendertageinzeln .taginhalt {
