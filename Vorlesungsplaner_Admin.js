@@ -111,8 +111,17 @@ document.getElementById("testButton3").addEventListener('click', function dialog
 document.getElementById("ButtonAbbrechen").addEventListener('click', function() {
     document.getElementById("exampleFormControlInput12").value = "";
     document.getElementById("DialogDatum").close();
+})
 
-   
+document.getElementById("ButtonAuswaehlen").addEventListener('click', function() {
+    var feldElement = document.getElementById("exampleFormControlInput12").value;
+    console.log(feldElement);
+
+    Kalenderwoche(weekNumber, yearOfThursday);
+    forTage();
+
+    document.getElementById("exampleFormControlInput12").value = "";
+    document.getElementById("DialogDatum").close();
 })
 
 var tage = [{number: 1, tag: "Montag"},{number: 2, tag: "Dienstag"},{number: 3, tag: "Mittwoch"},{number: 4, tag: "Donnerstag"},{number: 5, tag: "Freitag"},{number: 6, tag: "Samstag"},{number: 7, tag: "Sonntag"}]
@@ -223,7 +232,15 @@ function tagMalen(number, tag){
                   })   
                     .catch(err => console.error(err))
                 forTage();    
-                });
+                })
+            
+            bearbeitenKnopf.addEventListener('click', function bearbeitos(){
+                document.getElementById("dialog2").showModal();
+                datum.setDate(datum.getDate()+1);
+                window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
+                document.getElementById("fach").value = vorlesung.vorTitel;
+                document.getElementById("zeitplan").value = vorlesung.zeitraum.zeiId;
+            })
         })
     }
 }
