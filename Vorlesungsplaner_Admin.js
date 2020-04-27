@@ -155,12 +155,51 @@ function tagMalen(number, tag){
 
     document.getElementById(ansicht.concat("ansicht", tag.toLowerCase())).appendChild(tagUndDatum);
 
-     document.getElementById("vorlesungEintragen1"+tag).addEventListener('click', function dialogNeueListe1()
-            {
-                document.getElementById("dialog2").showModal();
-                datum.setDate(datum.getDate()+1);
-                window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
-            });
+     document.getElementById("vorlesungEintragen1"+tag).addEventListener('click', function dialogNeueListe1(){
+        document.getElementById("dialog2").showModal();
+        datum.setDate(datum.getDate()+1);
+        window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
+
+        document.getElementById("speichern").addEventListener('click', function() {
+            var x = document.getElementById("zeitplan");
+            var i = x.selectedIndex;
+            var fach = document.getElementById("fach").value;
+        
+            if (fach!="" && i!=0){
+            var apiUrl3 = "http://localhost:8080/Vorlesung";
+            fetch(apiUrl3, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({    vorTitel: fach,
+                                            vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
+                                            zeitraum: {
+                                                zeiId: i
+                                            },
+                                            nutzer: {
+                                                nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                            }
+                                    })
+                })
+                .catch(err => console.error(err))
+            forTage();
+            document.getElementById("fach").value = "";
+            document.getElementById("zeitplan").selectedIndex = 0;
+            window.localStorage.removeItem('vorDatumEingelesen');
+            document.getElementById("dialog2").close();
+            }
+            else{
+                alert("Bitte Vorlesungsfach oder Zeiten eintragen");
+            }
+        })
+            
+        document.getElementById("abbrechen").addEventListener('click', function() {
+            window.localStorage.removeItem('vorDatumEingelesen');
+            document.getElementById("fach").value = "";
+            document.getElementById("dialog2").close();
+        })
+    });
 
     var vorlesungsBlock = document.createElement("div");
     vorlesungsBlock.setAttribute('id', tag + 'inhalt');
@@ -279,60 +318,17 @@ function tagMalen(number, tag){
                         })
                         .catch(err => console.error(err))
                     
-                    forTage();
                     document.getElementById("fach2").value = "";
                     document.getElementById("zeitplan2").selectedIndex = 0;
                     window.localStorage.removeItem('vorDatumEingelesen');
                     document.getElementById("dialog3").close();
+                    forTage();
                     }
                 })
             })
         })
     }
 }
-
-
-document.getElementById("speichern").addEventListener('click', function() {
-    var x = document.getElementById("zeitplan");
-    var i = x.selectedIndex;
-    var fach = document.getElementById("fach").value;
-
-    if (fach!="" && i!=0){
-    var apiUrl3 = "http://localhost:8080/Vorlesung";
-    fetch(apiUrl3, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({    vorTitel: fach,
-                                    vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
-                                    zeitraum: {
-                                        zeiId: i
-                                    },
-                                    nutzer: {
-                                        nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
-                                    }
-                            })
-        })
-        .catch(err => console.error(err))
-    forTage();
-    document.getElementById("fach").value = "";
-    document.getElementById("zeitplan").selectedIndex = 0;
-    window.localStorage.removeItem('vorDatumEingelesen');
-    document.getElementById("dialog2").close();
-    }
-    else{
-        alert("Bitte Vorlesungsfach oder Zeiten eintragen");
-    }
-})
-    
-document.getElementById("abbrechen").addEventListener('click', function() {
-    window.localStorage.removeItem('vorDatumEingelesen');
-    document.getElementById("fach").value = "";
-    document.getElementById("dialog2").close();
-
-   
-})
 
 function getDateOfISOWeek(item,yearOfThursday,number) {
     var simple = new Date(yearOfThursday, 0, 0 + (item - 1) * 7);
