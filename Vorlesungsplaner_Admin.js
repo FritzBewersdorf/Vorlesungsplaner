@@ -235,15 +235,56 @@ function tagMalen(number, tag){
                 })
             
             bearbeitenKnopf.addEventListener('click', function bearbeitos(){
-                document.getElementById("dialog2").showModal();
+                document.getElementById("dialog3").showModal();
                 datum.setDate(datum.getDate()+1);
                 window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
-                document.getElementById("fach").value = vorlesung.vorTitel;
-                document.getElementById("zeitplan").value = vorlesung.zeitraum.zeiId;
+                document.getElementById("fach2").value = vorlesung.vorTitel;
+                document.getElementById("zeitplan2").value = vorlesung.zeitraum.zeiId;
             })
         })
     }
 }
+
+
+document.getElementById("abbrechen2").addEventListener('click', function() {
+    window.localStorage.removeItem('vorDatumEingelesen');
+    document.getElementById("fach2").value = "";
+    document.getElementById("dialog3").close();
+})
+
+document.getElementById("speichern2").addEventListener('click', function() {
+    var x = document.getElementById("zeitplan2");
+    var i = x.selectedIndex;
+    var fach = document.getElementById("fach2").value;
+
+    if (fach!="" && i!=0){
+    var apiUrl3 = "http://localhost:8080/Vorlesung";
+    fetch(apiUrl3, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({    vorTitel: fach,
+                                    vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
+                                    zeitraum: {
+                                        zeiId: i
+                                    },
+                                    nutzer: {
+                                        nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                    }
+                            })
+        })
+        .catch(err => console.error(err))
+    forTage();
+    document.getElementById("fach2").value = "";
+    document.getElementById("zeitplan2").selectedIndex = 0;
+    window.localStorage.removeItem('vorDatumEingelesen');
+    document.getElementById("dialog3").close();
+    }
+    else{
+        alert("Bitte Vorlesungsfach oder Zeiten eintragen");
+    }
+})
 
 document.getElementById("speichern").addEventListener('click', function() {
     var x = document.getElementById("zeitplan");

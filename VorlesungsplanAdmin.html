@@ -328,6 +328,31 @@
                                     </form>
                                 </div>
                             </dialog>
+                            <dialog class ="Dialog" id = "dialog3">
+                                <div align="center">
+                                    <form>
+                                        <h4 class="card-title text-center">Vorlesung bearbeiten</h4>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="formGroupExampleInput">Vorlesungsfach:</label>
+                                                <input type="text" th:field="*{name}" class="form-control" id="fach2" placeholder="Vorlesungsfach" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="formGroupExampleInput1">Zeitraum:</label>
+                                                <!-- <input type="text" th:field="*{name}" class="form-control" id="zeitplan" placeholder="Zeitraum" required> -->
+                                                <select th:field="*{name}" class="custom-select" id="zeitplan2" placeholder="Zeitraum">
+                                                    <option selected>Choose...</option>
+                                                    <option value="1">9:00 - 12:15</option>
+                                                    <option value="2">13:15 - 16:30</option>
+                                                    
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" id="speichern2">Eingabe</button>
+                                            <button type="cancel" class="btn btn-primary" id="abbrechen2">Abbrechen</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </dialog>
                         </div>
                     </div>
                 </div>
