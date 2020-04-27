@@ -141,9 +141,10 @@ function tagMalen(number, tag){
 
     var datum = getDateOfISOWeek(document.getElementById("idWoche").textContent.substring(14), document.getElementById("idJahr").textContent.substring(5),number);
 
-    var h3geile = document.createElement("h3");
+    var h3geile = document.createElement("h2");
     var ausgeschriebenerTag= "";
-    h3geile.textContent = ausgeschriebenerTag.concat(tag, ", der ");
+    h3geile.textContent = ausgeschriebenerTag.concat(tag, "") ;
+    /// , der gelöscht
     var IDh3 = document.createElement("h3");
     IDh3.textContent = datum.toLocaleDateString();
     var vorlesungEintragen = document.createElement("button");

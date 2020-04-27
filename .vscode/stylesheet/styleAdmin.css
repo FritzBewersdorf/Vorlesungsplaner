@@ -216,6 +216,8 @@ body {
     height: 500px;*/
     border-radius: 15px;
     padding: 5px 5px 5px 5px;
+    width: auto;
+    height: auto; 
 
 }
 
@@ -371,6 +373,9 @@ a{
     border-bottom-left-radius: 20px;
     /*border-left: 2px solid #D4D4DE;*/
 }
+
+/*Responsiveness*/
+
 
 
 
