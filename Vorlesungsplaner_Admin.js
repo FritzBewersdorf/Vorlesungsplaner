@@ -10,18 +10,18 @@ function Kalenderwoche(weekNumber, yearOfThursday){
     document.getElementById("KalenderMitmachen").innerHTML="";
 
     var buttonUno = document.createElement("button");
-    buttonUno.setAttribute('type', 'fas fa-arrow-lef');
+    buttonUno.setAttribute('class', 'fas fa-arrow-left');
     buttonUno.id = 'NeuerButton1';
-    buttonUno.innerHTML = "Woche zurück"; 
+   
 
     var Naaame11 = document.createElement("h4"); 
     Naaame11.textContent = "Kalenderwoche " + weekNumber;
     Naaame11.id = "idWoche";
 
     var buttonBeta = document.createElement("button");
-    buttonBeta.setAttribute('type', 'fas fa-arrow-right');
+    buttonBeta.setAttribute('class', 'fas fa-arrow-right');
     buttonBeta.setAttribute('id', 'NeuerButton2');
-    buttonBeta.innerHTML = "Woche weiter"; 
+    
 
     document.getElementById("KalenderMitmachen").appendChild(buttonUno);
     document.getElementById("KalenderMitmachen").appendChild(Naaame11);
@@ -30,18 +30,18 @@ function Kalenderwoche(weekNumber, yearOfThursday){
     document.getElementById("KalenderJahr").innerHTML="";
 
     var buttonUno1 = document.createElement("button");
-    buttonUno1.setAttribute('type', 'fas fa-arrow-lef');
+    buttonUno1.setAttribute('class', 'fas fa-arrow-left');
     buttonUno1.id = 'NeuerButton3';
-    buttonUno1.innerHTML = "Jahr zurück"; 
+    
 
     var Naaame12 = document.createElement("h3"); 
     Naaame12.textContent = "Jahr " + yearOfThursday;
     Naaame12.id = "idJahr";
 
     var buttonBeta1 = document.createElement("button");
-    buttonBeta1.setAttribute('type', 'fas fa-arrow-right');
+    buttonBeta1.setAttribute('class', 'fas fa-arrow-right');
     buttonBeta1.setAttribute('id', 'NeuerButton4');
-    buttonBeta1.innerHTML = "Jahr weiter"; 
+    
 
     document.getElementById("KalenderJahr").appendChild(buttonUno1);
     document.getElementById("KalenderJahr").appendChild(Naaame12);
@@ -148,7 +148,8 @@ function tagMalen(number, tag){
     var IDh3 = document.createElement("h3");
     IDh3.textContent = datum.toLocaleDateString();
     var vorlesungEintragen = document.createElement("button");
-    vorlesungEintragen.textContent = "Neue Vorlesung anlegen";
+    vorlesungEintragen.setAttribute("class", "btn btn-outline-secondary" )
+    vorlesungEintragen.textContent = "+ Neue Vorlesung";
     vorlesungEintragen.setAttribute('id', 'vorlesungEintragen1'+tag);
     tagUndDatum.appendChild(h3geile);
     tagUndDatum.appendChild(IDh3);

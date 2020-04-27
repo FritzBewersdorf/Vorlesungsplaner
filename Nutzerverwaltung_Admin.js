@@ -82,7 +82,7 @@ getData();
               listitem.setAttribute('class', 'shadow p-3 mb-5 bg-white');
 
               var Naaame = document.createElement("h3"); 
-              Naaame.textContent = "Herr/Frau " + item.nutNachname;
+              Naaame.textContent = item.nutNachname;
               
               var divi = document.createElement("div");
               divi.setAttribute('class', 'btn-group');
