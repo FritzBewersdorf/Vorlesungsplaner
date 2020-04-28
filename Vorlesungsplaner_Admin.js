@@ -131,19 +131,57 @@ document.getElementById("testButton4").addEventListener('click', function dialog
 
 document.getElementById("ButtonAbbrechen2").addEventListener('click', function() {
     document.getElementById("exampleFormControlInput13").value = "";
+    document.getElementById("exampleFormControlInput14").value = "";
     document.getElementById("DialogUhrzeit").close();
 })
 
 document.getElementById("ButtonAuswaehlen2").addEventListener('click', function() {
-    var feldElement = document.getElementById("exampleFormControlInput12").value;
-    console.log(feldElement);
+    var uhrzeitEins = document.getElementById("exampleFormControlInput13").value;
+    var uhrzeitZwei = document.getElementById("exampleFormControlInput14").value;
 
-    Kalenderwoche(weekNumber, yearOfThursday);
+    var apiUrl5 = "http://localhost:8080/Zeitraum";
+            fetch(apiUrl5, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({    zeiBeginn: uhrzeitEins,
+                                            zeiEnde: uhrzeitZwei
+                                    })
+                })
+                .catch(err => console.error(err))
     forTage();
 
     document.getElementById("exampleFormControlInput13").value = "";
+    document.getElementById("exampleFormControlInput14").value = "";
     document.getElementById("DialogUhrzeit").close();
+    location.reload();
 })
+
+vorlesungsListeNeu()
+async function vorlesungsListeNeu(){
+    const response = await fetch('http://localhost:8080/Zeitraum/0');
+    const data = await response.json();
+    for (let item of data){
+        var optionenButton = document.createElement("option")
+        optionenButton.setAttribute("id", item.zeiId);
+        optionenButton.textContent = item.zeiBeginn +" bis " + item.zeiEnde;
+        document.getElementById("zeitplan").appendChild(optionenButton);
+    }
+}
+
+
+vorlesungsListeNeu2()
+async function vorlesungsListeNeu2(){
+    const response = await fetch('http://localhost:8080/Zeitraum/0');
+    const data = await response.json();
+    for (let item of data){
+        var optionenButton = document.createElement("option")
+        optionenButton.setAttribute("id", item.zeiId);
+        optionenButton.textContent = item.zeiBeginn +" bis " + item.zeiEnde;
+        document.getElementById("zeitplan2").appendChild(optionenButton);
+    }
+}
 
 var tage = [{number: 1, tag: "Montag"},{number: 2, tag: "Dienstag"},{number: 3, tag: "Mittwoch"},{number: 4, tag: "Donnerstag"},{number: 5, tag: "Freitag"},{number: 6, tag: "Samstag"},{number: 7, tag: "Sonntag"}]
 
@@ -165,7 +203,6 @@ function tagMalen(number, tag){
     var h3geile = document.createElement("h5");
     var ausgeschriebenerTag= "";
     h3geile.textContent = ausgeschriebenerTag.concat(tag, "") ;
-    /// , der gelöscht
     var IDh3 = document.createElement("h6");
     IDh3.textContent = datum.toLocaleDateString();
     var vorlesungEintragen = document.createElement("button");
@@ -184,11 +221,9 @@ function tagMalen(number, tag){
         window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
 
         document.getElementById("speichern").addEventListener('click', function() {
-            var x = document.getElementById("zeitplan");
-            var i = x.selectedIndex;
+            var i = document.getElementById("zeitplan")[document.getElementById("zeitplan").selectedIndex].getAttribute("id")
             var fach = document.getElementById("fach").value;
         
-            if (fach!="" && i!=0){
             var apiUrl3 = "http://localhost:8080/Vorlesung";
             fetch(apiUrl3, {
                 method: "POST",
@@ -211,10 +246,6 @@ function tagMalen(number, tag){
             document.getElementById("zeitplan").selectedIndex = 0;
             window.localStorage.removeItem('vorDatumEingelesen');
             document.getElementById("dialog2").close();
-            }
-            else{
-                alert("Bitte Vorlesungsfach oder Zeiten eintragen");
-            }
         })
             
         document.getElementById("abbrechen").addEventListener('click', function() {
@@ -258,24 +289,24 @@ function tagMalen(number, tag){
             var vorlesungLoeschen = document.createElement("div");
             vorlesungLoeschen.setAttribute('class', 'btn-group');
 
-              var button1234 = document.createElement("button");
-              button1234.setAttribute('type', 'button');
-              button1234.setAttribute('class', 'btn dropdown-toggle');
-              button1234.setAttribute( 'data-toggle', 'dropdown');
-              button1234.setAttribute('aria-expanded', 'false');
+            var button1234 = document.createElement("button");
+            button1234.setAttribute('type', 'button');
+            button1234.setAttribute('class', 'btn dropdown-toggle');
+            button1234.setAttribute( 'data-toggle', 'dropdown');
+            button1234.setAttribute('aria-expanded', 'false');
 
-              var divi2 = document.createElement("div");
-              divi2.setAttribute('class', 'dropdown-menu');
+            var divi2 = document.createElement("div");
+            divi2.setAttribute('class', 'dropdown-menu');
 
-              var drueck = document.createElement("a");
-              drueck.textContent = "Vorlesung löschen";
-              drueck.setAttribute('class', 'dropdown-item');
-              drueck.setAttribute('href', '#');
+            var drueck = document.createElement("a");
+            drueck.textContent = "Vorlesung löschen";
+            drueck.setAttribute('class', 'dropdown-item');
+            drueck.setAttribute('href', '#');
 
-              var bearbeitenKnopf = document.createElement("a");
-              bearbeitenKnopf.textContent = "Vorlesung bearbeiten";
-              bearbeitenKnopf.setAttribute('class', 'dropdown-item');
-              bearbeitenKnopf.setAttribute('href', '#');
+            var bearbeitenKnopf = document.createElement("a");
+            bearbeitenKnopf.textContent = "Vorlesung bearbeiten";
+            bearbeitenKnopf.setAttribute('class', 'dropdown-item');
+            bearbeitenKnopf.setAttribute('href', '#');
         
             divi2.appendChild(drueck);
             divi2.appendChild(bearbeitenKnopf);
@@ -320,8 +351,7 @@ function tagMalen(number, tag){
                     })   
                         .catch(err => console.error(err))
 
-                    var x = document.getElementById("zeitplan2");
-                    var i = x.selectedIndex;
+                    var i = document.getElementById("zeitplan2")[document.getElementById("zeitplan").selectedIndex].getAttribute("id")
                     var fach = document.getElementById("fach2").value;
                 
                     if (fach!="" && i!=0){
