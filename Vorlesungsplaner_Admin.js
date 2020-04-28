@@ -120,29 +120,39 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
     var mm = feldElement.substr(3,2);
     var yyyy = feldElement.substr(6,4);
 
-    var ZeitGesamt = new Date();
-    ZeitGesamt = mm +"."+ dd +"."+ yyyy
+    console.log(dd);
+    console.log(mm);
+    console.log(yyyy);
 
-    var ZeitEndlich = new Date(ZeitGesamt)
-    console.log(ZeitEndlich)
-    ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
-
-    if (isNaN(ZeitEndlich.getTime())){
-        alert("Zeit nicht gültig")
+    if (isNaN(dd)&&isNaN(dd)&&isNaN(yyyy)){
+        alert("Zahlen inkorrekt")
     }
     else{
-    var currentThursday = new Date(ZeitEndlich.getTime() +(3-((date.getDay()+6) % 7)) * 86400000);
-    var yearOfThursday = currentThursday.getFullYear();
-    var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Date(yearOfThursday,0,4).getDay()+6) % 7)) * 86400000);
-    var weekNumber = Math.floor(1 + 0.5 + (currentThursday.getTime() - firstThursday.getTime()) / 86400000/7);
+        var ZeitGesamt = new Date();
+        ZeitGesamt = mm +"."+ dd +"."+ yyyy
+
+        var ZeitEndlich = new Date(ZeitGesamt)
+        console.log(ZeitEndlich)
+        ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
+
+        if (isNaN(ZeitEndlich.getTime())){
+            alert("Zeit nicht gültig")
+        }
+        else{
+            var currentThursday = new Date(ZeitEndlich.getTime() +(3-((date.getDay()+6) % 7)) * 86400000);
+            var yearOfThursday = currentThursday.getFullYear();
+            var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Date(yearOfThursday,0,4).getDay()+6) % 7)) * 86400000);
+            var weekNumber = Math.floor(1 + 0.5 + (currentThursday.getTime() - firstThursday.getTime()) / 86400000/7);
 
 
-    Kalenderwoche(weekNumber, yearOfThursday);
-    forTage();
+            Kalenderwoche(weekNumber, yearOfThursday);
+            forTage();
 
-    document.getElementById("exampleFormControlInput12").value = "";
-    document.getElementById("DialogDatum").close();
+            document.getElementById("exampleFormControlInput12").value = "";
+            document.getElementById("DialogDatum").close();
+        }
     }
+
 })
 
 document.getElementById("testButton4").addEventListener('click', function dialogNeueListe2()
