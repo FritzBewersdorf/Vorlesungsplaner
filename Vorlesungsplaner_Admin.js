@@ -124,6 +124,27 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
     document.getElementById("DialogDatum").close();
 })
 
+document.getElementById("testButton4").addEventListener('click', function dialogNeueListe2()
+{
+    document.getElementById("DialogUhrzeit").showModal();
+});
+
+document.getElementById("ButtonAbbrechen2").addEventListener('click', function() {
+    document.getElementById("exampleFormControlInput13").value = "";
+    document.getElementById("DialogUhrzeit").close();
+})
+
+document.getElementById("ButtonAuswaehlen2").addEventListener('click', function() {
+    var feldElement = document.getElementById("exampleFormControlInput12").value;
+    console.log(feldElement);
+
+    Kalenderwoche(weekNumber, yearOfThursday);
+    forTage();
+
+    document.getElementById("exampleFormControlInput13").value = "";
+    document.getElementById("DialogUhrzeit").close();
+})
+
 var tage = [{number: 1, tag: "Montag"},{number: 2, tag: "Dienstag"},{number: 3, tag: "Mittwoch"},{number: 4, tag: "Donnerstag"},{number: 5, tag: "Freitag"},{number: 6, tag: "Samstag"},{number: 7, tag: "Sonntag"}]
 
 function forTage(){
@@ -199,6 +220,7 @@ function tagMalen(number, tag){
         document.getElementById("abbrechen").addEventListener('click', function() {
             window.localStorage.removeItem('vorDatumEingelesen');
             document.getElementById("fach").value = "";
+            document.getElementById("zeitplan").selectedIndex = 0;
             document.getElementById("dialog2").close();
         })
     });
@@ -286,6 +308,7 @@ function tagMalen(number, tag){
                 document.getElementById("abbrechen2").addEventListener('click', function() {
                     window.localStorage.removeItem('vorDatumEingelesen');
                     document.getElementById("fach2").value = "";
+                    document.getElementById("zeitplan2").selectedIndex = 0;
                     document.getElementById("dialog3").close();
                 })
                 
