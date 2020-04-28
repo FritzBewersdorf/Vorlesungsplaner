@@ -130,6 +130,8 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
     var ZeitEndlich = new Date(ZeitGesamt)
     console.log(ZeitEndlich)
 
+    ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
+
     var currentThursday = new Date(ZeitEndlich.getTime() +(3-((date.getDay()+6) % 7)) * 86400000);
     var yearOfThursday = currentThursday.getFullYear();
     var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Date(yearOfThursday,0,4).getDay()+6) % 7)) * 86400000);
