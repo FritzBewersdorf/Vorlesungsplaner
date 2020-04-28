@@ -115,7 +115,26 @@ document.getElementById("ButtonAbbrechen").addEventListener('click', function() 
 
 document.getElementById("ButtonAuswaehlen").addEventListener('click', function() {
     var feldElement = document.getElementById("exampleFormControlInput12").value;
-    console.log(feldElement);
+
+    var dd = feldElement.substr(0,2);
+    var mm = feldElement.substr(3,2);
+    var yyyy = feldElement.substr(6,4);
+    console.log(dd)
+    console.log(mm)
+    console.log(yyyy)
+
+    var ZeitGesamt = new Date();
+    ZeitGesamt = mm +"."+ dd +"."+ yyyy
+    console.log(ZeitGesamt)
+
+    var ZeitEndlich = new Date(ZeitGesamt)
+    console.log(ZeitEndlich)
+
+    var currentThursday = new Date(ZeitEndlich.getTime() +(3-((date.getDay()+6) % 7)) * 86400000);
+    var yearOfThursday = currentThursday.getFullYear();
+    var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Date(yearOfThursday,0,4).getDay()+6) % 7)) * 86400000);
+    var weekNumber = Math.floor(1 + 0.5 + (currentThursday.getTime() - firstThursday.getTime()) / 86400000/7);
+
 
     Kalenderwoche(weekNumber, yearOfThursday);
     forTage();
