@@ -119,19 +119,18 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
     var dd = feldElement.substr(0,2);
     var mm = feldElement.substr(3,2);
     var yyyy = feldElement.substr(6,4);
-    console.log(dd)
-    console.log(mm)
-    console.log(yyyy)
 
     var ZeitGesamt = new Date();
     ZeitGesamt = mm +"."+ dd +"."+ yyyy
-    console.log(ZeitGesamt)
 
     var ZeitEndlich = new Date(ZeitGesamt)
     console.log(ZeitEndlich)
-
     ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
 
+    if (isNaN(ZeitEndlich.getTime())){
+        alert("Zeit nicht gültig")
+    }
+    else{
     var currentThursday = new Date(ZeitEndlich.getTime() +(3-((date.getDay()+6) % 7)) * 86400000);
     var yearOfThursday = currentThursday.getFullYear();
     var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Date(yearOfThursday,0,4).getDay()+6) % 7)) * 86400000);
@@ -143,6 +142,7 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
 
     document.getElementById("exampleFormControlInput12").value = "";
     document.getElementById("DialogDatum").close();
+    }
 })
 
 document.getElementById("testButton4").addEventListener('click', function dialogNeueListe2()
@@ -361,8 +361,7 @@ function tagMalen(number, tag){
                 window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
                 document.getElementById("fach2").value = vorlesung.vorTitel;
                 document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
-
-                    
+    
                 document.getElementById("abbrechen2").addEventListener('click', function() {
                     window.localStorage.removeItem('vorDatumEingelesen');
                     document.getElementById("fach2").value = "";
@@ -371,44 +370,52 @@ function tagMalen(number, tag){
                 })
                 
                 document.getElementById("speichern2").addEventListener('click', function() {
-                    var apiUrl4 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
-                    fetch(apiUrl4, {method: 'DELETE',
-                    headers:
-                        {'content-type': 'application/json'}
-                    })   
-                        .catch(err => console.error(err))
 
                     var j = document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
                     var fach2 = document.getElementById("fach2").value;
-                
-                    if (fach2!=="" && j!==null){
-                    var apiUrl3 = "http://localhost:8080/Vorlesung";
-                    fetch(apiUrl3, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({    vorTitel: fach2,
-                                                    vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
-                                                    zeitraum: {
-                                                        zeiId: j
-                                                    },
-                                                    nutzer: {
-                                                        nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
-                                                    }
-                                            })
-                        })
-                        .catch(err => console.error(err))
-                        .then(forTage())
                     
-                    document.getElementById("fach2").value = "";
-                    document.getElementById("zeitplan2").selectedIndex = 0;
-                    window.localStorage.removeItem('vorDatumEingelesen');
-                    document.getElementById("dialog3").close();
+                    loeschen11();
+                    neuhinzu();
+                    
+                    function neuhinzu(){
+                        if (fach2!=="" && j!==null){
+                        var apiUrl3 = "http://localhost:8080/Vorlesung";
+                        fetch(apiUrl3, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({    vorTitel: fach2,
+                                                        vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
+                                                        zeitraum: {
+                                                            zeiId: j
+                                                        },
+                                                        nutzer: {
+                                                            nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                                        }
+                                                })
+                            })
+                            .catch(err => console.error(err))
+                            .then(forTage())
+                        
+                        document.getElementById("fach2").value = "";
+                        document.getElementById("zeitplan2").selectedIndex = 0;
+                        window.localStorage.removeItem('vorDatumEingelesen');
+                        document.getElementById("dialog3").close();
+                        }
+                        else{
+                            alert("Bitte Zeit auswählen!")
+                        }
                     }
-                    else{
-                        alert("Bitte Zeit auswählen!")
-                    }
+
+                    function loeschen11(){
+                        var apiUrl4 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
+                        fetch(apiUrl4, {method: 'DELETE',
+                        headers:
+                            {'content-type': 'application/json'}
+                        })   
+                            .catch(err => console.error(err))
+                        }   
                 })
             })
         })
