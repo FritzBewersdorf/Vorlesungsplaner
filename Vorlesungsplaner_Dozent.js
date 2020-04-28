@@ -154,40 +154,6 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
 
 })
 
-document.getElementById("testButton4").addEventListener('click', function dialogNeueListe2()
-{
-    document.getElementById("DialogUhrzeit").showModal();
-});
-
-document.getElementById("ButtonAbbrechen2").addEventListener('click', function() {
-    document.getElementById("exampleFormControlInput13").value = "";
-    document.getElementById("exampleFormControlInput14").value = "";
-    document.getElementById("DialogUhrzeit").close();
-})
-
-document.getElementById("ButtonAuswaehlen2").addEventListener('click', function() {
-    var uhrzeitEins = document.getElementById("exampleFormControlInput13").value;
-    var uhrzeitZwei = document.getElementById("exampleFormControlInput14").value;
-
-    var apiUrl5 = "http://localhost:8080/Zeitraum";
-            fetch(apiUrl5, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({    zeiBeginn: uhrzeitEins,
-                                            zeiEnde: uhrzeitZwei
-                                    })
-                })
-                .catch(err => console.error(err))
-                .then(forTage());
-
-    document.getElementById("exampleFormControlInput13").value = "";
-    document.getElementById("exampleFormControlInput14").value = "";
-    document.getElementById("DialogUhrzeit").close();
-    location.reload();
-})
-
 vorlesungsListeNeu()
 async function vorlesungsListeNeu(){
     const response = await fetch('http://localhost:8080/Zeitraum/0');
