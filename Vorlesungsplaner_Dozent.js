@@ -319,80 +319,83 @@ function tagMalen(number, tag){
             tagInhalt.appendChild(block1);
             document.getElementById(tag+ "inhalt").appendChild(tagInhalt)
 
-            drueck.addEventListener('click',function deletos()
-                {
-                var apiUrl2 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
-                fetch(apiUrl2, {method: 'DELETE',
-                  headers:
-                    {'content-type': 'application/json'}
-                  })   
-                    .catch(err => console.error(err))
-                    .then(forTage());    
-                })
-            
-            bearbeitenKnopf.addEventListener('click', function bearbeitos(){
-                document.getElementById("dialog3").showModal();
-                datum.setDate(datum.getDate()+1);
-                window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
-                document.getElementById("fach2").value = vorlesung.vorTitel;
-                document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
-    
-                document.getElementById("abbrechen2").addEventListener('click', function() {
-                    window.localStorage.removeItem('vorDatumEingelesen');
-                    document.getElementById("fach2").value = "";
-                    document.getElementById("zeitplan2").selectedIndex = 0;
-                    document.getElementById("dialog3").close();
-                })
-                
-                document.getElementById("speichern2").addEventListener('click', function() {
+            if(vorlesung.nutzer.nutId==window.localStorage.getItem('nutIdEingelesen')){
 
-                    var j = document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
-                    var fach2 = document.getElementById("fach2").value;
-                    
-                    loeschen11();
-                    neuhinzu();
-                    
-                    function neuhinzu(){
-                        if (fach2!=="" && j!==null){
-                        var apiUrl3 = "http://localhost:8080/Vorlesung";
-                        fetch(apiUrl3, {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify({    vorTitel: fach2,
-                                                        vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
-                                                        zeitraum: {
-                                                            zeiId: j
-                                                        },
-                                                        nutzer: {
-                                                            nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
-                                                        }
-                                                })
-                            })
-                            .catch(err => console.error(err))
-                            .then(forTage())
-                        
+                drueck.addEventListener('click',function deletos()
+                    {
+                    var apiUrl2 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
+                    fetch(apiUrl2, {method: 'DELETE',
+                    headers:
+                        {'content-type': 'application/json'}
+                    })   
+                        .catch(err => console.error(err))
+                        .then(forTage());    
+                    })
+                
+                bearbeitenKnopf.addEventListener('click', function bearbeitos(){
+                    document.getElementById("dialog3").showModal();
+                    datum.setDate(datum.getDate()+1);
+                    window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
+                    document.getElementById("fach2").value = vorlesung.vorTitel;
+                    document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
+        
+                    document.getElementById("abbrechen2").addEventListener('click', function() {
+                        window.localStorage.removeItem('vorDatumEingelesen');
                         document.getElementById("fach2").value = "";
                         document.getElementById("zeitplan2").selectedIndex = 0;
-                        window.localStorage.removeItem('vorDatumEingelesen');
                         document.getElementById("dialog3").close();
-                        }
-                        else{
-                            alert("Bitte Zeit auswählen!")
-                        }
-                    }
+                    })
+                    
+                    document.getElementById("speichern2").addEventListener('click', function() {
 
-                    function loeschen11(){
-                        var apiUrl4 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
-                        fetch(apiUrl4, {method: 'DELETE',
-                        headers:
-                            {'content-type': 'application/json'}
-                        })   
-                            .catch(err => console.error(err))
-                        }   
+                        var j = document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
+                        var fach2 = document.getElementById("fach2").value;
+                        
+                        loeschen11();
+                        neuhinzu();
+                        
+                        function neuhinzu(){
+                            if (fach2!=="" && j!==null){
+                            var apiUrl3 = "http://localhost:8080/Vorlesung";
+                            fetch(apiUrl3, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({    vorTitel: fach2,
+                                                            vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
+                                                            zeitraum: {
+                                                                zeiId: j
+                                                            },
+                                                            nutzer: {
+                                                                nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                                            }
+                                                    })
+                                })
+                                .catch(err => console.error(err))
+                                .then(forTage())
+                            
+                            document.getElementById("fach2").value = "";
+                            document.getElementById("zeitplan2").selectedIndex = 0;
+                            window.localStorage.removeItem('vorDatumEingelesen');
+                            document.getElementById("dialog3").close();
+                            }
+                            else{
+                                alert("Bitte Zeit auswählen!")
+                            }
+                        }
+
+                        function loeschen11(){
+                            var apiUrl4 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
+                            fetch(apiUrl4, {method: 'DELETE',
+                            headers:
+                                {'content-type': 'application/json'}
+                            })   
+                                .catch(err => console.error(err))
+                            }   
+                    })
                 })
-            })
+            }
         })
     }
 }
