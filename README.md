@@ -10,7 +10,13 @@ Die JSON-log Datei ist zum Einspielen in INSOMNIA vorgesehen. In ihr sind alle m
 
 Die Datei Datenbank.txt ist zum Einspielen in DBeaver oder ein anderes Datenbankprogramm gedacht. Mit ihr lässt sich die Datenbank aufsetzen.
 
+# Docker START
 
+- In Terminal gehen. 
+- Ordnerstruktur auswählen (In den Ordner Fallstudioe einwählen).
+- docker-compose --build (Beim ersten Mal starten), danach immer nur docker-compose up -d (auch beim schließen des Terminals funktionsfähig).
+- In Docker-Dashboard überprüfen ob alles gestartet wurde.
+- Webanwendung starten und verwenden. 
 
 # Quellen
 
