@@ -239,6 +239,7 @@ function tagMalen(number, tag){
                 })
                 .catch(err => console.error(err))
                 .then(forTage())
+                .then(window.reload());
             document.getElementById("fach").value = "";
             document.getElementById("zeitplan").selectedIndex = 0;
             window.localStorage.removeItem('vorDatumEingelesen');
@@ -337,7 +338,7 @@ function tagMalen(number, tag){
                     datum.setDate(datum.getDate()+1);
                     window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
                     document.getElementById("fach2").value = vorlesung.vorTitel;
-                    document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
+                    document.getElementById("zeitplan2").selectedIndex = vorlesung.zeitraum.zeiId;
         
                     document.getElementById("abbrechen2").addEventListener('click', function() {
                         window.localStorage.removeItem('vorDatumEingelesen');
