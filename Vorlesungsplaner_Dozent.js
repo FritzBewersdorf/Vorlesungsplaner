@@ -310,17 +310,14 @@ function tagMalen(number, tag){
             bearbeitenKnopf.textContent = "Vorlesung bearbeiten";
             bearbeitenKnopf.setAttribute('class', 'dropdown-item');
             bearbeitenKnopf.setAttribute('href', '#');
-        
-            divi2.appendChild(drueck);
-            divi2.appendChild(bearbeitenKnopf);
-            vorlesungLoeschen.appendChild(button1234);
-            vorlesungLoeschen.appendChild(divi2);
-            block1.appendChild(vorlesungLoeschen);
-            block1.appendChild(block2);
-            tagInhalt.appendChild(block1);
-            document.getElementById(tag+ "inhalt").appendChild(tagInhalt)
 
             if(vorlesung.nutzer.nutId==window.localStorage.getItem('nutIdEingelesen')){
+
+                divi2.appendChild(drueck);
+                divi2.appendChild(bearbeitenKnopf);
+                vorlesungLoeschen.appendChild(button1234);
+                vorlesungLoeschen.appendChild(divi2);
+                block1.appendChild(vorlesungLoeschen);
 
                 drueck.addEventListener('click',function deletos()
                     {
@@ -397,6 +394,9 @@ function tagMalen(number, tag){
                     })
                 })
             }
+            block1.appendChild(block2);
+            tagInhalt.appendChild(block1);
+            document.getElementById(tag+ "inhalt").appendChild(tagInhalt)
         })
     }
 }
