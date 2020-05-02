@@ -256,6 +256,7 @@ function tagMalen(number, tag){
         
             if  (fach=="" && i==null){
                 alert("Bitte Zeit oder Fach auswählen!")
+            }
             else{
                 var apiUrl3 = "http://localhost:8080/Vorlesung";
                 fetch(apiUrl3, {
@@ -280,7 +281,6 @@ function tagMalen(number, tag){
                 window.localStorage.removeItem('vorDatumEingelesen');
                 document.getElementById("dialog2").close();
                 }
-            }
         })
             
         document.getElementById("abbrechen").addEventListener('click', function() {
