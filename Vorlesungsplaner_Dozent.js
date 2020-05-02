@@ -220,33 +220,32 @@ function tagMalen(number, tag){
             var i = document.getElementById("zeitplan")[document.getElementById("zeitplan").selectedIndex].getAttribute("id")
             var fach = document.getElementById("fach").value;
         
-            if  (fach!=="" && i!==null){
-            var apiUrl3 = "http://localhost:8080/Vorlesung";
-            fetch(apiUrl3, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({    vorTitel: fach,
-                                            vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
-                                            zeitraum: {
-                                                zeiId: i
-                                            },
-                                            nutzer: {
-                                                nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
-                                            }
-                                    })
-                })
-                .catch(err => console.error(err))
-                .then(forTage)
-            document.getElementById("fach").value = "";
-            document.getElementById("zeitplan").selectedIndex = 0;
-            window.localStorage.removeItem('vorDatumEingelesen');
-            document.getElementById("dialog2").close();
-            
+            if  (fach=="" || i==null){
+                alert("Bitte Zeit oder Fach auswählen!")
             }
             else{
-                alert("Bitte Zeit oder Fach auswählen!")
+                var apiUrl3 = "http://localhost:8080/Vorlesung";
+                fetch(apiUrl3, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({    vorTitel: fach,
+                                                vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
+                                                zeitraum: {
+                                                    zeiId: i
+                                                },
+                                                nutzer: {
+                                                    nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                                }
+                                        })
+                    })
+                    .catch(err => console.error(err))
+                    .then(forTage)
+                document.getElementById("fach").value = "";
+                document.getElementById("zeitplan").selectedIndex = 0;
+                window.localStorage.removeItem('vorDatumEingelesen');
+                document.getElementById("dialog2").close();      
             }
         })
             
@@ -352,33 +351,33 @@ function tagMalen(number, tag){
                         neuhinzu();
                         
                         function neuhinzu(){
-                            if (fach2!=="" && j!==null){
-                            var apiUrl3 = "http://localhost:8080/Vorlesung";
-                            fetch(apiUrl3, {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify({    vorTitel: fach2,
-                                                            vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
-                                                            zeitraum: {
-                                                                zeiId: j
-                                                            },
-                                                            nutzer: {
-                                                                nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
-                                                            }
-                                                    })
-                                })
-                                .catch(err => console.error(err))
-                                .then(forTage)
-                            
-                            document.getElementById("fach2").value = "";
-                            document.getElementById("zeitplan2").selectedIndex = 0;
-                            window.localStorage.removeItem('vorDatumEingelesen');
-                            document.getElementById("dialog3").close();
+                            if (fach2=="" && j==null){
+                                alert("Bitte Zeit auswählen!")
                             }
                             else{
-                                alert("Bitte Zeit auswählen!")
+                                var apiUrl3 = "http://localhost:8080/Vorlesung";
+                                fetch(apiUrl3, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({    vorTitel: fach2,
+                                                                vorDatum: window.localStorage.getItem('vorDatumEingelesen'),
+                                                                zeitraum: {
+                                                                    zeiId: j
+                                                                },
+                                                                nutzer: {
+                                                                    nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                                                }
+                                                        })
+                                    })
+                                    .catch(err => console.error(err))
+                                    .then(forTage)
+                                
+                                document.getElementById("fach2").value = "";
+                                document.getElementById("zeitplan2").selectedIndex = 0;
+                                window.localStorage.removeItem('vorDatumEingelesen');
+                                document.getElementById("dialog3").close();
                             }
                         }
 
