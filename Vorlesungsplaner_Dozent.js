@@ -436,3 +436,9 @@ function closeNav() {
     document.getElementById("sideBar").style.width = "0";
     document.getElementById("ansichtdozent").style.marginLeft= "0";
 }
+
+document.getElementById("auslogg").addEventListener('click', function Ausgelogge()
+{
+  window.localStorage.removeItem('nutIdEingelesen')
+  window.location.assign("VorlesungsplanLogin.html")
+});

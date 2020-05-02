@@ -364,6 +364,7 @@ function tagMalen(number, tag){
                 })
             
             bearbeitenKnopf.addEventListener('click', function bearbeitos(){
+                window.localStorage.setItem('nutIdAlteEingelesen', vorlesung.nutzer.nutId);
                 document.getElementById("dialog3").showModal();
                 datum.setDate(datum.getDate()+1);
                 window.localStorage.setItem('vorDatumEingelesen', datum.toISOString());
@@ -399,7 +400,7 @@ function tagMalen(number, tag){
                                                             zeiId: j
                                                         },
                                                         nutzer: {
-                                                            nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                                            nutId: parseInt(window.localStorage.getItem('nutIdAlteEingelesen'))
                                                         }
                                                 })
                             })
