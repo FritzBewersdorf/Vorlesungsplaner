@@ -238,8 +238,7 @@ function tagMalen(number, tag){
                                     })
                 })
                 .catch(err => console.error(err))
-                .then(forTage())
-                .then(window.reload());
+                .then(forTage)
             document.getElementById("fach").value = "";
             document.getElementById("zeitplan").selectedIndex = 0;
             window.localStorage.removeItem('vorDatumEingelesen');
@@ -327,7 +326,7 @@ function tagMalen(number, tag){
                         {'content-type': 'application/json'}
                     })   
                         .catch(err => console.error(err))
-                        .then(forTage());    
+                        .then(forTage)    
                     })
                 
                 bearbeitenKnopf.addEventListener('click', function bearbeitos(){
@@ -371,7 +370,7 @@ function tagMalen(number, tag){
                                                     })
                                 })
                                 .catch(err => console.error(err))
-                                .then(forTage())
+                                .then(forTage)
                             
                             document.getElementById("fach2").value = "";
                             document.getElementById("zeitplan2").selectedIndex = 0;
@@ -390,7 +389,7 @@ function tagMalen(number, tag){
                                 {'content-type': 'application/json'}
                             })   
                                 .catch(err => console.error(err))
-                            }   
+                        }   
                     })
                 })
             }
