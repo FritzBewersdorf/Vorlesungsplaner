@@ -399,7 +399,7 @@ function tagMalen(number, tag){
                                                             zeiId: j
                                                         },
                                                         nutzer: {
-                                                            nutId: parseInt(window.localStorage.getItem('nutIdEingelesen'))
+                                                            nutId: vorlesung.nutzer.nutId
                                                         }
                                                 })
                             })
