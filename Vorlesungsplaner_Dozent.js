@@ -351,7 +351,7 @@ function tagMalen(number, tag){
                         neuhinzu();
                         
                         function neuhinzu(){
-                            if (fach2=="" && j==null){
+                            if (fach2=="" || j==null){
                                 alert("Bitte Zeit auswählen!")
                             }
                             else{

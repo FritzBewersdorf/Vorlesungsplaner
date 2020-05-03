@@ -254,7 +254,7 @@ function tagMalen(number, tag){
             var i = document.getElementById("zeitplan")[document.getElementById("zeitplan").selectedIndex].getAttribute("id")
             var fach = document.getElementById("fach").value;
         
-            if  (fach=="" && i==null){
+            if  (fach=="" || i==null){
                 alert("Bitte Zeit oder Fach auswählen!")
             }
             else{
@@ -383,11 +383,15 @@ function tagMalen(number, tag){
                     var j = document.getElementById("zeitplan2")[document.getElementById("zeitplan2").selectedIndex].getAttribute("id")
                     var fach2 = document.getElementById("fach2").value;
                     
-                    loeschen11();
-                    neuhinzu();
+                    var apiUrl4 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
+                        fetch(apiUrl4, {method: 'DELETE',
+                        headers:
+                            {'content-type': 'application/json'}
+                        })   
+                            .catch(err => console.error(err))
                     
-                    function neuhinzu(){
-                        if (fach2=="" && j==null){
+                    
+                        if (fach2=="" || j==null){
                             alert("Bitte Zeit auswählen!")
                         }
                         else{
@@ -409,22 +413,11 @@ function tagMalen(number, tag){
                                 })
                                 .catch(err => console.error(err))
                                 .then(forTage)
-                            
                             document.getElementById("fach2").value = "";
                             document.getElementById("zeitplan2").selectedIndex = 0;
                             window.localStorage.removeItem('vorDatumEingelesen');
                             document.getElementById("dialog3").close();
-                        }
-                    }
-
-                    function loeschen11(){
-                        var apiUrl4 = "http://localhost:8080/Vorlesung/" + vorlesung.vorId ;
-                        fetch(apiUrl4, {method: 'DELETE',
-                        headers:
-                            {'content-type': 'application/json'}
-                        })   
-                            .catch(err => console.error(err))
-                        }   
+                        }                         
                 })
             })
         })
