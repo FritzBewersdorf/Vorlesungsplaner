@@ -120,10 +120,6 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
     var mm = feldElement.substr(3,2);
     var yyyy = feldElement.substr(6,4);
 
-    console.log(dd);
-    console.log(mm);
-    console.log(yyyy);
-
     if (isNaN(dd)&&isNaN(dd)&&isNaN(yyyy)){
         alert("Zahlen inkorrekt")
     }
@@ -133,13 +129,13 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
 
         var ZeitEndlich = new Date(ZeitGesamt)
         console.log(ZeitEndlich)
-        ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
+        //ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
 
         if (isNaN(ZeitEndlich.getTime())){
             alert("Zeit nicht gültig")
         }
         else{
-            var currentThursday = new Date(ZeitEndlich.getTime() +(3-((date.getDay()+6) % 7)) * 86400000);
+            var currentThursday = new Date(ZeitEndlich.getTime() +(3-((ZeitEndlich.getDay()+6) % 7)) * 86400000);
             var yearOfThursday = currentThursday.getFullYear();
             var firstThursday = new Date(new Date(yearOfThursday,0,4).getTime() +(3-((new Date(yearOfThursday,0,4).getDay()+6) % 7)) * 86400000);
             var weekNumber = Math.floor(1 + 0.5 + (currentThursday.getTime() - firstThursday.getTime()) / 86400000/7);
@@ -151,7 +147,6 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
             document.getElementById("DialogDatum").close();
         }
     }
-
 })
 
 document.getElementById("testButton4").addEventListener('click', function dialogNeueListe2()
