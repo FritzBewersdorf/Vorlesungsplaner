@@ -266,7 +266,7 @@ body {
     height: 100%;
     overflow-x: hidden;
     transition: 0.5s;
-    position: fixed;
+    
     top: 0;
     left: 0;
 }
@@ -390,6 +390,7 @@ a{
     .sidebar {
         font-size: 120%;
         width : 100%;  
+        position: fixed;
     }
 
     .content {
