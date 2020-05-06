@@ -47,39 +47,67 @@ function Kalenderwoche(weekNumber, yearOfThursday){
     document.getElementById("KalenderJahr").appendChild(Naaame12);
     document.getElementById("KalenderJahr").appendChild(buttonBeta1);
 
+    
     if(weekNumber!=1){
-        document.getElementById("NeuerButton1").addEventListener('click', function() {
+        document.getElementById("wocheZurueck").addEventListener('click', function() {
             weekNumber = weekNumber-1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         });
     }
-    else{
-        document.getElementById("NeuerButton1").addEventListener('click', function() {
+    else if ((yearOfThursday != 2005 &&yearOfThursday != 2010 &&yearOfThursday != 2016 && yearOfThursday != 2021 && yearOfThursday != 2027 && yearOfThursday != 2033) && weekNumber == 1){
+        document.getElementById("wocheZurueck").addEventListener('click', function() {
             weekNumber = 52;
             yearOfThursday = yearOfThursday -1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         })
     }
-
-    if(weekNumber!=52){
-        document.getElementById("NeuerButton2").addEventListener('click', function() {
-            weekNumber = weekNumber+1;
+    else if ((yearOfThursday == 2005 ||yearOfThursday == 2010 ||yearOfThursday == 2016 ||yearOfThursday == 2021 || yearOfThursday == 2027 || yearOfThursday == 2033) && weekNumber ==1 ){
+        document.getElementById("wocheZurueck").addEventListener('click', function() {
+            weekNumber = 53;
+            yearOfThursday = yearOfThursday -1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         })
     }
-    else{
-        document.getElementById("NeuerButton2").addEventListener('click', function() {
+
+    // Woche nach Vorne
+
+    if(weekNumber!=52){
+            document.getElementById("wocheVorne").addEventListener('click', function() {
+                weekNumber = weekNumber+1;
+                Kalenderwoche(weekNumber, yearOfThursday);
+                forTage();
+            })
+    }
+    else if ((yearOfThursday!=2004 && yearOfThursday!=2009 && yearOfThursday!=2015 && yearOfThursday!=2020 && yearOfThursday !=2026 && yearOfThursday !=2032) && weekNumber == 52){
+        document.getElementById("wocheVorne").addEventListener('click', function() {
             weekNumber = 1;
             yearOfThursday = yearOfThursday +1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         })
     }
+    else if((yearOfThursday == 2004 || yearOfThursday == 2009 ||yearOfThursday == 2015 || yearOfThursday == 2020 || yearOfThursday == 2026 || yearOfThursday == 2032) && weekNumber ==52){
+        document.getElementById("wocheVorne").addEventListener('click', function() {
+            weekNumber = weekNumber +1;
+            
+            Kalenderwoche(weekNumber, yearOfThursday);
+            forTage();
+        })
+    }
+    if(weekNumber==54){
+        weekNumber = 1;
+        yearOfThursday = yearOfThursday +1;
+        Kalenderwoche(weekNumber, yearOfThursday);
+        forTage();
+    }
+
+    // Jahre nach Vorne und Hinten
+
     if(yearOfThursday!=0){
-        document.getElementById("NeuerButton3").addEventListener('click', function() {
+        document.getElementById("JahrZurueck").addEventListener('click', function() {
             yearOfThursday = yearOfThursday-1;
             weekNumber =1;
             Kalenderwoche(weekNumber, yearOfThursday);
@@ -87,14 +115,13 @@ function Kalenderwoche(weekNumber, yearOfThursday){
         });
     }
 
-    document.getElementById("NeuerButton4").addEventListener('click', function() {
+    document.getElementById("JahrVorne").addEventListener('click', function() {
         yearOfThursday = yearOfThursday+1;
         weekNumber =1;
         Kalenderwoche(weekNumber, yearOfThursday);
         forTage();
     });
 }
-
 
 document.getElementById("testButton2").addEventListener('click', function()
 {
@@ -409,6 +436,9 @@ function getDateOfISOWeek(item,yearOfThursday,number) {
        ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
  
     ISOweekStart.setDate(ISOweekStart.getDate()+(number-1));
+    if(yearOfThursday==2010 ||yearOfThursday==2016 || yearOfThursday==2021 || yearOfThursday==2027){
+        ISOweekStart.setDate(ISOweekStart.getDate()+7);
+    }
     return ISOweekStart; 
 }
 

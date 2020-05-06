@@ -11,7 +11,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonUno = document.createElement("button");
     buttonUno.setAttribute('class', 'fas fa-arrow-left');
-    buttonUno.id = 'NeuerButton1';
+    buttonUno.id = 'wocheZurueck';
    
 
     var Naaame11 = document.createElement("h4"); 
@@ -20,7 +20,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonBeta = document.createElement("button");
     buttonBeta.setAttribute('class', 'fas fa-arrow-right');
-    buttonBeta.setAttribute('id', 'NeuerButton2');
+    buttonBeta.setAttribute('id', 'wocheVorne');
     
 
     document.getElementById("KalenderMitmachen").appendChild(buttonUno);
@@ -31,7 +31,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonUno1 = document.createElement("button");
     buttonUno1.setAttribute('class', 'fas fa-arrow-left');
-    buttonUno1.id = 'NeuerButton3';
+    buttonUno1.id = 'JahrZurueck';
     
 
     var Naaame12 = document.createElement("h3"); 
@@ -40,46 +40,75 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonBeta1 = document.createElement("button");
     buttonBeta1.setAttribute('class', 'fas fa-arrow-right');
-    buttonBeta1.setAttribute('id', 'NeuerButton4');
+    buttonBeta1.setAttribute('id', 'JahrVorne');
     
 
     document.getElementById("KalenderJahr").appendChild(buttonUno1);
     document.getElementById("KalenderJahr").appendChild(Naaame12);
     document.getElementById("KalenderJahr").appendChild(buttonBeta1);
 
+    // Woche nach Hinten
+
     if(weekNumber!=1){
-        document.getElementById("NeuerButton1").addEventListener('click', function() {
+        document.getElementById("wocheZurueck").addEventListener('click', function() {
             weekNumber = weekNumber-1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         });
     }
-    else{
-        document.getElementById("NeuerButton1").addEventListener('click', function() {
+    else if ((yearOfThursday != 2005 &&yearOfThursday != 2010 &&yearOfThursday != 2016 && yearOfThursday != 2021 && yearOfThursday != 2027 && yearOfThursday != 2033) && weekNumber == 1){
+        document.getElementById("wocheZurueck").addEventListener('click', function() {
             weekNumber = 52;
             yearOfThursday = yearOfThursday -1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         })
     }
-
-    if(weekNumber!=52){
-        document.getElementById("NeuerButton2").addEventListener('click', function() {
-            weekNumber = weekNumber+1;
+    else if ((yearOfThursday == 2005 ||yearOfThursday == 2010 ||yearOfThursday == 2016 ||yearOfThursday == 2021 || yearOfThursday == 2027 || yearOfThursday == 2033) && weekNumber ==1 ){
+        document.getElementById("wocheZurueck").addEventListener('click', function() {
+            weekNumber = 53;
+            yearOfThursday = yearOfThursday -1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         })
     }
-    else{
-        document.getElementById("NeuerButton2").addEventListener('click', function() {
+
+    // Woche nach Vorne
+
+    if(weekNumber!=52){
+            document.getElementById("wocheVorne").addEventListener('click', function() {
+                weekNumber = weekNumber+1;
+                Kalenderwoche(weekNumber, yearOfThursday);
+                forTage();
+            })
+    }
+    else if ((yearOfThursday!=2004 && yearOfThursday!=2009 && yearOfThursday!=2015 && yearOfThursday!=2020 && yearOfThursday !=2026 && yearOfThursday !=2032) && weekNumber == 52){
+        document.getElementById("wocheVorne").addEventListener('click', function() {
             weekNumber = 1;
             yearOfThursday = yearOfThursday +1;
             Kalenderwoche(weekNumber, yearOfThursday);
             forTage();
         })
     }
+    else if((yearOfThursday == 2004 || yearOfThursday == 2009 ||yearOfThursday == 2015 || yearOfThursday == 2020 || yearOfThursday == 2026 || yearOfThursday == 2032) && weekNumber ==52){
+        document.getElementById("wocheVorne").addEventListener('click', function() {
+            weekNumber = weekNumber +1;
+            
+            Kalenderwoche(weekNumber, yearOfThursday);
+            forTage();
+        })
+    }
+    if(weekNumber==54){
+        weekNumber = 1;
+        yearOfThursday = yearOfThursday +1;
+        Kalenderwoche(weekNumber, yearOfThursday);
+        forTage();
+    }
+
+    // Jahre nach Vorne und Hinten
+
     if(yearOfThursday!=0){
-        document.getElementById("NeuerButton3").addEventListener('click', function() {
+        document.getElementById("JahrZurueck").addEventListener('click', function() {
             yearOfThursday = yearOfThursday-1;
             weekNumber =1;
             Kalenderwoche(weekNumber, yearOfThursday);
@@ -87,7 +116,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
         });
     }
 
-    document.getElementById("NeuerButton4").addEventListener('click', function() {
+    document.getElementById("JahrVorne").addEventListener('click', function() {
         yearOfThursday = yearOfThursday+1;
         weekNumber =1;
         Kalenderwoche(weekNumber, yearOfThursday);
@@ -120,7 +149,7 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
     var mm = feldElement.substr(3,2);
     var yyyy = feldElement.substr(6,4);
 
-    if (isNaN(dd)&&isNaN(dd)&&isNaN(yyyy)){
+    if (isNaN(dd)||isNaN(dd)||isNaN(yyyy)){
         alert("Zahlen inkorrekt")
     }
     else{
@@ -129,7 +158,6 @@ document.getElementById("ButtonAuswaehlen").addEventListener('click', function()
 
         var ZeitEndlich = new Date(ZeitGesamt)
         console.log(ZeitEndlich)
-        //ZeitEndlich.setDate(ZeitEndlich.getDate()+1);
 
         if (isNaN(ZeitEndlich.getTime())){
             alert("Zeit nicht gültig")
@@ -175,12 +203,11 @@ document.getElementById("ButtonAuswaehlen2").addEventListener('click', function(
                                     })
                 })
                 .catch(err => console.error(err))
-                .then(forTage());
+                .then(forTage);
 
     document.getElementById("exampleFormControlInput13").value = "";
     document.getElementById("exampleFormControlInput14").value = "";
     document.getElementById("DialogUhrzeit").close();
-    location.reload();
 })
 
 vorlesungsListeNeu()
@@ -225,16 +252,16 @@ function tagMalen(number, tag){
 
     var datum = getDateOfISOWeek(document.getElementById("idWoche").textContent.substring(14), document.getElementById("idJahr").textContent.substring(5),number);
 
-    var h3geile = document.createElement("h5");
+    var tagAusschreiben = document.createElement("h5");
     var ausgeschriebenerTag= "";
-    h3geile.textContent = ausgeschriebenerTag.concat(tag, "") ;
+    tagAusschreiben.textContent = ausgeschriebenerTag.concat(tag, "") ;
     var IDh3 = document.createElement("h6");
     IDh3.textContent = datum.toLocaleDateString();
     var vorlesungEintragen = document.createElement("button");
     vorlesungEintragen.setAttribute("class", "btn btn-outline-secondary" )
     vorlesungEintragen.textContent = "+ Neue Vorlesung";
     vorlesungEintragen.setAttribute('id', 'vorlesungEintragen1'+tag);
-    tagUndDatum.appendChild(h3geile);
+    tagUndDatum.appendChild(tagAusschreiben);
     tagUndDatum.appendChild(IDh3);
     tagUndDatum.appendChild(vorlesungEintragen);
 
@@ -423,12 +450,15 @@ function getDateOfISOWeek(item,yearOfThursday,number) {
     var simple = new Date(yearOfThursday, 0, 0 + (item - 1) * 7);
     var dow = simple.getDay();
     var ISOweekStart = simple;
-    if (dow <= 4)
-       ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
-    else
-       ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
- 
+        if (dow <= 4)
+        ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+        else
+        ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+    
     ISOweekStart.setDate(ISOweekStart.getDate()+(number-1));
+    if(yearOfThursday==2010 ||yearOfThursday==2016 || yearOfThursday==2021 || yearOfThursday==2027){
+        ISOweekStart.setDate(ISOweekStart.getDate()+7);
+    }
     return ISOweekStart; 
 }
 
