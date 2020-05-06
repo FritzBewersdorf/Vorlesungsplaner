@@ -9,43 +9,43 @@ Kalenderwoche(weekNumber, yearOfThursday);
 function Kalenderwoche(weekNumber, yearOfThursday){
     document.getElementById("KalenderMitmachen").innerHTML="";
 
-    var buttonUno = document.createElement("button");
-    buttonUno.setAttribute('class', 'fas fa-arrow-left');
-    buttonUno.id = 'wocheZurueck';
+    var buttonWocheLinks = document.createElement("button");
+    buttonWocheLinks.setAttribute('class', 'fas fa-arrow-left');
+    buttonWocheLinks.id = 'wocheZurueck';
    
 
-    var Naaame11 = document.createElement("h4"); 
-    Naaame11.textContent = "Kalenderwoche " + weekNumber;
-    Naaame11.id = "idWoche";
+    var WochenName = document.createElement("h4"); 
+    WochenName.textContent = "Kalenderwoche " + weekNumber;
+    WochenName.id = "idWoche";
 
-    var buttonBeta = document.createElement("button");
-    buttonBeta.setAttribute('class', 'fas fa-arrow-right');
-    buttonBeta.setAttribute('id', 'wocheVorne');
+    var buttonWocheRechts = document.createElement("button");
+    buttonWocheRechts.setAttribute('class', 'fas fa-arrow-right');
+    buttonWocheRechts.setAttribute('id', 'wocheVorne');
     
 
-    document.getElementById("KalenderMitmachen").appendChild(buttonUno);
-    document.getElementById("KalenderMitmachen").appendChild(Naaame11);
-    document.getElementById("KalenderMitmachen").appendChild(buttonBeta);
+    document.getElementById("KalenderMitmachen").appendChild(buttonWocheLinks);
+    document.getElementById("KalenderMitmachen").appendChild(WochenName);
+    document.getElementById("KalenderMitmachen").appendChild(buttonWocheRechts);
 
     document.getElementById("KalenderJahr").innerHTML="";
 
-    var buttonUno1 = document.createElement("button");
-    buttonUno1.setAttribute('class', 'fas fa-arrow-left');
-    buttonUno1.id = 'JahrZurueck';
+    var buttonJahrLinks = document.createElement("button");
+    buttonJahrLinks.setAttribute('class', 'fas fa-arrow-left');
+    buttonJahrLinks.id = 'JahrZurueck';
     
 
-    var Naaame12 = document.createElement("h3"); 
-    Naaame12.textContent = "Jahr " + yearOfThursday;
-    Naaame12.id = "idJahr";
+    var JahrName = document.createElement("h3"); 
+    JahrName.textContent = "Jahr " + yearOfThursday;
+    JahrName.id = "idJahr";
 
-    var buttonBeta1 = document.createElement("button");
-    buttonBeta1.setAttribute('class', 'fas fa-arrow-right');
-    buttonBeta1.setAttribute('id', 'JahrVorne');
+    var buttonJahrRechts = document.createElement("button");
+    buttonJahrRechts.setAttribute('class', 'fas fa-arrow-right');
+    buttonJahrRechts.setAttribute('id', 'JahrVorne');
     
 
-    document.getElementById("KalenderJahr").appendChild(buttonUno1);
-    document.getElementById("KalenderJahr").appendChild(Naaame12);
-    document.getElementById("KalenderJahr").appendChild(buttonBeta1);
+    document.getElementById("KalenderJahr").appendChild(buttonJahrLinks);
+    document.getElementById("KalenderJahr").appendChild(JahrName);
+    document.getElementById("KalenderJahr").appendChild(buttonJahrRechts);
 
     // Woche nach Hinten
 
