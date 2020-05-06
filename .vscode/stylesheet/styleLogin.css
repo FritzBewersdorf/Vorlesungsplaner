@@ -10,7 +10,7 @@ Resources
 }
 
 body {
-  background: #007bff;
+
   background: linear-gradient(to right, #E25A53, rgb(245, 92, 92));
  
 }
@@ -32,10 +32,17 @@ body {
   
 }
 
-
-
+.dhbwlogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
 .btn-primary {
-    margin: 5px 115px 5px 115px;
+  background-color: #E25A53;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 

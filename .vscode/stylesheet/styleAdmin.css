@@ -73,7 +73,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     grid-area: content;
     background-color: #F4F5FA;
-    border-radius: 50px;
+    border-radius: 30px;
     border: 10px solid #E25A53;
     height: 100%;
     overflow-x: hidden;
@@ -143,7 +143,7 @@ body {
     background-color: white;
     border-color: #C0C0C0;
     margin: 20px 20px 10px 0px;
-    border-radius: 15px;
+    border-radius: 10px;
     display: inline-block;
 }
 
@@ -154,7 +154,7 @@ body {
 
 /*DropDown Cards*/
 .dropdown-menu {
-    border-radius: 15px!important;
+    border-radius: 10px!important;
 }
 
 
@@ -163,7 +163,7 @@ body {
 .content .Vorlesungsplanansicht{
     background-color: white;
     margin: 20px 10px 20px 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     
 }
 
@@ -217,7 +217,7 @@ body {
     margin: 10px 10px 10px 10px;
     /*width: 130px;
     height: 500px;*/
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 15px 5px 15px 5px;
     width: 30%;
     height: auto; 
@@ -249,7 +249,7 @@ body {
 
 .contentinhalt .Dialog{
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 25px 25px 25px 25px;
     
 }
@@ -304,7 +304,7 @@ body {
 
 .sidebar .sidebarinhalt .sidebartabs {
     border: 1px solid white;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: white;
     margin: 10px 5px 10px 5px;
     text-align: center;
