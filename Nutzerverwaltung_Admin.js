@@ -37,19 +37,26 @@ document.getElementById("Button1").addEventListener('click', function() {
       nutEmail: Email,
       nutPasswort: Passwort }));
     var apiUrl = "http://localhost:8080/Nutzer";
-    fetch(apiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({nutVorname: Vorname, 
-                              nutNachname: Nachname,
-                              status: {
-                                staId
-                              },
-                              nutEmail: Email,
-                              nutPasswort: Passwort })
-    })
+
+    if  (Vorname=="" || Nachname=="" || Email=="" || Passwort=="" ){
+      alert("Bitte füllen Sie alle Felder aus!")
+    }
+    else{
+
+      fetch(apiUrl, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({nutVorname: Vorname, 
+                                nutNachname: Nachname,
+                                status: {
+                                  staId
+                                },
+                                nutEmail: Email,
+                                nutPasswort: Passwort })
+      })
+    
         //.then(response => response.json())
         .then(getData)
         .catch(err => console.error(err))
@@ -60,7 +67,8 @@ document.getElementById("Button1").addEventListener('click', function() {
         Nachname = document.getElementById("formGroupExampleInput1").value = "";
         Email = document.getElementById("exampleFormControlInput1").value = "";
         Passwort = document.getElementById("inputPassword5").value = "";
-}); 
+}}); 
+
 
 //DozentenGenerieren
 getData();

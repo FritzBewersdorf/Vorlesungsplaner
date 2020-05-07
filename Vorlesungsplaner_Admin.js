@@ -476,12 +476,25 @@ function openNav() {
     {
         document.getElementById("sideBar").style.width = "100%";
     }
+
+    
     
     document.getElementById("ansichtdozent").style.marginLeft = "250px";
     document.getElementsById("zurückTaste").style.display = 'none';
 }
 
+
+
 function closeNav() {
+    
     document.getElementById("sideBar").style.width = "0";
     document.getElementById("ansichtdozent").style.marginLeft= "0";
+}
+
+function closeNav2() {
+    if (screen.availWidth < 600)
+    {
+    document.getElementById("sideBar").style.width = "0";
+    document.getElementById("ansichtdozent").style.marginLeft= "0";
+    }
 }
