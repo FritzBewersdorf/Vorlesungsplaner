@@ -51,7 +51,7 @@ insert into zeitraum (zei_beginn, zei_ende ) values
 
 insert into nutzer (nut_vorname, nut_nachname , nut_status_id , nut_email , nut_passwort) values
 ("Sebastian", "Richter", 1, "Sebastian.Richter@dhbw-stuttgart.de", "1234"),
-("Raymond", "Bimazibute", 2, "Raymond.Bimazibute@dhbw-stuttgart.de", "1234");
+("Raymond", "Bimazubute", 2, "Raymond.Bimazubute@dhbw-stuttgart.de", "1234");
 
 insert into vorlesung(vor_titel, vor_datum, vor_zeit_id, vor_nut_id) values
 ("Wirtschaftsinformatik", "2020-05-11", 1, 1),

@@ -11,7 +11,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonUno = document.createElement("button");
     buttonUno.setAttribute('class', 'fas fa-arrow-left');
-    buttonUno.id = 'NeuerButton1';
+    buttonUno.id = 'wocheZurueck';
    
 
     var Naaame11 = document.createElement("h4"); 
@@ -20,7 +20,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonBeta = document.createElement("button");
     buttonBeta.setAttribute('class', 'fas fa-arrow-right');
-    buttonBeta.setAttribute('id', 'NeuerButton2');
+    buttonBeta.setAttribute('id', 'wocheVorne');
     
 
     document.getElementById("KalenderMitmachen").appendChild(buttonUno);
@@ -31,7 +31,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonUno1 = document.createElement("button");
     buttonUno1.setAttribute('class', 'fas fa-arrow-left');
-    buttonUno1.id = 'NeuerButton3';
+    buttonUno1.id = 'JahrZurueck';
     
 
     var Naaame12 = document.createElement("h3"); 
@@ -40,7 +40,7 @@ function Kalenderwoche(weekNumber, yearOfThursday){
 
     var buttonBeta1 = document.createElement("button");
     buttonBeta1.setAttribute('class', 'fas fa-arrow-right');
-    buttonBeta1.setAttribute('id', 'NeuerButton4');
+    buttonBeta1.setAttribute('id', 'JahrVorne');
     
 
     document.getElementById("KalenderJahr").appendChild(buttonUno1);
