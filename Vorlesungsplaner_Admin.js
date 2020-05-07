@@ -472,14 +472,29 @@ function openNav() {
     {
         document.getElementById("sideBar").style.width = "100%";
     }
+
+    
     
     document.getElementById("ansichtdozent").style.marginLeft = "250px";
     document.getElementsById("zurückTaste").style.display = 'none';
 }
 
+
+
 function closeNav() {
+    
     document.getElementById("sideBar").style.width = "0";
     document.getElementById("ansichtdozent").style.marginLeft= "0";
 }
 
+<<<<<<< HEAD
+function closeNav2() {
+    if (screen.availWidth < 600)
+    {
+    document.getElementById("sideBar").style.width = "0";
+    document.getElementById("ansichtdozent").style.marginLeft= "0";
+    }
+}
+=======
 
+>>>>>>> 7ce68284ee84e6ded0be3c3d6d315485edb71c6b
