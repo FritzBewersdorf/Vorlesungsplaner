@@ -1,16 +1,9 @@
 html {
-    
-}
-
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase; 
 }
 
 body {
    margin: 0;
    font-family: 'Montserrat', sans-serif;
-   
 }
 
 .box {
@@ -26,48 +19,27 @@ body {
         "sidebar content"
 }
 
-/*
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-} */
+/*Allgemein*/
 
-
-/*Header*/
-
-.header {
-    grid-area: header;
-    border-bottom: 1px solid black;
-    width: 100%;
-    left: 0;
-    right: 0;
-    overflow-x: hidden;
-    /*border-bottom: 2px solid #D4D4DE;*/
+button{
+    background: none;
+    border: none;
 }
 
-.header .headercontent {
-  margin: 10px 20px 10px 20px;
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    zoom: 200%;
+    padding: 0px 0px 0px 0px;
+    border: none;
 }
 
-.header .dhbwlogo {
-    display: inline-block;
-    height: auto; 
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase; 
 }
 
-.header .headeruser {
-    float: right;
-    display: inline-block;
-    margin: 7px 0px 7px 0;
-}
-
-.header .headeruser .fas {
-    margin: 0 5px 0px 5px;
-    padding: 5px 5px 5px 5px;
-}
-
-/*Content Allgemein*/
+/*Content*/
 
 .content {
     font-family: 'Montserrat', sans-serif;
@@ -84,14 +56,6 @@ body {
 .content .contentinhalt {
     margin: 10px 50px 10px 50px;
     padding: 0 0 0 0;
-}
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    zoom: 200%;
-    padding: 0px 0px 0px 0px;
-    border: none;
 }
 
 .content .titel{
@@ -115,7 +79,6 @@ body {
 
 .content  .btn-group {
     float: right;
-    
 }
 
 .content .btn-primary {
@@ -157,10 +120,10 @@ body {
 }
 
 /*DropDown Cards*/
+
 .dropdown-menu {
     border-radius: 10px!important;
 }
-
 
 /*Content Vorlesungsplan*/
 
@@ -170,7 +133,6 @@ body {
     border-radius: 10px;
     display: grid;
     float: initial;
-    
 }
 
 .content .Vorlesungsplanansicht .fas {
@@ -182,11 +144,9 @@ body {
     display: inline-block;
     float: right;
     margin: 10px 10px 10px 10px;
-
 }
 
 .content .Vorlesungsplanansicht button {
-    
     background-color: none;
 }
 
@@ -194,20 +154,12 @@ body {
     border-bottom: 1px solid grey;
     margin: 10px 10px 10px 10px;
     display: flex;
-
 }
-
-
 
 .content .Vorlesungsplanansicht .Kalenderwochen {
     border-bottom: 1px solid grey;
     margin: 10px 10px 10px 10px;
     display: flex;
-
-}
-
-.content .Vorlesungsplanansicht .Kalenderwochenansicht {
-   
 }
 
 .flex-container {
@@ -215,14 +167,9 @@ body {
     flex-wrap: wrap;
 }
 
-
-
 .content .Vorlesungsplanansicht .Kalendertageinzeln {
-    /*border: 1px solid grey; */
     display: inline-block;
     margin: 10px 10px 10px 10px;
-    /*width: 130px;
-    height: 500px;*/
     border-radius: 10px;
     padding: 15px 5px 15px 5px;
     width: 31%;
@@ -230,7 +177,6 @@ body {
 }
 
 .content .Vorlesungsplanansicht .Kalendertageinzeln #tagheader {
-    /*border-bottom: 2px solid #E25A53;*/
     text-align: center;
     text-transform: uppercase; 
 }
@@ -247,9 +193,7 @@ body {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 5px 10px 5px 10px;
-
 }
-
 
 /*Dialog Fenster*/
 
@@ -257,7 +201,6 @@ body {
     border: none;
     border-radius: 10px;
     padding: 25px 25px 25px 25px;
-    
 }
 
 /*Sidebar*/
@@ -267,23 +210,13 @@ body {
     grid-area: sidebar;
     background-color: #E25A53;
     z-index: 1;
-    top: 100px;
-    left: 0;
     height: 100%;
     overflow-x: hidden;
     transition: 0.5s;
-    
     top: 0;
     left: 0;
 }
 
-.sidebar .closebtn {
-    position: relative;
-    top: 0;
-    font-size: 20px;
-    float: right;
-  }
-  
 .sidebar .sidebarliste li {
     list-style: none;
     margin: 15px 15px 15px 15px;
@@ -292,6 +225,13 @@ body {
 
 .sidebar .sidebarliste li .fas {
     padding: 0 5px 0 5px;
+}
+
+.sidebar .closebtn {
+    position: relative;
+    top: 0;
+    font-size: 20px;
+    float: right;
 }
 
 .sidebar .dhbwlogo {
@@ -312,27 +252,11 @@ body {
     background-color: white;
     margin: 10px 5px 10px 5px;
     text-align: center;
-    
-}
-
-.sidebar .sidebarinhalt .sidebartabs #sidebaricons {
-    
 }
 
 .sidebar .sidebarinhalt .sidebarTabs {
     display: flex;
     align-self: auto;
-}
-
-.sidebar .sidebarinhalt .sidebarTabs a:hover {
-    
-    color: white;
-    
-}
-
-button{
-    background: none;
-    border: none;
 }
 
 .sidebar .sidebarinhalt .sidebarTabs h5 {
@@ -347,18 +271,17 @@ button{
 .sidebar .sidebarinhalt .sidebarTabs i{
     height: 16px;
     width: 16px;
-    
     justify-content: center;
     align-items: center;
-
 }
 
 .sidebar .sidebarinhalt .sidebarTabs .fas{
     zoom: 130%;
     color: #E25A53;
-
 }
+
 /*Navbar*/
+
 a{
     color: black!important;
 }
@@ -367,26 +290,18 @@ a{
     text-align: center;
     justify-content: center;
     align-items: center;
-    
 }
-
-
-
-.sidebar .nav-link{
-    
-}
-
-
 
 /*Footer*/
+
 .footer {
     grid-area: footer;
     background-color: #F4F5FA;
     border-bottom-left-radius: 20px;
-    /*border-left: 2px solid #D4D4DE;*/
 }
 
 /*Responsiveness*/
+
 @media only screen and (max-width: 1200px) {
     .content {
         font-size: 70%;
@@ -399,8 +314,6 @@ a{
     .content .content2 .kalenderAuswahl{
         float: initial;
     }
-
-   
 
 }
 
@@ -424,7 +337,6 @@ a{
     .content .Vorlesungsplanansicht .einzelnevorlesung {
         font-size: 120%
     }
-
 }
 
 @media only screen and (max-width: 900px) {
@@ -437,14 +349,11 @@ a{
         margin-bottom: 10px;
     }
 }
-    
 
 
 
 @media only screen and (max-width: 700px) {
-    
 
-   
     .sidebar {
         font-size: 120%;
         width : 100%;  
@@ -504,11 +413,6 @@ a{
     .contentinhalt .Dialog {
         border-radius: 0px;
     }
-
-   
-
-    
-   
 
 }
 

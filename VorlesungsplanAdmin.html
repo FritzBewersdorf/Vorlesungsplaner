@@ -21,42 +21,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-   
-    
-
-
         <div class="box ">
 
-
-
-
-            <!-- Header 
-            <div class="header ">
-                <div class="headercontent">
-                    <div class="dhbwlogo">
-                        <img src="https://upload.wikimedia.org/wikipedia/de/thumb/1/1d/DHBW-Logo.svg/1200px-DHBW-Logo.svg.png" width="112" height="49">
-                    </div>
-                    <div class="headeruser" id ="NameNehmen">
-                        
-                        <h5>
-                            <i class="fas fa-user"></i>
-                            Admin
-                        </h5>
-                    </div>
-                </div>
-            </div> -->
-           
             <!-- Content-->
             <div class="content" id="ansichtdozent"> 
 
-                <!-- Content Dozenten-->
+                <!-- Content Dozent hinzufügen-->
                 <div class="contentinhalt content1 " id="item-1">
                     <Button class="farbigerButton openbtn" onclick="openNav()">
                         <i class="fas fa-angle-right" id="zurückTaste" aria-hidden="true"></i>
                     </button>
-                    <!--<Button class="farbigerButton openbtn" onclick="closeNav()">
-                        <i class="fas fa-angle-left"></i>
-                    </button>-->
                     <div class="contenttitel ">
                         <h1 class="titel" id="titeldozent">
                             Dozenten
@@ -99,7 +73,7 @@
                     </div> 
                 </div> 
                 
-                <!--Content Kalender-->
+                <!--Content Vorlesungsplanb-->
                 <div class="contentinhalt content2" id="item-2">
                     <div id="contenttitel ">
                         <h1 class="titel" id="titeldozent">
@@ -110,20 +84,17 @@
                                 Heute
                             </button>
                             <button type="button" class="btn btn-outline-secondary" id="testButton4">
-                            
                                     Vorlesungsuhrzeiten ändern
                             </button>
                             <dialog class="Dialog" id="DialogUhrzeit">
                                     <form>
                                         <h4 class="card-title text-center">Vorlesungsuhrzeit hinzufügen</h4>
-                                        
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Vorlesungsanfang</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput13" placeholder="09:00:00" required> 
                                             <label for="exampleFormControlInput1">Vorlesungsende</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput14" placeholder="13:15:00" required> 
                                         </div>
-                                       
                                         <button type="submit" class="btn btn-primary" id="ButtonAuswaehlen2">Auswählen</button>
                                         <button type="cancel" class="btn btn-primary" id="ButtonAbbrechen2">Abbrechen</button>
                                     </form> 
@@ -147,7 +118,6 @@
                             </dialog>
                         </div>    
                     </div> 
-                    
                     <div class="Vorlesungsplanansicht shadow">
                         <div class="Kalenderheader" id ="KalenderJahr">
                         </div>
@@ -179,7 +149,6 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="formGroupExampleInput1">Zeitraum:</label>
-                                                <!-- <input type="text" th:field="*{name}" class="form-control" id="zeitplan" placeholder="Zeitraum" required> -->
                                                 <select th:field="*{name}" class="custom-select" id="zeitplan" placeholder="Zeitraum" required>
                                                     <option selected>Auswählen...</option>
                                                 </select>
@@ -201,7 +170,6 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="formGroupExampleInput1">Zeitraum:</label>
-                                                <!-- <input type="text" th:field="*{name}" class="form-control" id="zeitplan" placeholder="Zeitraum" required> -->
                                                 <select th:field="*{name}" class="custom-select" id="zeitplan2" placeholder="Zeitraum">
                                                     <option selected>Auswählen...</option>
                                                 </select>
@@ -215,12 +183,10 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
 
             <!-- Sidebar -->
             <div class="sidebar" id="sideBar">
-                
                 <button class="farbigerButton closebtn" onclick="closeNav()">
                     <i class="fas fa-times" id="sidebarschließen"></i>          
                 </Button>
@@ -237,27 +203,23 @@
                                     <a class="nav-link sidebartabs shadow" href="#item-1">
                                         <i class="fas fa-users" id="sidebaricons"></i>
                                         <br>
-                                        
                                     </a>
                                     <h5>
                                         Dozenten
                                     </h5>
                                 </div> 
                             </button>
-                            
                             <button onclick="closeNav2()">
                                 <div class="sidebarTabs">
                                     <a class="nav-link sidebartabs shadow" href="#item-2">
                                         <i class="fas fa-calendar-alt" id="sidebaricons"></i>
                                         <br>
                                     </a>
-        
                                     <h5>
                                         Kalender
                                     </h5>
                                 </div>
                             </button>
-                            
                             <button>
                                 <div class="sidebarTabs">
                                     <a class="nav-link sidebartabs shadow" href="#item-3" id="auslogg">
@@ -269,41 +231,10 @@
                                     </h5>
                                 </div>
                             </button>
-                              
-                           
-                            
                         </nav>
                     </nav>
-                        <!--
-                        <div class="sidebartitel">
-
-                        </div>
-                        <div class="sidebarliste">
-                            <li>
-                                <i class="fas fa-users"></i>
-                                Dozenten
-                            </li>
-                            <li>
-                                <i class="fas fa-calendar-alt"></i>
-                                Kalender
-                            </li>
-                            <div class="dropdown-divider"></div>
-                            <li>
-                                <i class="fas fa-calendar-alt"></i>
-                                Kalender
-                            </li>
-                        </div>
-                        <div class="sidebarfooter">
-                        </div>
-                        -->
                     </div>
             </div> 
-
-            
-            <!-- Footer 
-            <div class="footer">
-                
-            </div>-->
         </div>
         <script src="Nutzerverwaltung_Admin.js"> </script>
         <script src="Vorlesungsplaner_Admin.js"> </script>
