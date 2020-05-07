@@ -380,6 +380,7 @@ function tagMalen(number, tag){
                                 {'content-type': 'application/json'}
                             })   
                                 .catch(err => console.error(err))
+                                .then(forTage)
                
                         var apiUrl3 = "http://localhost:8080/Vorlesung";
                         fetch(apiUrl3, {
