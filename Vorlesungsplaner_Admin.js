@@ -412,7 +412,6 @@ function tagMalen(number, tag){
                         })   
                             .catch(err => console.error(err))
                             .then(forTage)
-                            .then(console.log("Hallo"))
                     
                         var apiUrl3 = "http://localhost:8080/Vorlesung";
                         fetch(apiUrl3, {
