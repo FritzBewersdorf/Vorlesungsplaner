@@ -412,7 +412,6 @@ function tagMalen(number, tag){
                         })   
                             .catch(err => console.error(err))
                             .then(forTage)
-                            .then(console.log("Hallo"))
                     
                         var apiUrl3 = "http://localhost:8080/Vorlesung";
                         fetch(apiUrl3, {
@@ -487,7 +486,6 @@ function closeNav() {
     document.getElementById("ansichtdozent").style.marginLeft= "0";
 }
 
-<<<<<<< HEAD
 function closeNav2() {
     if (screen.availWidth < 600)
     {
@@ -495,6 +493,3 @@ function closeNav2() {
     document.getElementById("ansichtdozent").style.marginLeft= "0";
     }
 }
-=======
-
->>>>>>> 7ce68284ee84e6ded0be3c3d6d315485edb71c6b
